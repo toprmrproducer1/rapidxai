@@ -258,7 +258,7 @@ function App() {
               speed="4s"
              className="bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-500 hover:to-violet-500 text-white font-semibold transition-all duration-300 shadow-lg"
             >
-             <div className="flex items-center justify-center gap-2 text-sm px-4 py-2">
+             <div className="flex items-center justify-center gap-2 text-sm px-6 py-3 whitespace-nowrap">
                 <Bot className="w-4 h-4" />
                 <span className="whitespace-nowrap">Book Discovery Call</span>
               </div>
