@@ -23,7 +23,7 @@ export function Logo({ className = '', size = 'md', showText = true }: LogoProps
     <div className={`flex items-center gap-3 ${className}`}>
       <div className="relative group">
         <img 
-          src="https://i.ibb.co/1fxZcpKZ/Glossy-Purple-R-Logo.png" 
+          src="https://images.unsplash.com/photo-1614680376573-df3480f0c6ff?w=100&h=100&fit=crop&crop=center&auto=format&q=80" 
           alt="RapidXAI Logo" 
           className={`${sizeClasses[size]} object-contain hover:scale-105 transition-transform duration-300 drop-shadow-lg group-hover:drop-shadow-2xl filter brightness-110 relative z-10`}
           onError={(e) => {
@@ -34,8 +34,8 @@ export function Logo({ className = '', size = 'md', showText = true }: LogoProps
           }}
         />
         {/* Fallback logo if image fails */}
-        <div className={`${sizeClasses[size]} bg-gradient-to-r from-purple-600 to-violet-600 rounded-xl flex items-center justify-center text-white font-bold hidden`} style={{ aspectRatio: '1' }}>
-          R
+        <div className={`${sizeClasses[size]} bg-gradient-to-br from-purple-600 via-violet-600 to-purple-700 rounded-2xl flex items-center justify-center text-white font-bold hidden shadow-2xl shadow-purple-500/50 border-2 border-purple-400/30`} style={{ aspectRatio: '1' }}>
+          <span className="text-2xl font-black tracking-tight" style={{ fontFamily: '"Playfair Display", serif', textShadow: '0 2px 8px rgba(0,0,0,0.3)' }}>R</span>
         </div>
         <div className="absolute -inset-1 bg-purple-500/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
       </div>

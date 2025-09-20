@@ -258,9 +258,9 @@ function App() {
               speed="4s"
              className="bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-500 hover:to-violet-500 text-white font-semibold transition-all duration-300 shadow-lg"
             >
-             <div className="flex items-center justify-center gap-2 text-sm px-3 py-1.5">
+             <div className="flex items-center justify-center gap-2 text-sm px-4 py-2">
                 <Bot className="w-4 h-4" />
-                Book Discovery Call
+                <span className="whitespace-nowrap">Book Discovery Call</span>
               </div>
             </StarBorder>
           </div>
@@ -306,7 +306,7 @@ function App() {
               <div className="pt-2 pb-1 space-y-2">
                 <SaveButton
                   text={{
-                    idle: "Book Discovery Call",
+                    idle: "Book Call",
                     saving: "Booking...",
                     saved: "Booked!"
                   }}
