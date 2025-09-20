@@ -24,7 +24,7 @@ export function Logo({ className = '', size = 'md', showText = true }: LogoProps
       <div className="relative group">
         {/* Custom RapidXAI Logo */}
         <img 
-          src="https://i.ibb.co/d0kMkYC4/61e9828a-6914-4cd9-8558-b241067a8e1d.png"
+          src="/rapidxai-logo.png"
           alt="RapidXAI Logo"
           className={`${sizeClasses[size]} relative hover:scale-105 transition-transform duration-300 drop-shadow-lg object-contain`}
           onError={(e) => {
