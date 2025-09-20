@@ -23,7 +23,7 @@ export function Logo({ className = '', size = 'md', showText = true }: LogoProps
     <div className={`flex items-center gap-3 ${className}`}>
       <div className="relative group">
         <img 
-          src="https://images.unsplash.com/photo-1614680376573-df3480f0c6ff?w=100&h=100&fit=crop&crop=center&auto=format&q=80" 
+          src="https://i.ibb.co/d0kMkYC4/61e9828a-6914-4cd9-8558-b241067a8e1d.png" 
           alt="RapidXAI Logo" 
           className={`${sizeClasses[size]} object-contain hover:scale-105 transition-transform duration-300 drop-shadow-lg group-hover:drop-shadow-2xl filter brightness-110 relative z-10`}
           onError={(e) => {
