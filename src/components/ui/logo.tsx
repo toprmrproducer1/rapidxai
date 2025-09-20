@@ -22,19 +22,8 @@ export function Logo({ className = '', size = 'md', showText = true }: LogoProps
   return (
     <div className={`flex items-center gap-3 ${className}`}>
       <div className="relative group">
-        <img 
-          src="https://i.ibb.co/1fxZcpKZ/Glossy-Purple-R-Logo.png" 
-          alt="RapidXAI Logo" 
-          className={`${sizeClasses[size]} object-contain hover:scale-105 transition-transform duration-300 drop-shadow-lg group-hover:drop-shadow-2xl filter brightness-110 relative z-10`}
-          onError={(e) => {
-            console.log('Logo failed to load, using fallback');
-            e.currentTarget.style.display = 'none';
-            const fallback = e.currentTarget.nextElementSibling as HTMLElement;
-            if (fallback) fallback.style.display = 'flex';
-          }}
-        />
-        {/* Fallback logo if image fails */}
-        <div className={`${sizeClasses[size]} bg-gradient-to-r from-purple-600 to-violet-600 rounded-xl flex items-center justify-center text-white font-bold hidden`} style={{ aspectRatio: '1' }}>
+        {/* Primary logo using CSS gradient */}
+        <div className={`${sizeClasses[size]} bg-gradient-to-r from-purple-600 to-violet-600 rounded-xl flex items-center justify-center text-white font-bold hover:scale-105 transition-transform duration-300 drop-shadow-lg group-hover:drop-shadow-2xl relative z-10`} style={{ aspectRatio: '1' }}>
           R
         </div>
         <div className="absolute -inset-1 bg-purple-500/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
