@@ -22,10 +22,29 @@ export function Logo({ className = '', size = 'md', showText = true }: LogoProps
   return (
     <div className={`flex items-center gap-3 ${className}`}>
       <div className="relative group">
-        {/* Premium RapidXAI Logo */}
-        <div className={`${sizeClasses[size]} bg-gradient-to-br from-purple-600 via-violet-600 to-purple-700 rounded-2xl flex items-center justify-center text-white font-bold shadow-2xl shadow-purple-500/50 border-2 border-purple-400/30 hover:scale-105 transition-transform duration-300 group-hover:shadow-purple-500/70`} style={{ aspectRatio: '1' }}>
+        {/* Custom RapidXAI Logo */}
+        <img 
+          src="https://i.ibb.co/d0kMkYC4/61e9828a-6914-4cd9-8558-b241067a8e1d.png"
+          alt="RapidXAI Logo"
+          className={`${sizeClasses[size]} object-contain hover:scale-105 transition-transform duration-300 drop-shadow-lg`}
+          style={{ aspectRatio: 'auto' }}
+          onError={(e) => {
+            // Fallback to premium designed logo if image fails to load
+            const target = e.target as HTMLImageElement;
+            target.style.display = 'none';
+            const fallback = target.nextElementSibling as HTMLElement;
+            if (fallback) fallback.style.display = 'flex';
+          }}
+        />
+        
+        {/* Premium Fallback Logo (hidden by default) */}
+        <div 
+          className={`${sizeClasses[size]} bg-gradient-to-br from-purple-600 via-violet-600 to-purple-700 rounded-2xl flex items-center justify-center text-white font-bold shadow-2xl shadow-purple-500/50 border-2 border-purple-400/30 hover:scale-105 transition-transform duration-300 group-hover:shadow-purple-500/70`} 
+          style={{ aspectRatio: '1', display: 'none' }}
+        >
           <span className="text-2xl font-black tracking-tight" style={{ fontFamily: '"Playfair Display", serif', textShadow: '0 2px 8px rgba(0,0,0,0.3)' }}>R</span>
         </div>
+        
         <div className="absolute -inset-1 bg-purple-500/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
       </div>
       
