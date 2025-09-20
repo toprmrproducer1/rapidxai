@@ -22,12 +22,27 @@ export function Logo({ className = '', size = 'md', showText = true }: LogoProps
   return (
     <div className={`flex items-center gap-3 ${className}`}>
       <div className="relative group">
-        {/* RapidXAI SVG Logo */}
+        {/* RapidXAI Logo Image */}
         <div className={`${sizeClasses[size]} relative hover:scale-105 transition-transform duration-300 drop-shadow-lg`} style={{ aspectRatio: '1' }}>
+          <img
+            src="https://i.ibb.co/TBP2P3jM/61e9828a-6914-4cd9-8558-b241067a8e1d.png"
+            alt="RapidXAI Logo"
+            className="w-full h-full object-contain rounded-full"
+            onError={(e) => {
+              // Fallback to SVG if image fails to load
+              const target = e.target as HTMLImageElement;
+              target.style.display = 'none';
+              const fallback = target.nextElementSibling as HTMLElement;
+              if (fallback) fallback.style.display = 'block';
+            }}
+          />
+          
+          {/* SVG Fallback */}
           <svg
             viewBox="0 0 100 100"
-            src="https://i.ibb.co/TBP2P3jM/61e9828a-6914-4cd9-8558-b241067a8e1d.png"
             xmlns="http://www.w3.org/2000/svg"
+            className="w-full h-full object-contain rounded-full"
+            style={{ display: 'none' }}
           >
             <defs>
               <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
