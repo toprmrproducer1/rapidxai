@@ -26,7 +26,7 @@ export function Logo({ className = '', size = 'md', showText = true }: LogoProps
         <div className={`${sizeClasses[size]} relative hover:scale-105 transition-transform duration-300 drop-shadow-lg`} style={{ aspectRatio: '1' }}>
           <svg
             viewBox="0 0 100 100"
-            className="w-full h-full"
+            src="https://i.ibb.co/TBP2P3jM/61e9828a-6914-4cd9-8558-b241067a8e1d.png"
             xmlns="http://www.w3.org/2000/svg"
           >
             <defs>
