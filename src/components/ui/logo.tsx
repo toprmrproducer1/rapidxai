@@ -22,22 +22,8 @@ export function Logo({ className = '', size = 'md', showText = true }: LogoProps
   return (
     <div className={`flex items-center gap-3 ${className}`}>
       <div className="relative group">
-        {/* Custom RapidXAI Logo */}
-        <img 
-          src="/rapidxai-logo.png"
-          alt="RapidXAI Logo"
-          className={`${sizeClasses[size]} relative hover:scale-105 transition-transform duration-300 drop-shadow-lg object-contain`}
-          onError={(e) => {
-            // Fallback to SVG if image fails to load
-            const target = e.target as HTMLImageElement;
-            target.style.display = 'none';
-            const fallback = target.nextElementSibling as HTMLElement;
-            if (fallback) fallback.style.display = 'block';
-          }}
-        />
-        
-        {/* Fallback SVG Logo */}
-        <div className={`${sizeClasses[size]} relative hover:scale-105 transition-transform duration-300 drop-shadow-lg hidden`} style={{ aspectRatio: '1' }}>
+        {/* RapidXAI SVG Logo */}
+        <div className={`${sizeClasses[size]} relative hover:scale-105 transition-transform duration-300 drop-shadow-lg`} style={{ aspectRatio: '1' }}>
           <svg
             viewBox="0 0 100 100"
             className="w-full h-full"
@@ -45,9 +31,15 @@ export function Logo({ className = '', size = 'md', showText = true }: LogoProps
           >
             <defs>
               <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#8b5cf6" />
-                <stop offset="50%" stopColor="#a855f7" />
-                <stop offset="100%" stopColor="#7c3aed" />
+                <stop offset="0%" stopColor="#6366f1" />
+                <stop offset="30%" stopColor="#8b5cf6" />
+                <stop offset="70%" stopColor="#a855f7" />
+                <stop offset="100%" stopColor="#c084fc" />
+              </linearGradient>
+              <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#ffffff" />
+                <stop offset="50%" stopColor="#e0e7ff" />
+                <stop offset="100%" stopColor="#c7d2fe" />
               </linearGradient>
               <filter id="logoGlow">
                 <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
@@ -56,27 +48,42 @@ export function Logo({ className = '', size = 'md', showText = true }: LogoProps
                   <feMergeNode in="SourceGraphic"/>
                 </feMerge>
               </filter>
+              <filter id="textShadow">
+                <feDropShadow dx="0" dy="2" stdDeviation="2" floodColor="#000000" floodOpacity="0.3"/>
+              </filter>
             </defs>
             
-            {/* Background Circle */}
+            {/* Enhanced Background Circle */}
             <circle
               cx="50"
               cy="50"
-              r="48"
+              r="46"
               fill="url(#logoGradient)"
               filter="url(#logoGlow)"
+              stroke="rgba(255,255,255,0.2)"
+              strokeWidth="1"
             />
             
-            {/* R Letter */}
+            {/* Enhanced R Letter */}
             <text
               x="50"
-              y="65"
+              y="68"
               textAnchor="middle"
-              className="fill-white font-bold text-[36px]"
-              style={{ fontFamily: '"Playfair Display", serif', fontWeight: 700 }}
+              fill="url(#textGradient)"
+              filter="url(#textShadow)"
+              className="font-bold text-[42px]"
+              style={{ fontFamily: '"Playfair Display", serif', fontWeight: 800 }}
             >
               R
             </text>
+            
+            {/* Accent Elements */}
+            <circle cx="75" cy="25" r="2" fill="rgba(255,255,255,0.6)" opacity="0.8">
+              <animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="25" cy="75" r="1.5" fill="rgba(255,255,255,0.4)" opacity="0.6">
+              <animate attributeName="opacity" values="0.2;0.8;0.2" dur="3s" repeatCount="indefinite"/>
+            </circle>
           </svg>
         </div>
         
