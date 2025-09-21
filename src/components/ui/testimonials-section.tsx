@@ -54,3 +54,5 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ classN
     </section>
   );
 };
+  )
+}
