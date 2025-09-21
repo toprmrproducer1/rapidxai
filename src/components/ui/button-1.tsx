@@ -54,14 +54,11 @@ const GradientButton = ({
         onClick={disabled ? undefined : onClick}
         onKeyDown={handleKeyDown}
         aria-disabled={disabled}
-    #374151 0deg,
-    #6b7280 60deg,
-    #9ca3af 120deg,
-    #d1d5db 180deg,
-    #f3f4f6 240deg,
-    #374151 300deg,
-    #374151 360deg
-  )
+        {...props}
+      >
+        <span className="relative z-10">{children}</span>
+      </div>
+    </div>
   );
 };
 
