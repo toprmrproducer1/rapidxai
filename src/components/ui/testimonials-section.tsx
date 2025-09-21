@@ -10,7 +10,7 @@ interface TestimonialsSectionProps {
 
 export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ className }) => {
   return (
-    <section className={`bg-gray-950 py-16 relative overflow-hidden ${className}`}>
+    <section className={`bg-gray-950 py-32 relative overflow-hidden ${className}`}>
       {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-to-b from-gray-950 via-purple-950/10 to-gray-950"></div>
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[800px] bg-purple-600/5 rounded-full blur-3xl"></div>
@@ -21,14 +21,22 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ classN
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           viewport={{ once: true }}
-          className="flex flex-col items-center justify-center max-w-4xl mx-auto mb-12"
+          className="flex flex-col items-center justify-center max-w-4xl mx-auto mb-20"
         >
-          <h2 className="text-3xl md:text-4xl font-display font-bold tracking-tight text-center text-white mb-4" style={{ fontFamily: '"Fraunces", "Playfair Display", serif' }}>
-            <span className="gradient-text">Client</span> Results
+          <div className="inline-flex items-center gap-3 bg-purple-600/20 backdrop-blur-xl rounded-full px-6 py-3 border border-purple-500/30 mb-8">
+            <Star className="w-4 h-4 text-purple-400" />
+            <span className="text-purple-300 font-medium text-sm tracking-wide">CLIENT TESTIMONIALS</span>
+          </div>
+
+          <h2 className="text-5xl md:text-6xl font-display font-bold tracking-tight text-center text-white mb-8" style={{ fontFamily: '"Fraunces", "Playfair Display", serif' }}>
+            What Our <span className="gradient-text">Clients Say</span>
           </h2>
+          <p className="text-center text-xl md:text-2xl text-gray-300 font-light leading-relaxed max-w-3xl" style={{ fontFamily: '"Newsreader", "Crimson Text", serif' }}>
+            Don't take our word for it—hear from founders and teams who've transformed their businesses with RapidXAI.
+          </p>
         </motion.div>
 
-        <div className="flex justify-center gap-4 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] max-h-[600px] overflow-hidden">
+        <div className="flex justify-center gap-8 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] max-h-[740px] overflow-hidden">
           <TestimonialsColumn testimonials={firstColumn} duration={15} />
           <TestimonialsColumn testimonials={secondColumn} className="hidden md:block" duration={19} />
           <TestimonialsColumn testimonials={thirdColumn} className="hidden lg:block" duration={17} />

@@ -14,10 +14,22 @@ export function LampDemo() {
           duration: 0.8,
           ease: "easeInOut",
         }}
-        className="mt-8 bg-gradient-to-br from-white to-purple-300 py-4 bg-clip-text text-center text-2xl font-medium tracking-tight text-transparent md:text-4xl"
+        className="mt-8 bg-gradient-to-br from-white to-purple-300 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl"
       >
-        Ready to automate?
+        Ready to turn "we should automate this" <br /> into "it's already handled"?
       </motion.h1>
+      <motion.p
+        initial={{ opacity: 0.5, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{
+          delay: 0.5,
+          duration: 0.8,
+          ease: "easeInOut",
+        }}
+        className="mt-6 text-center text-lg text-purple-200 max-w-2xl"
+      >
+        Worst case: clarity. Best case: compound advantage.
+      </motion.p>
     </LampContainer>
   );
 }

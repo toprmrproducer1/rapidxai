@@ -4,19 +4,46 @@ import { SaveButton } from '../ui/save-button';
 
 interface FooterProps {
   primaryCTA: () => void;
+  secondaryCTA: () => void;
   setCurrentPage: (page: string) => void;
 }
 
-export function Footer({ primaryCTA, setCurrentPage }: FooterProps) {
+export function Footer({ primaryCTA, secondaryCTA, setCurrentPage }: FooterProps) {
   return (
-    <footer className="py-8 px-4 sm:px-6 lg:px-8 border-t border-gray-800">
+    <footer className="py-12 px-4 sm:px-6 lg:px-8 border-t border-gray-800">
       <div className="max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-6 items-center">
+        <div className="grid md:grid-cols-3 gap-8 items-center">
           <div>
-            <Logo size="md" className="mb-2" />
+            <Logo size="lg" className="mb-2" />
+            <p className="text-gray-400 text-sm">
+              AI-powered solutions that accelerate growth.
+            </p>
           </div>
           
-          <div className="flex justify-center md:justify-end">
+          <div className="text-center">
+            <div className="flex flex-wrap justify-center gap-6 text-sm mb-4">
+              <button onClick={() => setCurrentPage('services')} className="text-gray-400 hover:text-purple-400 transition-colors">Services</button>
+              <button onClick={() => setCurrentPage('case-studies')} className="text-gray-400 hover:text-purple-400 transition-colors">Case Studies</button>
+              <button onClick={() => setCurrentPage('content')} className="text-gray-400 hover:text-purple-400 transition-colors">Content</button>
+              <button onClick={() => setCurrentPage('pricing')} className="text-gray-400 hover:text-purple-400 transition-colors">Pricing</button>
+              <button onClick={() => setCurrentPage('team')} className="text-gray-400 hover:text-purple-400 transition-colors">Team</button>
+              <button onClick={() => setCurrentPage('socials')} className="text-gray-400 hover:text-purple-400 transition-colors">Socials</button>
+            </div>
+            <p className="text-sm text-purple-400 font-light italic mb-4">
+              "We build what moves numbers."
+            </p>
+          </div>
+          
+          <div className="flex justify-end gap-3">
+            <SaveButton
+              text={{
+                idle: "$250 Deep-Dive",
+                saving: "Connecting...",
+                saved: "Booked!"
+              }}
+              onClick={secondaryCTA}
+              className="text-sm"
+            />
             <SaveButton
               text={{
                 idle: "Book Discovery Call",

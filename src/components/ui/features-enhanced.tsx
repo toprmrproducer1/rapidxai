@@ -3,16 +3,19 @@ import { Shield, Users, Zap, Target, TrendingUp, Clock } from 'lucide-react'
 
 export function FeaturesEnhanced() {
     return (
-        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-950 relative overflow-hidden">
+        <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gray-950 relative overflow-hidden">
             {/* Background effects */}
             <div className="absolute inset-0 bg-gradient-to-b from-gray-950 via-purple-950/20 to-gray-950"></div>
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-purple-600/10 rounded-full blur-3xl"></div>
             
             <div className="mx-auto max-w-7xl relative z-10">
-                <div className="text-center mb-12">
-                    <h2 className="text-3xl md:text-4xl font-display font-bold mb-4 text-white tracking-tight">
-                        Why <span className="gradient-text">RapidXAI</span>
+                <div className="text-center mb-20">
+                    <h2 className="text-5xl md:text-6xl font-display font-bold mb-8 text-white tracking-tight">
+                        Why Choose <span className="gradient-text">RapidXAI</span>
                     </h2>
+                    <p className="text-2xl md:text-3xl text-gray-300 font-light max-w-4xl mx-auto leading-relaxed">
+                        Enterprise-grade solutions built for speed, security, and scalability.
+                    </p>
                 </div>
                 
                 <div className="relative">
@@ -38,8 +41,8 @@ export function FeaturesEnhanced() {
                                     <Shield className="m-auto h-fit w-16 text-purple-400" strokeWidth={1} />
                                 </div>
                                 <div className="relative z-10 mt-6 space-y-2 text-center">
-                                    <h2 className="text-base font-medium text-white">Secure</h2>
-                                    <p className="text-sm text-gray-400">Enterprise-grade security</p>
+                                    <h2 className="text-lg font-medium text-white">Enterprise Security</h2>
+                                    <p className="text-gray-400">SOC2-ready processes with end-to-end encryption and compliance-first architecture.</p>
                                 </div>
                             </CardContent>
                         </Card>
@@ -61,8 +64,8 @@ export function FeaturesEnhanced() {
                                     </div>
                                 </div>
                                 <div className="relative z-10 mt-6 space-y-2 text-center">
-                                    <h2 className="text-base font-medium text-white">Fast</h2>
-                                    <p className="text-sm text-gray-400">Weeks, not quarters</p>
+                                    <h2 className="text-lg font-medium text-white">Lightning Fast</h2>
+                                    <p className="text-gray-400">Rapid deployment with our proven framework and battle-tested components.</p>
                                 </div>
                             </CardContent>
                         </Card>
@@ -74,8 +77,8 @@ export function FeaturesEnhanced() {
                                         <Target className="m-auto size-5 text-purple-400" strokeWidth={1} />
                                     </div>
                                     <div className="space-y-2">
-                                        <h2 className="text-base font-medium text-white">Voice AI</h2>
-                                        <p className="text-sm text-gray-400">Human-grade conversations</p>
+                                        <h2 className="text-lg font-medium text-white">AI Voice Intelligence</h2>
+                                        <p className="text-gray-400">Advanced conversational AI that understands context and delivers human-grade interactions.</p>
                                     </div>
                                 </div>
                                 <div className="relative -mb-6 -mr-6 mt-6 h-fit border-l border-t border-gray-700/50 p-6 sm:ml-6">
@@ -86,12 +89,12 @@ export function FeaturesEnhanced() {
                                     </div>
                                     <div className="space-y-3 mt-6">
                                         <div className="bg-gray-800/50 rounded-lg p-3 border-l-2 border-purple-500">
-                                            <div className="text-xs text-purple-400 mb-1">Call</div>
-                                            <div className="text-xs text-white">"Hi, about pricing..."</div>
+                                            <div className="text-xs text-purple-400 mb-1">Incoming Call</div>
+                                            <div className="text-sm text-white">"Hi, I'm calling about pricing..."</div>
                                         </div>
                                         <div className="bg-gray-800/50 rounded-lg p-3 border-l-2 border-violet-500">
-                                            <div className="text-xs text-violet-400 mb-1">AI</div>
-                                            <div className="text-xs text-white">"Happy to help! Connecting you..."</div>
+                                            <div className="text-xs text-violet-400 mb-1">AI Response</div>
+                                            <div className="text-sm text-white">"I'd be happy to help! Let me get you connected with the right person..."</div>
                                         </div>
                                     </div>
                                 </div>
@@ -105,8 +108,8 @@ export function FeaturesEnhanced() {
                                         <TrendingUp className="m-auto size-6 text-violet-400" strokeWidth={1} />
                                     </div>
                                     <div className="space-y-2">
-                                        <h2 className="text-base font-medium text-white">MVP Ready</h2>
-                                        <p className="text-sm text-gray-400">Production-ready in weeks</p>
+                                        <h2 className="text-lg font-medium text-white">MVP Excellence</h2>
+                                        <p className="text-gray-400">Production-ready MVPs with scalable architecture, modern UI, and conversion optimization.</p>
                                     </div>
                                 </div>
                                 <div className="relative mt-6 before:absolute before:inset-0 before:mx-auto before:w-px before:bg-gray-700/50 sm:-my-6 sm:-mr-6">
