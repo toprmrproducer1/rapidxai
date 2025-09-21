@@ -292,7 +292,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ primaryCTA, secondaryC
         >
           <motion.h1
             variants={itemVariants}
-            className="text-4xl md:text-6xl lg:text-7xl font-display font-light mb-6 tracking-tight leading-[0.9] drop-shadow-2xl"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-light mb-4 tracking-tight leading-[0.9] drop-shadow-2xl"
             style={{ fontFamily: '"Playfair Display", "Cormorant Garamond", Georgia, serif', letterSpacing: '-0.03em', fontWeight: 300 }}
           >
             Build Faster.
@@ -300,7 +300,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ primaryCTA, secondaryC
 
           <motion.h2
             variants={itemVariants}
-            className="text-2xl md:text-4xl lg:text-5xl font-display font-light bg-gradient-to-r from-gray-100 via-purple-200 to-gray-300 bg-clip-text text-transparent mb-8 tracking-tight leading-[0.9] drop-shadow-lg"
+            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-display font-light bg-gradient-to-r from-gray-100 via-purple-200 to-gray-300 bg-clip-text text-transparent mb-6 tracking-tight leading-[0.9] drop-shadow-lg"
             style={{ fontFamily: '"Playfair Display", "Cormorant Garamond", Georgia, serif', letterSpacing: '-0.03em', fontWeight: 300 }}
           >
             Sell Smarter.
@@ -308,25 +308,24 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ primaryCTA, secondaryC
 
           <motion.p
             variants={itemVariants}
-            className="text-gray-300 mb-6 max-w-3xl text-lg md:text-xl leading-relaxed font-elegant font-light tracking-wide drop-shadow-sm"
+            className="text-gray-300 mb-8 max-w-2xl text-base md:text-lg leading-relaxed font-elegant font-light tracking-wide drop-shadow-sm px-4"
             style={{ fontFamily: '"Crimson Text", "Cormorant Garamond", Georgia, serif', lineHeight: '1.8', letterSpacing: '0.01em' }}
           >
-            AI Voice agents that work 24/7 + MVPs that validate fast. We turn "we should" into "we shipped."
+            AI Voice agents that work 24/7 + MVPs that validate fast.
           </motion.p>
 
           <motion.div
             variants={itemVariants}
-            className="flex flex-col gap-4 mb-16"
+            className="flex flex-col gap-4 mb-12"
           >
             <GradientButton
-              width="280px"
-              height="55px"
+              width="240px"
+              height="50px"
               onClick={primaryCTA}
             >
-              <div className="flex items-center gap-3 text-base font-semibold text-white">
+              <div className="flex items-center gap-2 text-sm font-semibold text-white">
                 <Bot className="w-5 h-5 drop-shadow-lg" strokeWidth={2} />
-                <span>Book Discovery Call</span>
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" strokeWidth={2} />
+                <span>Book Call</span>
               </div>
             </GradientButton>
           </motion.div>

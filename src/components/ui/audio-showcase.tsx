@@ -225,15 +225,10 @@ export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
           
           <h2 className="text-6xl md:text-7xl font-display font-bold mb-12 text-white tracking-tight leading-tight" 
               style={{ fontFamily: '"Playfair Display", "Cormorant Garamond", Georgia, serif' }}>
-            Listen to our <span className="gradient-text">AI voice</span> in action
+            <span className="gradient-text">Voice Demos</span>
           </h2>
-          <p className="text-2xl md:text-3xl text-gray-300 max-w-4xl mx-auto font-light leading-relaxed mb-8" 
-             style={{ fontFamily: '"Crimson Text", "Cormorant Garamond", Georgia, serif' }}>
-            Real scenarios. Human-grade conversations.
-          </p>
-          <p className="text-lg text-purple-400 max-w-3xl mx-auto font-light" 
-             style={{ fontFamily: '"Merriweather", "Crimson Text", Georgia, serif' }}>
-            Actual AI voice recordings from live deployments
+          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto font-light leading-relaxed mb-6 px-4" 
+            Real AI voice recordings from live deployments.
           </p>
         </motion.div>
 
@@ -272,14 +267,13 @@ export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
           </div>
 
           <GradientButton
-            width="320px"
-            height="70px"
+            width="240px"
+            height="50px"
             onClick={primaryCTA}
           >
-            <div className="flex items-center gap-4 group text-xl font-semibold text-white">
+            <div className="flex items-center gap-2 group text-base font-semibold text-white">
               <Phone className="w-6 h-6 drop-shadow-lg" strokeWidth={2} />
-              Get This For Your Business
-              <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" strokeWidth={2} />
+              Get This Working
             </div>
           </GradientButton>
         </motion.div>

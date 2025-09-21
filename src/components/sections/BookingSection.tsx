@@ -69,23 +69,15 @@ export function BookingSection({ primaryCTA, secondaryCTA }: BookingSectionProps
             className="text-6xl md:text-7xl font-display font-bold mb-12 text-white tracking-tight leading-tight" 
             style={{ fontFamily: '"Playfair Display", "Cormorant Garamond", Georgia, serif' }}
           >
-            Ready to turn <span className="gradient-text">"we should automate this"</span> into <span className="gradient-text">"it's already handled"</span>?
+            Ready to <span className="gradient-text">automate</span> your business?
           </motion.h2>
           
           <motion.p 
             variants={itemVariants}
-            className="text-2xl md:text-3xl text-gray-300 max-w-5xl mx-auto font-light leading-relaxed mb-8" 
+            className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto font-light leading-relaxed mb-6 px-4" 
             style={{ fontFamily: '"Crimson Text", "Cormorant Garamond", Georgia, serif' }}
           >
-            Book a 30-minute discovery call or start with a $250 Deep-Dive with Shreyas.
-          </motion.p>
-          
-          <motion.p 
-            variants={itemVariants}
-            className="text-xl text-purple-400 max-w-3xl mx-auto font-light italic mb-16" 
-            style={{ fontFamily: '"Merriweather", "Crimson Text", Georgia, serif' }}
-          >
-            Worst case: clarity. Best case: compound advantage.
+            Book a 30-minute discovery call.
           </motion.p>
         </motion.div>
 
@@ -187,27 +179,18 @@ export function BookingSection({ primaryCTA, secondaryCTA }: BookingSectionProps
                 <div className="space-y-6">
                   <GradientButton
                     width="100%"
-                    height="60px"
+                    height="50px"
                     onClick={primaryCTA}
                   >
-                    <div className="flex items-center justify-center gap-3 group text-lg font-semibold text-white">
+                    <div className="flex items-center justify-center gap-2 group text-base font-semibold text-white">
                       <Bot className="w-6 h-6" strokeWidth={2} />
-                      Book Discovery Call
-                      <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" strokeWidth={2} />
+                      Book Call
                     </div>
                   </GradientButton>
 
-                  <div className="text-center">
-                    <p className="text-gray-400 mb-4 font-light">
-                      Prefer a founder session?
-                    </p>
-                    <button
-                      onClick={secondaryCTA}
-                      className="text-purple-400 hover:text-purple-300 transition-colors font-medium underline decoration-purple-400/50 hover:decoration-purple-300/50"
-                    >
-                      $250 Deep-Dive with Shreyas
-                    </button>
-                  </div>
+                  <p className="text-center text-sm text-gray-400">
+                    Or call directly: <a href="tel:+919307512816" className="text-purple-400 hover:text-purple-300">+91 9307512816</a>
+                  </p>
                 </div>
 
                 <div className="mt-8 pt-6 border-t border-gray-700/30">

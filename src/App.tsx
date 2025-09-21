@@ -1,335 +1,197 @@
-import React, { useState, useEffect } from 'react';
-import { Bot, Code, ArrowRight, Menu, X, Mic, MessageCircle } from 'lucide-react';
-import { Logo } from './components/ui/logo';
-import { SaveButton } from './components/ui/save-button';
-import { EvervaultCard } from './components/ui/evervault-card';
-import { RainbowButton } from './components/ui/rainbow-button';
-import { ShimmerButton } from './components/ui/shimmer-button';
-import { StarBorder } from './components/ui/star-border';
-import { Features } from './components/ui/features-8';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { CheckCircle, TrendingUp, Clock, Users, Target, Zap } from 'lucide-react';
 
-// Import all section components
-import { Navbar } from './components/sections/Navbar';
-import { OutcomeBar } from './components/sections/OutcomeBar';
-import { ServicesSection } from './components/sections/ServicesSection';
-import { InteractiveSection } from './components/sections/InteractiveSection';
-import { FeaturesSection } from './components/ui/features-section';
-import { CaseStudiesSection } from './components/sections/CaseStudiesSection';
-import { PricingSection } from './components/ui/pricing-section';
-import { StaggerTestimonials } from './components/ui/stagger-testimonials';
-import { ProcessSection } from './components/sections/ProcessSection';
-import { WhyRapidXAISection } from './components/sections/WhyRapidXAISection';
-import { GlowingFeaturesSection } from './components/sections/GlowingFeaturesSection';
-import AboutUsSection from './components/ui/about-us-section';
-import { BookingSection } from './components/sections/BookingSection';
-import { FAQSection } from './components/sections/FAQSection';
-import { LampDemo } from './components/ui/lamp';
-import { Footer } from './components/sections/Footer';
-import { HeroSection } from './components/ui/hero-odyssey';
-import PricingSection4 from './components/ui/pricing-section-4';
-import VapiWidget from './components/ui/vapi-widget';
-import { FeaturesEnhanced } from './components/ui/features-enhanced';
-import { ClientsSection } from './components/sections/ClientsSection';
-import { TechStackSection } from './components/sections/TechStackSection';
-import { PricingPage } from './pages/PricingPage';
-import { ServicesPage } from './pages/ServicesPage';
-import { TeamPage } from './pages/TeamPage';
-import { SocialsPage } from './pages/SocialsPage';
-import { ContentLibraryPage } from './pages/ContentLibraryPage';
-import { TermsPage } from './pages/TermsPage';
-import { PrivacyPage } from './pages/PrivacyPage';
-import { CaseStudiesPage } from './pages/CaseStudiesPage';
-import GradientButton from './components/ui/button-1';
-import { AudioShowcase } from './components/ui/audio-showcase';
-import { TestimonialsSection } from './components/ui/testimonials-section';
-
-type PageType = 'home' | 'pricing' | 'services' | 'content' | 'team' | 'socials' | 'terms' | 'privacy' | 'case-studies';
-
-function App() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [activeService, setActiveService] = useState<'voice' | 'mvp'>('voice');
-  const [currentPage, setCurrentPage] = useState<PageType>('home');
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [showAIConsultant, setShowAIConsultant] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    
-    const handleNavigate = (event: CustomEvent) => {
-      setCurrentPage(event.detail as PageType);
-    };
-    
-    window.addEventListener('scroll', handleScroll);
-    window.addEventListener('navigate', handleNavigate as EventListener);
-    
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('navigate', handleNavigate as EventListener);
-    };
-  }, []);
-
-  const toggleFaq = (index: number) => {
-    setOpenFaq(openFaq === index ? null : index);
-  };
-
-  const primaryCTA = () => {
-    window.open('https://calendly.com/shreyasrajsony11/30min', '_blank');
-  };
-
-  const secondaryCTA = () => {
-    window.open('https://calendly.com/shreyasrajsony11/consultation-with-shreyas-raj', '_blank');
-  };
-
-  const scrollToBooking = () => {
-    document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  const navigation = [
-    { name: 'Home', page: 'home' as PageType },
-    { name: 'Services', page: 'services' as PageType },
-    { name: 'Case Studies', page: 'case-studies' as PageType },
-    { name: 'Content', page: 'content' as PageType },
-    { name: 'Pricing', page: 'pricing' as PageType },
-    { name: 'Team', page: 'team' as PageType },
-    { name: 'Socials', page: 'socials' as PageType },
+export function OutcomeBar() {
+  const outcomes = [
+    {
+      title: "More booked calls",
+      subtitle: "without more headcount",
+      icon: Users,
+      metric: "3x",
+      description: "increase in qualified meetings",
+      gradient: "from-emerald-500 to-teal-500"
+    },
+    {
+      title: "Zero missed inbound",
+      subtitle: "24/7 availability",
+      icon: Clock,
+      metric: "100%",
+      description: "call answer rate",
+      gradient: "from-blue-500 to-cyan-500"
+    },
+    {
+      title: "Follow-ups that happen",
+      subtitle: "automated sequences",
+      icon: Target,
+      metric: "85%",
+      description: "callback success rate",
+      gradient: "from-purple-500 to-violet-500"
+    },
+    {
+      title: "MVPs in weeks",
+      subtitle: "not quarters",
+      icon: Zap,
+      metric: "3-6",
+      description: "weeks to production",
+      gradient: "from-orange-500 to-red-500"
+    },
+    {
+      title: "Outcomes over overhead",
+      subtitle: "ROI-focused delivery",
+      icon: TrendingUp,
+      metric: "300%",
+      description: "average ROI first quarter",
+      gradient: "from-pink-500 to-rose-500"
+    }
   ];
 
-  const renderPage = () => {
-    switch (currentPage) {
-      case 'pricing':
-        return <PricingPage primaryCTA={primaryCTA} secondaryCTA={secondaryCTA} />;
-      case 'services':
-        return <ServicesPage primaryCTA={primaryCTA} secondaryCTA={secondaryCTA} />;
-      case 'content':
-        return <ContentLibraryPage primaryCTA={primaryCTA} />;
-      case 'team':
-        return <TeamPage primaryCTA={primaryCTA} secondaryCTA={secondaryCTA} />;
-      case 'socials':
-        return <SocialsPage primaryCTA={primaryCTA} />;
-      case 'case-studies':
-        return <CaseStudiesPage primaryCTA={primaryCTA} secondaryCTA={secondaryCTA} />;
-      case 'terms':
-        return <TermsPage />;
-      case 'privacy':
-        return <PrivacyPage />;
-      default:
-        return renderHomePage();
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.2
+      }
     }
   };
 
-  const renderHomePage = () => (
-    <>
-      {/* Hero Odyssey Section */}
-      <HeroSection
-        primaryCTA={primaryCTA}
-        secondaryCTA={secondaryCTA}
-      />
-
-      {/* Enhanced Features Section */}
-      <FeaturesEnhanced />
-
-      {/* Services Section with Animated Card */}
-      <ServicesSection 
-        activeService={activeService}
-        setActiveService={setActiveService}
-        scrollToBooking={scrollToBooking}
-      />
-
-      {/* How We Work */}
-      <ProcessSection primaryCTA={primaryCTA} secondaryCTA={secondaryCTA} />
-
-      {/* Interactive Section with Robot */}
-      <InteractiveSection primaryCTA={primaryCTA} />
-
-      {/* Audio Showcase */}
-      <AudioShowcase primaryCTA={primaryCTA} />
-
-      {/* New Testimonials Section */}
-      <TestimonialsSection />
-
-      {/* Live Booking */}
-      <BookingSection primaryCTA={primaryCTA} secondaryCTA={secondaryCTA} />
-
-      {/* Clients Section */}
-      <ClientsSection primaryCTA={primaryCTA} />
-
-      {/* FAQ */}
-      <FAQSection 
-        openFaq={openFaq}
-        toggleFaq={toggleFaq}
-        primaryCTA={primaryCTA}
-      />
-
-      {/* Call to Action with Lamp Effect */}
-      <section className="relative">
-        <LampDemo />
-        <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 flex flex-col sm:flex-row gap-4">
-          <GradientButton
-            width="280px"
-            height="60px"
-            onClick={primaryCTA}
-          >
-            <div className="flex items-center gap-3 group text-lg text-white">
-              <Bot className="w-5 h-5" />
-              Book Your Discovery Call
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </div>
-          </GradientButton>
-          
-          <GradientButton
-            width="280px"
-            height="60px"
-            onClick={secondaryCTA}
-            className="border-2 border-purple-500/50 bg-transparent"
-          >
-            <div className="flex items-center gap-3 group text-lg text-white">
-              <Code className="w-5 h-5" />
-              $250 Deep-Dive with Shreyas
-            </div>
-          </GradientButton>
-        </div>
-      </section>
-    </>
-  );
+  const cardVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 40,
+      scale: 0.9
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.6,
+        ease: [0.25, 0.46, 0.45, 0.94]
+      }
+    }
+  };
 
   return (
-    <div className="bg-gray-950 text-white min-h-screen">
-      {/* Vapi AI Widget */}
-      <VapiWidget 
-        apiKey="5f993de5-d691-4f30-be7d-bc085d7c6bf2"
-        assistantId="edf8fbad-3aaa-4785-99d6-c3811611a529"
-      />
+    <section className="py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-gradient-to-b from-gray-950 via-gray-900/50 to-gray-950">
+      {/* Premium Background Effects */}
+      <div className="absolute inset-0">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-violet-600/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-to-r from-purple-600/5 via-violet-600/10 to-purple-600/5 rounded-full blur-3xl"></div>
+      </div>
+      
+      {/* Subtle Grid Pattern */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#8b5cf610_1px,transparent_1px),linear-gradient(to_bottom,#8b5cf610_1px,transparent_1px)] bg-[size:60px_60px] opacity-20"></div>
+      
+      <div className="max-w-7xl mx-auto relative z-10">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true }}
+          className="text-center mb-20"
+        >
+          <div className="inline-flex items-center gap-3 bg-gradient-to-r from-purple-600/20 to-violet-600/20 backdrop-blur-xl rounded-full px-6 py-3 border border-purple-500/30 mb-8">
+            <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></div>
+            <span className="text-purple-300 font-medium text-sm tracking-wide">PROVEN RESULTS</span>
+          </div>
+          
+          <h2 className="text-5xl md:text-6xl font-display font-bold mb-8 text-white tracking-tight leading-tight">
+            Value <span className="gradient-text">Delivered</span>
+          </h2>
+          <p className="text-2xl md:text-3xl text-gray-300 font-light max-w-4xl mx-auto leading-relaxed">
+            Real outcomes from real clients who chose to automate instead of hiring.
+          </p>
+        </motion.div>
 
-      {/* Enhanced Navbar with Navigation */}
-      <nav className="fixed top-2 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-500">
-        <div className="flex items-center gap-4">
-          {/* Logo Pill */}
-          <div className={`relative transition-all duration-500 group hover:scale-105 ${
-            isScrolled 
-              ? 'bg-gray-900/95 backdrop-blur-3xl border border-gray-600/60 shadow-2xl shadow-purple-500/30' 
-              : 'bg-gray-900/70 backdrop-blur-2xl border border-gray-700/50'
-          } rounded-full px-3 py-1.5 hover:bg-gray-900/98 hover:border-purple-500/40 hover:shadow-2xl hover:shadow-purple-500/40`}>
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-600/10 via-transparent to-violet-600/10 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            <button
-              onClick={() => setCurrentPage('home')}
-              className="relative z-10 hover:scale-105 transition-all duration-300 group-hover:drop-shadow-2xl"
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
+          {outcomes.slice(0, 3).map((outcome, index) => (
+            <motion.div
+              key={index}
+              variants={cardVariants}
+              whileHover={{ 
+                y: -8, 
+                scale: 1.05,
+                transition: { duration: 0.3, ease: "easeOut" }
+              }}
+              className="group relative"
             >
-              <Logo size="lg" showText={false} />
-            </button>
-          </div>
+              {/* Premium Card Container */}
+              <div className="relative h-full p-8 rounded-3xl bg-gradient-to-br from-gray-900/80 via-gray-800/60 to-gray-900/80 backdrop-blur-xl border border-gray-700/50 hover:border-purple-500/50 transition-all duration-500 overflow-hidden">
+                
+                {/* Animated Background Glow */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${outcome.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-3xl`}></div>
+                
+                {/* Shimmer Effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 rounded-3xl"></div>
+                
+                {/* Icon Container */}
+                <div className="relative mb-6">
+                  </div>
+                  <div className={`absolute -inset-2 bg-gradient-to-br ${outcome.gradient} rounded-2xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-300`}></div>
+                </div>
 
-          {/* Navigation Pill */}
-          <div className={`hidden xl:flex relative transition-all duration-500 group hover:scale-105 ${
-            isScrolled 
-              ? 'bg-gray-900/95 backdrop-blur-3xl border border-gray-600/60 shadow-2xl shadow-purple-500/30' 
-              : 'bg-gray-900/70 backdrop-blur-2xl border border-gray-700/50'
-          } rounded-full px-1 py-0.5 hover:bg-gray-900/98 hover:border-purple-500/40 hover:shadow-2xl hover:shadow-purple-500/40`}>
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-600/5 via-transparent to-violet-600/5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            <div className="relative z-10 flex items-center space-x-0.5">
-              {navigation.map((item) => (
-                <button
-                  key={item.name}
-                  onClick={() => setCurrentPage(item.page)}
-                  className={`relative px-3 py-1.5 rounded-full transition-all duration-300 font-semibold text-sm group/nav ${
-                    currentPage === item.page 
-                      ? 'text-white bg-gradient-to-r from-purple-600/50 to-violet-600/50 shadow-lg shadow-purple-500/30 border border-purple-500/30' 
-                      : 'text-gray-300 hover:text-white hover:bg-white/15 hover:shadow-lg hover:shadow-white/10'
-                  }`}
-                  style={{ fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, system-ui, sans-serif', fontWeight: 600, letterSpacing: '-0.01em' }}
-                >
-                  <span className="relative z-10">{item.name}</span>
-                  {currentPage !== item.page && (
-                    <div className="absolute inset-0 bg-gradient-to-r from-purple-600/30 to-violet-600/30 rounded-full opacity-0 group-hover/nav:opacity-100 transition-opacity duration-300"></div>
-                  )}
-                </button>
-              ))}
-            </div>
-          </div>
+                {/* Metric Display */}
+                <div className="mb-4">
+                  <div className="text-4xl font-display font-bold text-white mb-2 group-hover:scale-105 transition-transform duration-300">
+                    {outcome.metric}
+                  </div>
+                  <div className={`text-sm font-medium bg-gradient-to-r ${outcome.gradient} bg-clip-text text-transparent`}>
+                    {outcome.description}
+                  </div>
+                </div>
 
-          {/* CTA Button Pill - Only Book Discovery Call - Hidden on mobile */}
-          <div className={`hidden lg:block relative transition-all duration-300 group hover:scale-105 active:scale-95 ${
-            isScrolled 
-              ? 'shadow-2xl shadow-purple-500/40' 
-              : 'shadow-xl shadow-purple-500/30'
-          } rounded-full hover:shadow-3xl hover:shadow-purple-500/60`}>
-            <GradientButton
-              width="180px"
-              height="45px"
-              onClick={primaryCTA}
-            >
-             <div className="flex items-center justify-center gap-2 text-sm whitespace-nowrap text-white">
-                <Bot className="w-4 h-4" />
-                <span className="whitespace-nowrap">Book Call</span>
+                {/* Content */}
+                <div className="space-y-2">
+                  <h3 className="text-xl font-display font-bold text-white group-hover:text-purple-200 transition-colors duration-300 leading-tight">
+                    {outcome.title}
+                  </h3>
+                  <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300 font-light">
+                    {outcome.subtitle}
+                  </p>
+                </div>
+
+                {/* Bottom Accent Line */}
+                <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${outcome.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
               </div>
-            </GradientButton>
-          </div>
 
-          {/* Mobile menu button */}
-          <div className="xl:hidden">
-            <div className={`relative transition-all duration-500 hover:scale-105 ${
-              isScrolled 
-                ? 'bg-gray-900/95 backdrop-blur-3xl border border-gray-600/60 shadow-2xl shadow-purple-500/30' 
-                : 'bg-gray-900/70 backdrop-blur-2xl border border-gray-700/50'
-            } rounded-full p-1.5 hover:bg-gray-900/98 hover:border-purple-500/40 hover:shadow-xl hover:shadow-purple-500/30`}>
-              <button
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="text-gray-300 hover:text-white p-1 rounded-full hover:bg-white/15 transition-all duration-300 hover:scale-110"
-              >
-                {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-              </button>
+              {/* Connection Lines (for larger screens) */}
+              {index < outcomes.length - 1 && (
+                <div className="hidden lg:block absolute top-1/2 -right-4 w-8 h-px bg-gradient-to-r from-purple-500/50 to-transparent z-10"></div>
+              )}
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Bottom CTA */}
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          viewport={{ once: true }}
+          className="text-center mt-20"
+        >
+          <div className="inline-flex items-center gap-4 bg-gradient-to-r from-gray-900/80 to-gray-800/80 backdrop-blur-xl rounded-2xl px-8 py-4 border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300 group">
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+              <span className="text-green-400 font-medium text-sm">LIVE RESULTS</span>
             </div>
+            <div className="w-px h-6 bg-gray-600"></div>
+            <p className="text-gray-300 font-light">
+              Ready to see these outcomes for your business?
+            </p>
           </div>
-        </div>
-
-        {/* Mobile Navigation */}
-        {mobileMenuOpen && (
-          <div className="xl:hidden absolute top-full left-1/2 transform -translate-x-1/2 mt-2 border border-gray-700/60 bg-gray-900/98 backdrop-blur-3xl rounded-2xl shadow-2xl shadow-purple-500/30 min-w-[280px]">
-            <div className="px-2 pt-2 pb-3 space-y-1">
-              {navigation.map((item) => (
-                <button
-                  key={item.name}
-                  onClick={() => {
-                    setCurrentPage(item.page);
-                    setMobileMenuOpen(false);
-                  }}
-                  className={`block px-4 py-2 text-sm font-semibold transition-all duration-300 w-full text-left rounded-xl hover:scale-[1.02] ${
-                    currentPage === item.page 
-                      ? 'text-white bg-gradient-to-r from-purple-600/40 to-violet-600/40 shadow-lg shadow-purple-500/20' 
-                      : 'text-gray-300 hover:text-white hover:bg-white/15'
-                  }`}
-                  style={{ fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, system-ui, sans-serif' }}
-                >
-                  {item.name}
-                </button>
-              ))}
-              <div className="pt-2 pb-1 space-y-2">
-                <button
-                  onClick={() => {
-                    primaryCTA();
-                    setMobileMenuOpen(false);
-                  }}
-                  className="w-full bg-gradient-to-r from-purple-600 to-violet-600 text-white py-3 rounded-xl font-medium"
-                >
-                  Book Call
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
-      </nav>
-
-      {/* AI Consultant Button - Corner with Attention Animation */}
-
-      {/* Page Content */}
-      {renderPage()}
-
-      {/* Footer */}
-      <Footer primaryCTA={primaryCTA} secondaryCTA={secondaryCTA} setCurrentPage={setCurrentPage} />
-    </div>
+        </motion.div>
+      </div>
+    </section>
   );
 }
-
-export default App;

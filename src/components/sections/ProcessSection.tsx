@@ -151,33 +151,20 @@ export function ProcessSection({ primaryCTA, secondaryCTA }: ProcessSectionProps
         </motion.div>
 
         <motion.div 
-          className="flex flex-col sm:flex-row gap-6 justify-center items-center"
+          className="flex justify-center"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
           viewport={{ once: true }}
         >
           <GradientButton
-            width="300px"
-            height="60px"
+            width="240px"
+            height="50px"
             onClick={primaryCTA}
           >
-            <div className="flex items-center gap-3 group text-lg font-semibold text-white">
+            <div className="flex items-center gap-2 group text-base font-semibold text-white">
               <Bot className="w-6 h-6 drop-shadow-lg" strokeWidth={2} />
-              Book Your Discovery Call
-              <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" strokeWidth={2} />
-            </div>
-          </GradientButton>
-          
-          <GradientButton
-            width="300px"
-            height="60px"
-            onClick={secondaryCTA}
-            className="border-2 border-purple-500/50 bg-transparent"
-          >
-            <div className="flex items-center gap-3 group text-lg font-semibold text-white">
-              <Code className="w-6 h-6 drop-shadow-lg" strokeWidth={2} />
-              $250 Deep-Dive with Shreyas
+              Book Call
             </div>
           </GradientButton>
         </motion.div>

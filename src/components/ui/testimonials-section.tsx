@@ -29,10 +29,10 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ classN
           </div>
 
           <h2 className="text-5xl md:text-6xl font-display font-bold tracking-tight text-center text-white mb-8" style={{ fontFamily: '"Fraunces", "Playfair Display", serif' }}>
-            What Our <span className="gradient-text">Clients Say</span>
+            <span className="gradient-text">Client Results</span>
           </h2>
-          <p className="text-center text-xl md:text-2xl text-gray-300 font-light leading-relaxed max-w-3xl" style={{ fontFamily: '"Newsreader", "Crimson Text", serif' }}>
-            Don't take our word for it—hear from founders and teams who've transformed their businesses with RapidXAI.
+          <p className="text-center text-lg md:text-xl text-gray-300 font-light leading-relaxed max-w-2xl px-4" style={{ fontFamily: '"Newsreader", "Crimson Text", serif' }}>
+            Real feedback from founders who automated their businesses.
           </p>
         </motion.div>
 
