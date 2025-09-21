@@ -80,3 +80,5 @@ const ClientsSection: React.FC = () => {
 };
 
 export default ClientsSection;
+
+export { ClientsSection }
