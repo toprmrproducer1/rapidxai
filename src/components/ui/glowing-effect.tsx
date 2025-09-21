@@ -90,7 +90,9 @@ const GlowingEffect = memo(
             duration: movementDuration,
             ease: [0.16, 1, 0.3, 1],
             onUpdate: (value) => {
-              element.style.setProperty("--start", String(value));
+              if (element && element.style) {
+                element.style.setProperty("--start", String(value));
+              }
             },
           });
         });
