@@ -64,3 +64,5 @@ export function Footer({ primaryCTA, secondaryCTA, setCurrentPage }: FooterProps
       </div>
     </footer>
   );
+  )
+}
