@@ -3,6 +3,8 @@ import { ArrowRight, Bot, Code, Youtube, Instagram, Twitter, ExternalLink, Award
 import { Card, CardContent } from '@/components/ui/card';
 import { SaveButton } from '@/components/ui/save-button';
 import { GlowingEffect } from '@/components/ui/glowing-effect';
+import { Timeline } from '@/components/ui/timeline';
+import ContentSection from '@/components/ui/content-section';
 
 interface TeamPageProps {
   primaryCTA: () => void;
@@ -90,6 +92,128 @@ export function TeamPage({ primaryCTA, secondaryCTA }: TeamPageProps) {
       icon: Zap,
       projects: "100+ growth experiments"
     }
+  ];
+
+  const timelineData = [
+    {
+      title: "2023",
+      content: (
+        <div>
+          <p className="text-gray-300 text-xs md:text-sm font-light mb-8 leading-relaxed">
+            Started building AI voice automation systems and documenting the journey on YouTube. 
+            First successful voice agent deployments for real estate and automotive clients.
+          </p>
+          <div className="grid grid-cols-2 gap-4">
+            <img
+              src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=500&h=500&fit=crop"
+              alt="AI voice automation setup"
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(139,92,246,0.15)] border border-purple-500/20"
+            />
+            <img
+              src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=500&h=500&fit=crop"
+              alt="Dashboard analytics"
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(139,92,246,0.15)] border border-purple-500/20"
+            />
+            <img
+              src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=500&fit=crop"
+              alt="Business automation"
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(139,92,246,0.15)] border border-purple-500/20"
+            />
+            <img
+              src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=500&h=500&fit=crop"
+              alt="Team collaboration"
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(139,92,246,0.15)] border border-purple-500/20"
+            />
+          </div>
+        </div>
+      ),
+    },
+    {
+      title: "Early 2024",
+      content: (
+        <div>
+          <p className="text-gray-300 text-xs md:text-sm font-light mb-8 leading-relaxed">
+            Expanded into MVP and micro-SaaS development. Built production-ready systems for multiple industries 
+            including restaurants, clinics, and service businesses.
+          </p>
+          <p className="text-gray-300 text-xs md:text-sm font-light mb-8 leading-relaxed">
+            Developed comprehensive automation frameworks that integrate voice AI with business workflows, 
+            creating end-to-end solutions that drive measurable ROI.
+          </p>
+          <div className="grid grid-cols-2 gap-4">
+            <img
+              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=500&fit=crop"
+              alt="MVP development"
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(139,92,246,0.15)] border border-purple-500/20"
+            />
+            <img
+              src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=500&h=500&fit=crop"
+              alt="Restaurant automation"
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(139,92,246,0.15)] border border-purple-500/20"
+            />
+            <img
+              src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=500&h=500&fit=crop"
+              alt="Healthcare automation"
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(139,92,246,0.15)] border border-purple-500/20"
+            />
+            <img
+              src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=500&fit=crop"
+              alt="Business growth"
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(139,92,246,0.15)] border border-purple-500/20"
+            />
+          </div>
+        </div>
+      ),
+    },
+    {
+      title: "2025",
+      content: (
+        <div>
+          <p className="text-gray-300 text-xs md:text-sm font-light mb-4 leading-relaxed">
+            Founded RapidXAI and scaled to enterprise-grade solutions
+          </p>
+          <div className="mb-8">
+            <div className="flex gap-2 items-center text-gray-300 text-xs md:text-sm mb-2">
+              ✅ Enterprise voice agent deployments
+            </div>
+            <div className="flex gap-2 items-center text-gray-300 text-xs md:text-sm mb-2">
+              ✅ Multi-tenant SaaS platforms launched
+            </div>
+            <div className="flex gap-2 items-center text-gray-300 text-xs md:text-sm mb-2">
+              ✅ 99.9% uptime targets achieved
+            </div>
+            <div className="flex gap-2 items-center text-gray-300 text-xs md:text-sm mb-2">
+              ✅ SOC2-ready compliance frameworks
+            </div>
+            <div className="flex gap-2 items-center text-gray-300 text-xs md:text-sm mb-2">
+              ✅ YouTube community of 9.7K+ subscribers
+            </div>
+          </div>
+          <div className="grid grid-cols-2 gap-4">
+            <img
+              src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=500&h=500&fit=crop"
+              alt="Enterprise solutions"
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(139,92,246,0.15)] border border-purple-500/20"
+            />
+            <img
+              src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=500&h=500&fit=crop"
+              alt="Team scaling"
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(139,92,246,0.15)] border border-purple-500/20"
+            />
+            <img
+              src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=500&h=500&fit=crop"
+              alt="AI technology"
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(139,92,246,0.15)] border border-purple-500/20"
+            />
+            <img
+              src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=500&h=500&fit=crop"
+              alt="Global reach"
+              className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(139,92,246,0.15)] border border-purple-500/20"
+            />
+          </div>
+        </div>
+      ),
+    },
   ];
 
   return (
@@ -211,6 +335,12 @@ export function TeamPage({ primaryCTA, secondaryCTA }: TeamPageProps) {
           </div>
         </div>
       </section>
+
+      {/* Journey Timeline */}
+      <Timeline data={timelineData} />
+
+      {/* Content Ecosystem Section */}
+      <ContentSection />
 
       {/* Achievement Stats */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
