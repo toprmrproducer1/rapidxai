@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle, TrendingUp, Clock, Users, Target, Zap } from 'lucide-react';
 
-export function OutcomeBar() {
+export default function App() {
   const outcomes = [
     {
       title: "More booked calls",
