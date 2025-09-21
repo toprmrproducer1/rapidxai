@@ -100,10 +100,10 @@ export function OutcomeBar() {
           </div>
           
           <h2 className="text-5xl md:text-6xl font-display font-bold mb-8 text-white tracking-tight leading-tight">
-            Value <span className="gradient-text">Delivered</span>
+            <span className="gradient-text">Results</span>
           </h2>
-          <p className="text-2xl md:text-3xl text-gray-300 font-light max-w-4xl mx-auto leading-relaxed">
-            Real outcomes from real clients who chose to automate instead of hiring.
+          <p className="text-3xl md:text-4xl text-gray-200 font-extralight max-w-3xl mx-auto leading-relaxed">
+            Automation over hiring.
           </p>
         </motion.div>
 
@@ -154,10 +154,10 @@ export function OutcomeBar() {
 
                 {/* Content */}
                 <div className="space-y-2">
-                  <h3 className="text-xl font-display font-bold text-white group-hover:text-purple-200 transition-colors duration-300 leading-tight">
+                  <h3 className="text-2xl font-display font-light text-white group-hover:text-purple-200 transition-colors duration-300 leading-tight tracking-tight">
                     {outcome.title}
                   </h3>
-                  <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300 font-light">
+                  <p className="text-gray-300 group-hover:text-gray-200 transition-colors duration-300 font-extralight text-lg">
                     {outcome.subtitle}
                   </p>
                 </div>

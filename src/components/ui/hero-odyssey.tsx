@@ -292,7 +292,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ primaryCTA, secondaryC
         >
           <motion.h1
             variants={itemVariants}
-            className="text-6xl md:text-8xl lg:text-9xl font-display font-light mb-8 tracking-tight leading-[0.85] drop-shadow-2xl"
+            className="text-7xl md:text-9xl lg:text-[12rem] font-display font-extralight mb-12 tracking-tighter leading-[0.8] drop-shadow-2xl"
             style={{ fontFamily: '"Playfair Display", "Cormorant Garamond", Georgia, serif', letterSpacing: '-0.03em', fontWeight: 300 }}
           >
             Build Faster.
@@ -300,7 +300,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ primaryCTA, secondaryC
 
           <motion.h2
             variants={itemVariants}
-            className="text-4xl md:text-6xl lg:text-7xl font-display font-light bg-gradient-to-r from-gray-100 via-purple-200 to-gray-300 bg-clip-text text-transparent mb-12 tracking-tight leading-[0.85] drop-shadow-lg"
+            className="text-5xl md:text-7xl lg:text-8xl font-display font-extralight bg-gradient-to-r from-white via-purple-100 to-white bg-clip-text text-transparent mb-16 tracking-tighter leading-[0.8] drop-shadow-lg"
             style={{ fontFamily: '"Playfair Display", "Cormorant Garamond", Georgia, serif', letterSpacing: '-0.03em', fontWeight: 300 }}
           >
             Sell Smarter.
@@ -308,7 +308,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ primaryCTA, secondaryC
 
           <motion.h3
             variants={itemVariants}
-            className="text-3xl md:text-5xl lg:text-6xl font-display font-light text-gray-200 mb-12 tracking-tight leading-[0.85] drop-shadow-lg"
+            className="text-4xl md:text-6xl lg:text-7xl font-display font-extralight text-gray-100 mb-20 tracking-tighter leading-[0.8] drop-shadow-lg"
             style={{ fontFamily: '"Playfair Display", "Cormorant Garamond", Georgia, serif', letterSpacing: '-0.03em', fontWeight: 300 }}
           >
             Sleep Better.
@@ -316,18 +316,18 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ primaryCTA, secondaryC
 
           <motion.p
             variants={itemVariants}
-            className="text-gray-300 mb-8 max-w-5xl text-xl md:text-2xl leading-relaxed font-elegant font-light tracking-wide drop-shadow-sm"
+            className="text-gray-200 mb-12 max-w-4xl text-2xl md:text-3xl leading-relaxed font-elegant font-extralight tracking-wide drop-shadow-sm"
             style={{ fontFamily: '"Crimson Text", "Cormorant Garamond", Georgia, serif', lineHeight: '1.8', letterSpacing: '0.01em' }}
           >
-            AI Voice agents that handle the grind 24/7 + MVP/Micro-SaaS that validates your market before you burn budget. Led by Shreyas Raj—we turn "we should" into "we shipped."
+            AI Voice agents that never sleep. MVPs that validate before you scale.
           </motion.p>
 
           <motion.p
             variants={itemVariants}
-            className="text-purple-300 mb-16 max-w-4xl text-lg md:text-xl leading-relaxed font-elegant font-light italic drop-shadow-sm"
+            className="text-purple-200 mb-20 max-w-3xl text-xl md:text-2xl leading-relaxed font-elegant font-extralight italic drop-shadow-sm"
             style={{ fontFamily: '"Crimson Text", "Cormorant Garamond", Georgia, serif', lineHeight: '1.9', letterSpacing: '0.005em' }}
           >
-            Worst case: you leave with an action plan. Best case: you add a 24/7 closer to your team.
+            Turn "we should" into "we shipped."
           </motion.p>
 
           <motion.div

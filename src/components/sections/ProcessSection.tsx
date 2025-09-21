@@ -84,10 +84,10 @@ export function ProcessSection({ primaryCTA, secondaryCTA }: ProcessSectionProps
           </div>
           
           <h2 className="text-5xl md:text-6xl font-display font-bold mb-8 text-white tracking-tight" style={{ fontFamily: '"Fraunces", "Playfair Display", serif' }}>
-            How We <span className="gradient-text">Work</span>
+            Our <span className="gradient-text">Method</span>
           </h2>
-          <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto font-light leading-relaxed" style={{ fontFamily: '"Newsreader", "Crimson Text", serif' }}>
-          We operate like a product team: ship fast, measure honestly, iterate to traction.
+          <p className="text-2xl md:text-3xl text-gray-200 max-w-3xl mx-auto font-extralight leading-relaxed" style={{ fontFamily: '"Newsreader", "Crimson Text", serif' }}>
+          Ship. Measure. Iterate.
           </p>
         </motion.div>
         
@@ -133,7 +133,7 @@ export function ProcessSection({ primaryCTA, secondaryCTA }: ProcessSectionProps
                   <h3 className="text-2xl font-display font-bold text-white group-hover:text-purple-200 transition-colors duration-300" style={{ fontFamily: '"Fraunces", serif' }}>
                     {phase.title}
                   </h3>
-                  <p className="text-gray-300 group-hover:text-gray-200 transition-colors duration-300 leading-relaxed font-light" style={{ fontFamily: '"Newsreader", serif' }}>
+                  <p className="text-gray-200 group-hover:text-gray-100 transition-colors duration-300 leading-relaxed font-extralight text-lg" style={{ fontFamily: '"Newsreader", serif' }}>
                     {phase.description}
                   </p>
                 </div>
