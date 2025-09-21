@@ -9,7 +9,7 @@ interface ProcessSectionProps {
   secondaryCTA: () => void;
 }
 
-export function ProcessSection({ primaryCTA, secondaryCTA }: ProcessSectionProps) {
+export default function ProcessSection({ primaryCTA, secondaryCTA }: ProcessSectionProps) {
   const phases = [
     { 
       step: "01", 
