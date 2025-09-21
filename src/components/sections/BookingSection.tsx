@@ -150,6 +150,9 @@ export function BookingSection({ primaryCTA, secondaryCTA }: BookingSectionProps
                 </a>
               </div>
             </motion.div>
+          )
+          )
+          }
           </motion.div>
 
           {/* Right Content - Simplified Booking */}
