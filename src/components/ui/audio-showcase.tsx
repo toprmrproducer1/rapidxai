@@ -216,7 +216,6 @@ export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
           className="text-center mb-16 px-4"
         >
           <div className="inline-flex items-center gap-3 bg-gradient-to-r from-purple-600/20 to-violet-600/20 backdrop-blur-xl rounded-full px-8 py-4 border border-purple-500/30 mb-12">
@@ -224,12 +223,10 @@ export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
             <span className="text-purple-300 font-medium text-sm tracking-[0.2em] uppercase">LIVE DEMOS</span>
           </div>
           
-          <h2 className="text-4xl md:text-5xl font-display font-bold mb-8 text-white tracking-tight leading-tight" 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold mb-6 sm:mb-8 text-white tracking-tight leading-tight" 
               style={{ fontFamily: '"Playfair Display", "Cormorant Garamond", Georgia, serif' }}>
             <span className="gradient-text">AI voice</span> in action
           </h2>
-          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto font-light leading-relaxed mb-8" 
           <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto font-light leading-relaxed mb-6 sm:mb-8" 
              style={{ fontFamily: '"Crimson Text", "Cormorant Garamond", Georgia, serif' }}>
             Real demos.
@@ -237,7 +234,6 @@ export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
         </motion.div>
 
         {/* Audio Recordings Grid */}
-        <div className="grid md:grid-cols-2 gap-6 mb-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-12 sm:mb-16 px-4">
           {recordings.map((recording, index) => (
             <motion.div
