@@ -132,5 +132,3 @@ export function FeaturesEnhanced() {
                                                 <div className="size-full rounded-full bg-gradient-to-r from-purple-500 to-violet-500" />
                                             </div>
                                         </div>
-    )
-}
