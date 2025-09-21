@@ -288,11 +288,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ primaryCTA, secondaryC
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="relative z-30 flex flex-col items-center text-center max-w-5xl mx-auto pt-20 sm:pt-28 px-4"
+          className="relative z-30 flex flex-col items-center text-center max-w-5xl mx-auto pt-28"
         >
           <motion.h1
             variants={itemVariants}
-            className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-display font-light mb-6 sm:mb-8 tracking-tight leading-[0.85] drop-shadow-2xl"
+            className="text-6xl md:text-8xl lg:text-9xl font-display font-light mb-8 tracking-tight leading-[0.85] drop-shadow-2xl"
             style={{ fontFamily: '"Playfair Display", "Cormorant Garamond", Georgia, serif', letterSpacing: '-0.03em', fontWeight: 300 }}
           >
             Build Faster.
@@ -300,7 +300,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ primaryCTA, secondaryC
 
           <motion.h2
             variants={itemVariants}
-            className="text-2xl sm:text-4xl md:text-6xl lg:text-7xl font-display font-light bg-gradient-to-r from-gray-100 via-purple-200 to-gray-300 bg-clip-text text-transparent mb-8 sm:mb-12 tracking-tight leading-[0.85] drop-shadow-lg"
+            className="text-4xl md:text-6xl lg:text-7xl font-display font-light bg-gradient-to-r from-gray-100 via-purple-200 to-gray-300 bg-clip-text text-transparent mb-12 tracking-tight leading-[0.85] drop-shadow-lg"
             style={{ fontFamily: '"Playfair Display", "Cormorant Garamond", Georgia, serif', letterSpacing: '-0.03em', fontWeight: 300 }}
           >
             Sell Smarter.
@@ -308,7 +308,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ primaryCTA, secondaryC
 
           <motion.h3
             variants={itemVariants}
-            className="text-xl sm:text-3xl md:text-5xl lg:text-6xl font-display font-light text-gray-200 mb-8 sm:mb-12 tracking-tight leading-[0.85] drop-shadow-lg"
+            className="text-3xl md:text-5xl lg:text-6xl font-display font-light text-gray-200 mb-12 tracking-tight leading-[0.85] drop-shadow-lg"
             style={{ fontFamily: '"Playfair Display", "Cormorant Garamond", Georgia, serif', letterSpacing: '-0.03em', fontWeight: 300 }}
           >
             Sleep Better.
@@ -316,7 +316,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ primaryCTA, secondaryC
 
           <motion.p
             variants={itemVariants}
-            className="text-gray-300 mb-6 sm:mb-8 max-w-4xl text-base sm:text-lg md:text-xl leading-relaxed font-elegant font-light tracking-wide drop-shadow-sm px-4"
+            className="text-gray-300 mb-8 max-w-4xl text-lg md:text-xl leading-relaxed font-elegant font-light tracking-wide drop-shadow-sm"
             style={{ fontFamily: '"Crimson Text", "Cormorant Garamond", Georgia, serif', lineHeight: '1.8', letterSpacing: '0.01em' }}
           >
             AI Voice agents + MVP/Micro-SaaS. We turn "we should" into "we shipped."
@@ -324,7 +324,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ primaryCTA, secondaryC
 
           <motion.p
             variants={itemVariants}
-            className="text-purple-300 mb-12 sm:mb-16 max-w-3xl text-sm sm:text-base md:text-lg leading-relaxed font-elegant font-light italic drop-shadow-sm px-4"
+            className="text-purple-300 mb-16 max-w-3xl text-base md:text-lg leading-relaxed font-elegant font-light italic drop-shadow-sm"
             style={{ fontFamily: '"Crimson Text", "Cormorant Garamond", Georgia, serif', lineHeight: '1.9', letterSpacing: '0.005em' }}
           >
             Worst case: clarity. Best case: compound advantage.
@@ -332,15 +332,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ primaryCTA, secondaryC
 
           <motion.div
             variants={itemVariants}
-            className="flex flex-col sm:flex-row gap-4 sm:gap-6 mb-16 sm:mb-20 px-4"
+            className="flex flex-col sm:flex-row gap-6 mb-20"
           >
             <GradientButton
-              width="100%"
-              height="52px"
+              width="280px"
+              height="56px"
               onClick={primaryCTA}
-              className="sm:w-[280px]"
             >
-              <div className="flex items-center justify-center gap-2 text-sm sm:text-base font-semibold text-white">
+              <div className="flex items-center gap-2 text-base font-semibold text-white">
                 <Bot className="w-6 h-6 drop-shadow-lg" strokeWidth={2} />
                 <span>Book Discovery Call</span>
                 <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" strokeWidth={2} />

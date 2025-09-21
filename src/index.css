@@ -58,27 +58,27 @@
 @layer components {
   /* Mobile-first responsive spacing */
   .section-padding {
-    @apply py-12 px-4 sm:py-16 sm:px-6 lg:py-20 lg:px-8;
+    @apply py-16 px-4 sm:py-20 sm:px-6 lg:py-24 lg:px-8;
   }
   
   .container-spacing {
-    @apply mb-6 sm:mb-8 lg:mb-12;
+    @apply mb-8 sm:mb-12 lg:mb-16;
   }
   
   .text-responsive {
-    @apply text-xs sm:text-sm lg:text-base;
+    @apply text-sm sm:text-base lg:text-lg;
   }
   
   .heading-responsive {
-    @apply text-xl sm:text-2xl lg:text-3xl;
+    @apply text-2xl sm:text-3xl lg:text-4xl;
   }
   
   .glossy-button {
-    @apply relative px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-purple-600 to-violet-600 rounded-lg sm:rounded-xl font-semibold text-white overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/25 hover:scale-[1.02] active:scale-[0.98] backdrop-blur-sm border border-purple-500/20;
+    @apply relative px-6 py-3 bg-gradient-to-r from-purple-600 to-violet-600 rounded-xl font-semibold text-white overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/25 hover:scale-[1.02] active:scale-[0.98] backdrop-blur-sm border border-purple-500/20;
   }
   
   .glossy-card {
-    @apply bg-gray-900/20 backdrop-blur-sm border border-gray-800/20 rounded-lg sm:rounded-xl hover:border-purple-500/30 transition-all duration-500;
+    @apply bg-gray-900/20 backdrop-blur-sm border border-gray-800/20 rounded-xl hover:border-purple-500/30 transition-all duration-500;
   }
   
   .gradient-text {
@@ -89,7 +89,7 @@
   }
   
   .premium-button {
-    @apply relative px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-purple-600 to-violet-600 rounded-lg sm:rounded-xl font-premium font-semibold text-white overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/25 hover:scale-[1.02] active:scale-[0.98];
+    @apply relative px-6 py-3 bg-gradient-to-r from-purple-600 to-violet-600 rounded-xl font-premium font-semibold text-white overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/25 hover:scale-[1.02] active:scale-[0.98];
     font-family: "Inter", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
     letter-spacing: -0.01em;
   }
@@ -100,7 +100,7 @@
   }
   
   .premium-button-secondary {
-    @apply relative px-4 sm:px-6 py-2 sm:py-3 bg-transparent border-2 border-purple-500 rounded-lg sm:rounded-xl font-premium font-semibold text-purple-400 overflow-hidden transition-all duration-300 hover:bg-purple-500/10 hover:border-purple-400 hover:text-purple-300 hover:shadow-lg hover:shadow-purple-500/20 hover:scale-[1.02] active:scale-[0.98];
+    @apply relative px-6 py-3 bg-transparent border-2 border-purple-500 rounded-xl font-premium font-semibold text-purple-400 overflow-hidden transition-all duration-300 hover:bg-purple-500/10 hover:border-purple-400 hover:text-purple-300 hover:shadow-lg hover:shadow-purple-500/20 hover:scale-[1.02] active:scale-[0.98];
     font-family: "Inter", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
     letter-spacing: -0.01em;
   }
@@ -198,12 +198,12 @@
   }
   
   .tech-card {
-    @apply bg-gray-900/50 backdrop-blur-sm border border-gray-800/50 rounded-lg sm:rounded-xl transition-all duration-300 hover:border-purple-500/50 hover:shadow-xl hover:shadow-purple-500/10 hover:scale-[1.02] font-premium;
+    @apply bg-gray-900/50 backdrop-blur-sm border border-gray-800/50 rounded-xl transition-all duration-300 hover:border-purple-500/50 hover:shadow-xl hover:shadow-purple-500/10 hover:scale-[1.02] font-premium;
     font-family: "Inter", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
   }
   
   .tech-button {
-    @apply relative inline-flex items-center justify-center px-3 sm:px-4 py-1.5 sm:py-2 font-mono text-xs sm:text-sm font-medium text-white bg-gray-900 border border-gray-700 rounded-md sm:rounded-lg overflow-hidden transition-all duration-300 hover:border-purple-500 hover:text-purple-300 hover:shadow-lg hover:shadow-purple-500/20;
+    @apply relative inline-flex items-center justify-center px-4 py-2 font-mono text-sm font-medium text-white bg-gray-900 border border-gray-700 rounded-lg overflow-hidden transition-all duration-300 hover:border-purple-500 hover:text-purple-300 hover:shadow-lg hover:shadow-purple-500/20;
     font-family: "JetBrains Mono", "Fira Code", monospace;
   }
   

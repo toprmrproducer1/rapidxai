@@ -55,7 +55,7 @@ export function BookingSection({ primaryCTA, secondaryCTA }: BookingSectionProps
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="mb-16 px-4"
+          className="text-center mb-20"
         >
           <motion.div variants={itemVariants}>
             <div className="inline-flex items-center gap-3 bg-gradient-to-r from-purple-600/20 to-violet-600/20 backdrop-blur-xl rounded-full px-8 py-4 border border-purple-500/30 mb-12">
@@ -66,7 +66,7 @@ export function BookingSection({ primaryCTA, secondaryCTA }: BookingSectionProps
           
           <motion.h2 
             variants={itemVariants}
-            className="text-3xl sm:text-4xl md:text-5xl font-display font-bold mb-6 sm:mb-8 text-white tracking-tight leading-tight" 
+            className="text-4xl md:text-5xl font-display font-bold mb-8 text-white tracking-tight leading-tight" 
             style={{ fontFamily: '"Playfair Display", "Cormorant Garamond", Georgia, serif' }}
           >
             Ready to <span className="gradient-text">automate</span>?
@@ -74,14 +74,14 @@ export function BookingSection({ primaryCTA, secondaryCTA }: BookingSectionProps
           
           <motion.p 
             variants={itemVariants}
-            className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto font-light leading-relaxed mb-6 sm:mb-8" 
+            className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto font-light leading-relaxed mb-8" 
             style={{ fontFamily: '"Crimson Text", "Cormorant Garamond", Georgia, serif' }}
           >
-            30-min call.
+            30-minute discovery call.
           </motion.p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-8 sm:gap-16 items-center px-4">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -89,11 +89,11 @@ export function BookingSection({ primaryCTA, secondaryCTA }: BookingSectionProps
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-xl sm:text-2xl font-display font-bold mb-4 sm:mb-6 text-white" style={{ fontFamily: '"Playfair Display", serif' }}>
+            <h3 className="text-2xl font-display font-bold mb-6 text-white" style={{ fontFamily: '"Playfair Display", serif' }}>
               What to Expect in Your Call
             </h3>
             
-            <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
+            <div className="space-y-4 mb-8">
               {features.map((item, index) => (
                 <motion.div 
                   key={index} 
@@ -166,11 +166,11 @@ export function BookingSection({ primaryCTA, secondaryCTA }: BookingSectionProps
                   <div className="w-20 h-20 bg-gradient-to-r from-purple-600 to-violet-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-2xl shadow-purple-500/30 group-hover:scale-110 transition-transform duration-300">
                     <Calendar className="w-10 h-10 text-white" strokeWidth={2} />
                   </div>
-                  <h3 className="text-xl sm:text-2xl font-display font-bold mb-3 text-white group-hover:text-purple-200 transition-colors duration-300" style={{ fontFamily: '"Playfair Display", serif' }}>
+                  <h3 className="text-2xl font-display font-bold mb-3 text-white group-hover:text-purple-200 transition-colors duration-300" style={{ fontFamily: '"Playfair Display", serif' }}>
                     Discovery Call
                   </h3>
-                  <p className="text-gray-300 text-sm sm:text-base font-light" style={{ fontFamily: '"Merriweather", serif' }}>
-                    30 min • Free
+                  <p className="text-gray-300 text-base font-light" style={{ fontFamily: '"Merriweather", serif' }}>
+                    30 minutes • Free consultation
                   </p>
                 </div>
 

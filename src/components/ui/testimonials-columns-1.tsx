@@ -26,25 +26,25 @@ export const TestimonialsColumn = (props: {
             <React.Fragment key={index}>
               {props.testimonials.map(({ text, image, name, role }, i) => (
                 <div 
-                  className="p-4 sm:p-6 rounded-xl sm:rounded-2xl border border-gray-800/50 bg-gray-900/50 backdrop-blur-sm shadow-xl shadow-purple-500/10 max-w-xs w-full hover:border-purple-500/50 transition-all duration-300 group" 
+                  className="p-6 rounded-2xl border border-gray-800/50 bg-gray-900/50 backdrop-blur-sm shadow-xl shadow-purple-500/10 max-w-xs w-full hover:border-purple-500/50 transition-all duration-300 group" 
                   key={i}
                 >
-                  <div className="text-gray-300 leading-relaxed group-hover:text-gray-200 transition-colors duration-300 font-light text-xs sm:text-sm" style={{ fontFamily: '"Instrument Serif", serif' }}>
+                  <div className="text-gray-300 leading-relaxed group-hover:text-gray-200 transition-colors duration-300 font-light text-sm" style={{ fontFamily: '"Instrument Serif", serif' }}>
                     "{text}"
                   </div>
-                  <div className="flex items-center gap-2 sm:gap-3 mt-3 sm:mt-4">
+                  <div className="flex items-center gap-3 mt-4">
                     <img
-                      width={32}
-                      height={32}
+                      width={40}
+                      height={40}
                       src={image}
                       alt={name}
-                      className="h-8 w-8 sm:h-10 sm:w-10 bg-gray-700 object-cover object-top rounded"
+                      className="h-10 w-10 rounded-full border-2 border-purple-500/30 group-hover:border-purple-400/50 transition-colors duration-300"
                     />
                     <div className="flex flex-col">
-                      <div className="font-semibold tracking-tight leading-3 sm:leading-4 text-white group-hover:text-purple-200 transition-colors duration-300 text-xs sm:text-sm" style={{ fontFamily: '"Playfair Display", serif' }}>
+                      <div className="font-semibold tracking-tight leading-4 text-white group-hover:text-purple-200 transition-colors duration-300 text-sm" style={{ fontFamily: '"Playfair Display", serif' }}>
                         {name}
                       </div>
-                      <div className="leading-3 sm:leading-4 text-purple-400 tracking-tight text-xs font-light" style={{ fontFamily: '"Inter", sans-serif' }}>
+                      <div className="leading-4 text-purple-400 tracking-tight text-xs font-light" style={{ fontFamily: '"Inter", sans-serif' }}>
                         {role}
                       </div>
                     </div>

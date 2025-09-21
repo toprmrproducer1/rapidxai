@@ -39,17 +39,17 @@ export function FAQSection({ openFaq, toggleFaq, primaryCTA }: FAQSectionProps) 
   return (
     <section id="faq" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900/30">
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-2xl sm:text-3xl font-bold text-center mb-4 sm:mb-6">FAQs</h2>
-        <p className="text-base sm:text-lg text-gray-300 text-center mb-8 sm:mb-12 font-light">(straight talk)</p>
+        <h2 className="text-3xl font-bold text-center mb-6">FAQs</h2>
+        <p className="text-lg text-gray-300 text-center mb-12 font-light">(straight talk)</p>
         
-        <div className="space-y-2 sm:space-y-3 mb-8 sm:mb-12">
+        <div className="space-y-3 mb-12">
           {faqs.map((faq, index) => (
             <div key={index} className="tech-card overflow-hidden">
               <button
                 onClick={() => toggleFaq(index)}
-                className="w-full p-3 sm:p-4 text-left flex items-center justify-between hover:bg-gray-800/30 transition-all duration-200"
+                className="w-full p-4 text-left flex items-center justify-between hover:bg-gray-800/30 transition-all duration-200"
               >
-                <span className="font-medium text-sm sm:text-base pr-4">{faq.q}</span>
+                <span className="font-medium text-base">{faq.q}</span>
                 {openFaq === index ? (
                   <ChevronUp className="w-5 h-5 text-purple-400" />
                 ) : (
@@ -58,8 +58,8 @@ export function FAQSection({ openFaq, toggleFaq, primaryCTA }: FAQSectionProps) 
               </button>
               
               {openFaq === index && (
-                <div className="px-3 sm:px-4 pb-3 sm:pb-4 animate-slide-up">
-                  <p className="text-gray-300 leading-relaxed text-xs sm:text-sm">{faq.a}</p>
+                <div className="px-4 pb-4 animate-slide-up">
+                  <p className="text-gray-300 leading-relaxed text-sm">{faq.a}</p>
                 </div>
               )}
             </div>
@@ -68,10 +68,9 @@ export function FAQSection({ openFaq, toggleFaq, primaryCTA }: FAQSectionProps) 
 
         <div className="text-center">
           <GradientButton
-            width="100%"
-            height="52px"
+            width="260px"
+            height="56px"
             onClick={primaryCTA}
-            className="sm:w-[260px]"
           >
             <div className="flex items-center gap-2 group text-base font-semibold text-white">
               <Bot className="w-5 h-5" />
