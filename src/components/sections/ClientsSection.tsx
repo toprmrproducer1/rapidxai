@@ -81,60 +81,50 @@ export function ClientsSection({ primaryCTA }: ClientsSectionProps) {
           </p>
         </motion.div>
 
-        {/* Infinite Scrolling Logo Slider */}
-        <div className="relative overflow-hidden">
-          {/* Gradient Masks */}
-          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-gray-950 to-transparent z-10"></div>
-          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-gray-950 to-transparent z-10"></div>
-          
-          <motion.div
-            className="flex items-center gap-16"
-            animate={{
-              x: [0, -50 * clients.length + '%']
-            }}
-            transition={{
-              x: {
-                repeat: Infinity,
-                repeatType: "loop",
-                duration: 30,
-                ease: "linear",
-              },
-            }}
-            style={{ width: `${200 * clients.length}%` }}
-          >
-            {duplicatedClients.map((client, index) => (
-              <motion.div
-                key={`${client.name}-${index}`}
-                className="flex-shrink-0 group"
-                whileHover={{ scale: 1.1, y: -5 }}
-                transition={{ duration: 0.3 }}
-              >
-                <div className="relative w-32 h-32 flex items-center justify-center">
-                  {/* Glow Effect */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-violet-600/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        {/* Simple Logo Grid - Static for now to ensure visibility */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+          {clients.map((client, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="group"
+              whileHover={{ scale: 1.05, y: -5 }}
+            >
+              <div className="relative w-full h-32 flex items-center justify-center">
+                {/* Glow Effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-violet-600/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
+                {/* Logo Container */}
+                <div className="relative w-full h-28 bg-white/95 backdrop-blur-sm border border-gray-300/50 rounded-2xl flex items-center justify-center p-4 group-hover:border-purple-500/50 transition-all duration-500 overflow-hidden">
+                  <img
+                    src={client.logo}
+                    alt={client.alt}
+                    className="max-w-full max-h-full object-contain transition-all duration-300"
+                    style={{ maxWidth: '100%', maxHeight: '100%' }}
+                    onError={(e) => {
+                      console.error('Image failed to load:', client.logo);
+                      const target = e.currentTarget;
+                      target.style.display = 'none';
+                      // Show fallback text
+                      const parent = target.parentElement;
+                      if (parent) {
+                        parent.innerHTML = `<div class="text-gray-800 font-bold text-lg">${client.name}</div>`;
+                      }
+                    }}
+                    onLoad={() => {
+                      console.log('Image loaded successfully:', client.logo);
+                    }}
+                  />
                   
-                  {/* Logo Container */}
-                  <div className="relative w-28 h-28 bg-white/95 backdrop-blur-sm border border-gray-300/50 rounded-2xl flex items-center justify-center p-4 group-hover:border-purple-500/50 transition-all duration-500 overflow-hidden">
-                    <img
-                      src={client.logo}
-                      alt={client.alt}
-                      className="max-w-full max-h-full object-contain transition-all duration-300"
-                      onError={(e) => {
-                        console.log('Image failed to load:', client.logo);
-                        e.currentTarget.style.display = 'none';
-                      }}
-                      onLoad={() => {
-                        console.log('Image loaded successfully:', client.logo);
-                      }}
-                    />
-                    
-                    {/* Shimmer Effect */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-                  </div>
+                  {/* Shimmer Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
                 </div>
-              </motion.div>
-            ))}
-          </motion.div>
+              </div>
+            </motion.div>
+          ))}
         </div>
 
         {/* Bottom Text */}
