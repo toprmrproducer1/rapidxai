@@ -51,8 +51,8 @@ export function ClientsSection({ primaryCTA }: ClientsSectionProps) {
     }
   ];
 
-  // Duplicate the array for seamless infinite scroll
-  const duplicatedClients = [...clients, ...clients];
+  // Duplicate the array multiple times for seamless infinite scroll
+  const extendedClients = [...clients, ...clients, ...clients];
 
   return (
     <section className="py-32 px-4 sm:px-6 lg:px-8 bg-gray-900/20 relative overflow-hidden">
@@ -81,50 +81,57 @@ export function ClientsSection({ primaryCTA }: ClientsSectionProps) {
           </p>
         </motion.div>
 
-        {/* Simple Logo Grid - Static for now to ensure visibility */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
-          {clients.map((client, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="group"
-              whileHover={{ scale: 1.05, y: -5 }}
-            >
-              <div className="relative w-full h-32 flex items-center justify-center">
-                {/* Glow Effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-violet-600/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                
-                {/* Logo Container */}
-                <div className="relative w-full h-28 bg-white/95 backdrop-blur-sm border border-gray-300/50 rounded-2xl flex items-center justify-center p-4 group-hover:border-purple-500/50 transition-all duration-500 overflow-hidden">
-                  <img
-                    src={client.logo}
-                    alt={client.alt}
-                    className="max-w-full max-h-full object-contain transition-all duration-300"
-                    style={{ maxWidth: '100%', maxHeight: '100%' }}
-                    onError={(e) => {
-                      console.error('Image failed to load:', client.logo);
-                      const target = e.currentTarget;
-                      target.style.display = 'none';
-                      // Show fallback text
-                      const parent = target.parentElement;
-                      if (parent) {
-                        parent.innerHTML = `<div class="text-gray-800 font-bold text-lg">${client.name}</div>`;
-                      }
-                    }}
-                    onLoad={() => {
-                      console.log('Image loaded successfully:', client.logo);
-                    }}
-                  />
+        {/* Rotating Carousel */}
+        <div className="relative overflow-hidden mb-16">
+          {/* Gradient Masks */}
+          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-gray-900 via-gray-900/80 to-transparent z-10 pointer-events-none"></div>
+          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-gray-900 via-gray-900/80 to-transparent z-10 pointer-events-none"></div>
+          
+          {/* Infinite Scrolling Container */}
+          <div className="flex animate-infinite-scroll">
+            {extendedClients.map((client, index) => (
+              <motion.div
+                key={`${client.name}-${index}`}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: (index % clients.length) * 0.1 }}
+                viewport={{ once: true }}
+                className="flex-shrink-0 mx-8 group"
+                whileHover={{ scale: 1.1, y: -10 }}
+              >
+                <div className="relative w-40 h-32 flex items-center justify-center">
+                  {/* Glow Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-violet-600/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   
-                  {/* Shimmer Effect */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                  {/* Transparent Logo Container */}
+                  <div className="relative w-full h-28 bg-transparent backdrop-blur-sm border border-gray-600/30 rounded-2xl flex items-center justify-center p-4 group-hover:border-purple-500/50 transition-all duration-500 overflow-hidden">
+                    <img
+                      src={client.logo}
+                      alt={client.alt}
+                      className="max-w-full max-h-full object-contain transition-all duration-300 filter brightness-90 group-hover:brightness-110"
+                      style={{ maxWidth: '100%', maxHeight: '100%' }}
+                      onError={(e) => {
+                        console.error('Client logo failed to load:', client.logo);
+                        const target = e.currentTarget;
+                        target.style.display = 'none';
+                        // Show fallback text
+                        const parent = target.parentElement;
+                        if (parent) {
+                          parent.innerHTML = `<div class="text-white font-bold text-lg">${client.name}</div>`;
+                        }
+                      }}
+                      onLoad={() => {
+                        console.log('Client logo loaded successfully:', client.logo);
+                      }}
+                    />
+                    
+                    {/* Shimmer Effect */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </div>
         </div>
 
         {/* Bottom Text */}

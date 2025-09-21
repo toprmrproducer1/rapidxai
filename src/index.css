@@ -225,6 +225,23 @@
     animation: gradient-x 3s ease infinite;
   }
 
+  @keyframes infinite-scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-33.333%);
+    }
+  }
+
+  .animate-infinite-scroll {
+    animation: infinite-scroll 20s linear infinite;
+  }
+
+  .animate-infinite-scroll:hover {
+    animation-play-state: paused;
+  }
+
   /* Enhanced typography for all elements */
   h1, h2, h3, h4, h5, h6 {
     font-family: "Playfair Display", "Source Serif Pro", "Libre Baskerville", Georgia, serif !important;
