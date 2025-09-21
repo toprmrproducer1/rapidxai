@@ -46,11 +46,9 @@ export function Footer({ primaryCTA, secondaryCTA, setCurrentPage }: FooterProps
         <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-gray-800 text-center text-gray-400 text-xs sm:text-sm">
           <div className="flex flex-col items-center gap-4">
             <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
-              <button onClick={() => setCurrentPage('terms')} className="text-gray-400 hover:text-purple-400 transition-colors text-sm font-medium">
               <button onClick={() => setCurrentPage('terms')} className="text-gray-400 hover:text-purple-400 transition-colors text-xs sm:text-sm font-medium">
                 Terms
               </button>
-              <button onClick={() => setCurrentPage('privacy')} className="text-gray-400 hover:text-purple-400 transition-colors text-sm font-medium">
               <button onClick={() => setCurrentPage('privacy')} className="text-gray-400 hover:text-purple-400 transition-colors text-xs sm:text-sm font-medium">
                 Privacy
               </button>
@@ -67,6 +65,4 @@ export function Footer({ primaryCTA, secondaryCTA, setCurrentPage }: FooterProps
       </div>
     </footer>
   );
-}
-  )
 }

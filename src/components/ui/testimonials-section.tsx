@@ -28,11 +28,9 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ classN
             <span className="text-purple-300 font-medium text-sm tracking-wide">TESTIMONIALS</span>
           </div>
 
-          <h2 className="text-4xl md:text-5xl font-display font-bold tracking-tight text-center text-white mb-6" style={{ fontFamily: '"Fraunces", "Playfair Display", serif' }}>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold tracking-tight text-center text-white mb-4 sm:mb-6" style={{ fontFamily: '"Fraunces", "Playfair Display", serif' }}>
             What Our <span className="gradient-text">Clients Say</span>
           </h2>
-          <p className="text-center text-lg md:text-xl text-gray-300 font-light leading-relaxed max-w-2xl" style={{ fontFamily: '"Newsreader", "Crimson Text", serif' }}>
           <p className="text-center text-base sm:text-lg md:text-xl text-gray-300 font-light leading-relaxed max-w-2xl px-4" style={{ fontFamily: '"Newsreader", "Crimson Text", serif' }}>
             Real results.
           </p>
@@ -56,5 +54,3 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ classN
     </section>
   );
 };
-  )
-}
