@@ -222,7 +222,6 @@ function App() {
           </div>
 
           {/* Navigation Pill */}
-          <div className={`hidden xl:flex relative transition-all duration-500 group hover:scale-105 ${
           <div className={`hidden lg:flex relative transition-all duration-500 group hover:scale-105 ${
             isScrolled 
               ? 'bg-gray-900/95 backdrop-blur-3xl border border-gray-600/60 shadow-2xl shadow-purple-500/30' 
