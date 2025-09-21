@@ -27,53 +27,54 @@ export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
   const [duration, setDuration] = useState(0);
   const [volume, setVolume] = useState(0.8);
   const [isMuted, setIsMuted] = useState(false);
+  const [playbackSpeed, setPlaybackSpeed] = useState(1);
   const audioRef = useRef<HTMLAudioElement>(null);
 
   const tracks: AudioTrack[] = [
     {
-      id: 't2han5',
+      id: '0mvogy',
       title: 'Real Estate Lead Qualification',
       description: 'AI agent qualifies property buyer and books viewing appointment',
       language: 'Hindi + English',
       scenario: 'Inbound property inquiry',
       outcome: 'Qualified lead + appointment booked',
-      url: 'https://files.catbox.moe/t2han5.wav',
+      url: 'https://files.catbox.moe/0mvogy.mp3',
       duration: '2:45',
       icon: Phone,
       gradient: 'from-emerald-500 to-teal-500'
     },
     {
-      id: '8ilz3o',
+      id: 'zif1y8',
       title: 'Outbound Sales Follow-up',
       description: 'AI agent follows up on previous inquiry and schedules demo',
       language: 'English',
       scenario: 'Callback to warm lead',
       outcome: 'Demo scheduled',
-      url: 'https://files.catbox.moe/8ilz3o.wav',
+      url: 'https://files.catbox.moe/zif1y8.mp3',
       duration: '3:12',
       icon: Target,
       gradient: 'from-blue-500 to-cyan-500'
     },
     {
-      id: 'se9bic',
+      id: 'p50jhw',
       title: 'Multilingual Customer Support',
       description: 'AI agent handles customer query in Hindi and English',
       language: 'Hindi + English',
       scenario: 'Customer support inquiry',
       outcome: 'Issue resolved + satisfaction',
-      url: 'https://files.catbox.moe/se9bic.wav',
+      url: 'https://files.catbox.moe/p50jhw.mp3',
       duration: '4:08',
       icon: Globe,
       gradient: 'from-purple-500 to-violet-500'
     },
     {
-      id: 'wbi0e8',
+      id: 'xp7f12',
       title: 'Appointment Confirmation',
       description: 'AI agent confirms appointment and handles rescheduling',
       language: 'English',
       scenario: 'Appointment reminder call',
       outcome: 'Confirmed + calendar updated',
-      url: 'https://files.catbox.moe/wbi0e8.wav',
+      url: 'https://files.catbox.moe/xp7f12.mp3',
       duration: '1:58',
       icon: Users,
       gradient: 'from-orange-500 to-red-500'
@@ -137,6 +138,11 @@ export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
     setVolume(newVolume);
     if (audioRef.current) {
       audioRef.current.volume = newVolume;
+      if (newVolume === 0) {
+        setIsMuted(true);
+      } else if (isMuted) {
+        setIsMuted(false);
+      }
     }
   };
 
@@ -148,10 +154,22 @@ export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
     }
   };
 
+  const handleSpeedChange = (speed: number) => {
+    setPlaybackSpeed(speed);
+    if (audioRef.current) {
+      audioRef.current.playbackRate = speed;
+    }
+  };
+
   const formatTime = (time: number) => {
     const minutes = Math.floor(time / 60);
     const seconds = Math.floor(time % 60);
     return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+  };
+
+  const getProgressPercentage = () => {
+    if (duration === 0) return 0;
+    return (currentTime / duration) * 100;
   };
 
   const containerVariants = {
@@ -312,7 +330,172 @@ export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
                     exit={{ opacity: 0, height: 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <div className="flex items-center gap-4">
+                    {/* Enhanced Progress Bar */}
+                    <div className="space-y-3">
+                      <div className="flex items-center justify-between text-xs text-gray-400">
+                        <span className="font-mono">{formatTime(currentTime)}</span>
+                        <span className="text-purple-400 font-medium">{Math.round(getProgressPercentage())}% complete</span>
+                        <span className="font-mono">{formatTime(duration)}</span>
+                      </div>
+                      
+                      <div className="relative">
+                        <div className="w-full h-3 bg-gray-800 rounded-full overflow-hidden">
+                          <div 
+                            className="h-full bg-gradient-to-r from-purple-500 to-violet-500 rounded-full transition-all duration-200 relative"
+                            style={{ width: `${getProgressPercentage()}%` }}
+                          >
+                            <div className="absolute right-0 top-0 w-1 h-full bg-white/80 rounded-full"></div>
+                          </div>
+                        </div>
+                        <input
+                          type="range"
+                          min="0"
+                          max={duration || 0}
+                          value={currentTime}
+                          onChange={handleSeek}
+                          className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                        />
+                      </div>
+                    </div>
+                    
+                    {/* Enhanced Controls */}
+                    <div className="flex items-center justify-between bg-gray-800/30 rounded-xl p-4 border border-gray-700/30">
+                      {/* Left Controls */}
+                      <div className="flex items-center gap-4">
+                        <button
+                          onClick={toggleMute}
+                          className="p-2 rounded-lg hover:bg-gray-700/50 transition-colors group"
+                        >
+                          {isMuted ? 
+                            <VolumeX className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" /> : 
+                            <Volume2 className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
+                          }
+                        </button>
+                        <div className="flex items-center gap-2">
+                          <span className="text-xs text-gray-500">Vol</span>
+                          <input
+                            type="range"
+                            min="0"
+                            max="1"
+                            step="0.1"
+                            value={volume}
+                            onChange={handleVolumeChange}
+                            className="w-20 h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer volume-slider"
+                          />
+                          <span className="text-xs text-gray-500 font-mono w-8">{Math.round(volume * 100)}</span>
+                        </div>
+                      </div>
+                      
+                      {/* Speed Controls */}
+                      <div className="flex items-center gap-2">
+                        <span className="text-xs text-gray-500">Speed</span>
+                        <div className="flex items-center gap-1">
+                          {[0.5, 0.75, 1, 1.25, 1.5, 2].map((speed) => (
+                            <button
+                              key={speed}
+                              onClick={() => handleSpeedChange(speed)}
+                              className={`px-2 py-1 rounded text-xs font-mono transition-all duration-200 ${
+                                playbackSpeed === speed
+                                  ? 'bg-purple-600 text-white shadow-lg shadow-purple-500/30'
+                                  : 'bg-gray-700/50 text-gray-400 hover:bg-gray-600/50 hover:text-white'
+                              }`}
+                            >
+                              {speed}×
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+
+                {/* Bottom Accent Line */}
+                <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${track.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Audio Element */}
+        <audio 
+          ref={audioRef} 
+          preload="metadata" 
+          crossOrigin="anonymous"
+          onLoadStart={() => console.log('Audio loading started')}
+          onCanPlay={() => console.log('Audio can play')}
+          onError={(e) => console.error('Audio error:', e)}
+          onLoadedData={() => {
+            if (audioRef.current) {
+              audioRef.current.playbackRate = playbackSpeed;
+            }
+          }}
+        />
+
+        {/* Bottom CTA */}
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          viewport={{ once: true }}
+          className="text-center"
+        >
+          <div className="inline-flex items-center gap-4 bg-gradient-to-r from-gray-900/80 to-gray-800/80 backdrop-blur-xl rounded-3xl px-12 py-6 border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300 group mb-12">
+            <div className="flex items-center gap-3">
+              <div className="w-4 h-4 bg-green-400 rounded-full animate-pulse"></div>
+              <span className="text-green-400 font-light text-sm tracking-wider uppercase">LIVE PERFORMANCE</span>
+            </div>
+            <div className="w-px h-8 bg-gray-600"></div>
+            <p className="text-gray-300 font-extralight text-lg" style={{ fontFamily: '"Instrument Serif", serif' }}>
+              Ready for your business?
+            </p>
+          </div>
+
+          <GradientButton
+            width="320px"
+            height="70px"
+            onClick={primaryCTA}
+          >
+            <div className="flex items-center gap-4 group text-xl font-light text-white">
+              <Phone className="w-6 h-6 drop-shadow-lg" strokeWidth={2} />
+              Experience Our AI
+              <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" strokeWidth={2} />
+            </div>
+          </GradientButton>
+        </motion.div>
+      </div>
+
+      {/* Enhanced Custom Slider Styles */}
+      <style jsx>{`
+        .volume-slider {
+          background: linear-gradient(to right, #8b5cf6 0%, #8b5cf6 ${volume * 100}%, #374151 ${volume * 100}%, #374151 100%);
+        }
+        .volume-slider::-webkit-slider-thumb {
+          appearance: none;
+          width: 14px;
+          height: 14px;
+          border-radius: 50%;
+          background: #8b5cf6;
+          cursor: pointer;
+          box-shadow: 0 0 8px rgba(139, 92, 246, 0.5);
+          transition: all 0.2s ease;
+        }
+        .volume-slider::-webkit-slider-thumb:hover {
+          transform: scale(1.2);
+          box-shadow: 0 0 12px rgba(139, 92, 246, 0.8);
+        }
+        .volume-slider::-moz-range-thumb {
+          width: 14px;
+          height: 14px;
+          border-radius: 50%;
+          background: #8b5cf6;
+          cursor: pointer;
+          border: none;
+          box-shadow: 0 0 8px rgba(139, 92, 246, 0.5);
+        }
+      `}</style>
+    </section>
+  );
+}
                       <span className="text-xs text-gray-400 font-mono">{formatTime(currentTime)}</span>
                       <div className="flex-1">
                         <input
