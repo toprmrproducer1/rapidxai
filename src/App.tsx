@@ -146,17 +146,14 @@ function App() {
       {/* How We Work */}
       <ProcessSection primaryCTA={primaryCTA} secondaryCTA={secondaryCTA} />
 
-      {/* Clients Section */}
-      <ClientsSection primaryCTA={primaryCTA} />
-
-      {/* Tech Stack Section */}
-      <TechStackSection primaryCTA={primaryCTA} />
-
       {/* Interactive Section with Robot */}
       <InteractiveSection primaryCTA={primaryCTA} />
 
       {/* Live Booking */}
       <BookingSection primaryCTA={primaryCTA} secondaryCTA={secondaryCTA} />
+
+      {/* Clients Section */}
+      <ClientsSection primaryCTA={primaryCTA} />
 
       {/* FAQ */}
       <FAQSection 
