@@ -15,22 +15,22 @@ export function ClientsSection({ primaryCTA }: ClientsSectionProps) {
       alt: "Algo Vision Logo"
     },
     {
-      name: "Client 2",
+      name: "Client",
       logo: "https://i.ibb.co/3yyM8Qz5/download-7.png",
       alt: "Client Logo"
     },
     {
-      name: "Client 3", 
+      name: "Client", 
       logo: "https://i.ibb.co/cXNDzHWm/logo-ce6bde16-0254-4627-980d-0d0cea0103d9.jpg",
       alt: "Client Logo"
     },
     {
-      name: "Client 4",
+      name: "Client",
       logo: "https://i.ibb.co/wZDMbRv0/Logo-2.png",
       alt: "Client Logo"
     },
     {
-      name: "Client 5",
+      name: "Client",
       logo: "https://i.ibb.co/KzmZc21k/logo-black.png",
       alt: "Client Logo"
     },
@@ -45,7 +45,7 @@ export function ClientsSection({ primaryCTA }: ClientsSectionProps) {
       alt: "Varhity Ventures Logo"
     },
     {
-      name: "Client 8",
+      name: "Client",
       logo: "https://i.ibb.co/ch1YwkR6/Whats-App-Image-2025-08-26-at-06-36-04.jpg",
       alt: "Client Logo"
     }
@@ -114,14 +114,17 @@ export function ClientsSection({ primaryCTA }: ClientsSectionProps) {
                   <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-violet-600/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   
                   {/* Logo Container */}
-                  <div className="relative w-28 h-28 bg-gray-900/50 backdrop-blur-sm border border-gray-800/50 rounded-2xl flex items-center justify-center p-4 group-hover:border-purple-500/50 transition-all duration-500 overflow-hidden">
+                  <div className="relative w-28 h-28 bg-white/95 backdrop-blur-sm border border-gray-300/50 rounded-2xl flex items-center justify-center p-4 group-hover:border-purple-500/50 transition-all duration-500 overflow-hidden">
                     <img
                       src={client.logo}
                       alt={client.alt}
-                      className="max-w-full max-h-full object-contain filter brightness-90 group-hover:brightness-110 transition-all duration-300"
-                      style={{ 
-                        filter: 'brightness(0.9) contrast(1.1)',
-                        mixBlendMode: 'normal'
+                      className="max-w-full max-h-full object-contain transition-all duration-300"
+                      onError={(e) => {
+                        console.log('Image failed to load:', client.logo);
+                        e.currentTarget.style.display = 'none';
+                      }}
+                      onLoad={() => {
+                        console.log('Image loaded successfully:', client.logo);
                       }}
                     />
                     

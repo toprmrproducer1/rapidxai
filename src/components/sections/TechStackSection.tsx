@@ -193,6 +193,13 @@ export function TechStackSection({ primaryCTA }: TechStackSectionProps) {
                     src={tech.logo}
                     alt={tech.alt}
                     className="max-w-full max-h-full object-contain filter brightness-90 group-hover:brightness-110 transition-all duration-300"
+                    onError={(e) => {
+                      console.log('Tech logo failed to load:', tech.logo);
+                      e.currentTarget.style.display = 'none';
+                    }}
+                    onLoad={() => {
+                      console.log('Tech logo loaded successfully:', tech.logo);
+                    }}
                   />
                   <div className="absolute -inset-2 bg-purple-500/10 rounded-2xl blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
