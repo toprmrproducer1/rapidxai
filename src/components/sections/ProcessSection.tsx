@@ -2,7 +2,7 @@ import React from 'react';
 import { Bot, Code, ArrowRight, Target, Star, Rocket, TrendingUp, Zap } from 'lucide-react';
 import { StarBorder } from '../ui/star-border';
 import { motion } from 'framer-motion';
-import PremiumButton from '../ui/button-premium';
+import GradientButton from '../ui/button-1';
 
 interface ProcessSectionProps {
   primaryCTA: () => void;
@@ -157,32 +157,29 @@ export function ProcessSection({ primaryCTA, secondaryCTA }: ProcessSectionProps
           transition={{ duration: 0.8, delay: 0.5 }}
           viewport={{ once: true }}
         >
-          <PremiumButton
-            onClick={primaryCTA}
+          <GradientButton
             width="300px"
             height="60px"
-            variant="primary"
-            size="md"
+            onClick={primaryCTA}
           >
-            <div className="flex items-center gap-3 group text-lg font-semibold">
+            <div className="flex items-center gap-3 group text-lg font-semibold text-white">
               <Bot className="w-6 h-6 drop-shadow-lg" strokeWidth={2} />
               Book Your Discovery Call
               <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" strokeWidth={2} />
             </div>
-          </PremiumButton>
+          </GradientButton>
           
-          <PremiumButton
-            onClick={secondaryCTA}
+          <GradientButton
             width="300px"
             height="60px"
-            variant="outline"
-            size="md"
+            onClick={secondaryCTA}
+            className="border-2 border-purple-500/50 bg-transparent"
           >
-            <div className="flex items-center gap-3 group text-lg font-semibold">
+            <div className="flex items-center gap-3 group text-lg font-semibold text-white">
               <Code className="w-6 h-6 drop-shadow-lg" strokeWidth={2} />
               $250 Deep-Dive with Shreyas
             </div>
-          </PremiumButton>
+          </GradientButton>
         </motion.div>
       </div>
     </section>

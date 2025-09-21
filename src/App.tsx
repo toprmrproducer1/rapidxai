@@ -37,7 +37,7 @@ import { ContentLibraryPage } from './pages/ContentLibraryPage';
 import { TermsPage } from './pages/TermsPage';
 import { PrivacyPage } from './pages/PrivacyPage';
 import { CaseStudiesPage } from './pages/CaseStudiesPage';
-import PremiumButton from './components/ui/button-premium';
+import GradientButton from './components/ui/button-1';
 
 type PageType = 'home' | 'pricing' | 'services' | 'content' | 'team' | 'socials' | 'terms' | 'privacy' | 'case-studies';
 
@@ -161,32 +161,29 @@ function App() {
       <section className="relative">
         <LampDemo />
         <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 flex flex-col sm:flex-row gap-4">
-          <PremiumButton
-            onClick={primaryCTA}
+          <GradientButton
             width="280px"
             height="60px"
-            variant="primary"
-            size="md"
+            onClick={primaryCTA}
           >
-            <div className="flex items-center gap-3 group text-lg">
+            <div className="flex items-center gap-3 group text-lg text-white">
               <Bot className="w-5 h-5" />
               Book Your Discovery Call
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </div>
-          </PremiumButton>
+          </GradientButton>
           
-          <PremiumButton
-            onClick={secondaryCTA}
+          <GradientButton
             width="280px"
             height="60px"
-            variant="outline"
-            size="md"
+            onClick={secondaryCTA}
+            className="border-2 border-purple-500/50 bg-transparent"
           >
-            <div className="flex items-center gap-3 group text-lg">
+            <div className="flex items-center gap-3 group text-lg text-white">
               <Code className="w-5 h-5" />
               $250 Deep-Dive with Shreyas
             </div>
-          </PremiumButton>
+          </GradientButton>
         </div>
       </section>
     </>
@@ -252,18 +249,16 @@ function App() {
               ? 'shadow-2xl shadow-purple-500/40' 
               : 'shadow-xl shadow-purple-500/30'
           } rounded-full hover:shadow-3xl hover:shadow-purple-500/60`}>
-            <PremiumButton
-              onClick={primaryCTA}
+            <GradientButton
               width="200px"
               height="50px"
-              variant="primary"
-              size="sm"
+              onClick={primaryCTA}
             >
-             <div className="flex items-center justify-center gap-2 text-sm whitespace-nowrap">
+             <div className="flex items-center justify-center gap-2 text-sm whitespace-nowrap text-white">
                 <Bot className="w-4 h-4" />
                 <span className="whitespace-nowrap">Book Discovery Call</span>
               </div>
-            </PremiumButton>
+            </GradientButton>
           </div>
 
           {/* Mobile menu button */}
@@ -305,18 +300,16 @@ function App() {
                 </button>
               ))}
               <div className="pt-2 pb-1 space-y-2">
-                <PremiumButton
+                <GradientButton
+                  width="100%"
+                  height="40px"
                   onClick={() => {
                     primaryCTA();
                     setMobileMenuOpen(false);
                   }}
-                  width="100%"
-                  height="40px"
-                  variant="primary"
-                  size="sm"
                 >
-                  Book Call
-                </PremiumButton>
+                  <span className="text-white">Book Call</span>
+                </GradientButton>
               </div>
             </div>
           </div>
