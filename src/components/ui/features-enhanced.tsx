@@ -5,8 +5,8 @@ export function FeaturesEnhanced() {
     return (
         <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gray-950 relative overflow-hidden">
             {/* Background effects */}
-            <div className="absolute inset-0 bg-gradient-to-b from-gray-950 via-gray-800/20 to-gray-950"></div>
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gray-600/10 rounded-full blur-3xl"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-gray-950 via-purple-950/20 to-gray-950"></div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-purple-600/10 rounded-full blur-3xl"></div>
             
             <div className="mx-auto max-w-7xl relative z-10">
                 <div className="text-center mb-20">
@@ -20,7 +20,7 @@ export function FeaturesEnhanced() {
                 
                 <div className="relative">
                     <div className="relative z-10 grid grid-cols-6 gap-4">
-                        <Card className="relative col-span-full flex overflow-hidden lg:col-span-2 bg-gray-900/50 border-gray-800/50 hover:border-gray-400/50 transition-all duration-300 backdrop-blur-sm">
+                        <Card className="relative col-span-full flex overflow-hidden lg:col-span-2 bg-gray-900/50 border-gray-800/50 hover:border-purple-500/50 transition-all duration-300 backdrop-blur-sm">
                             <CardContent className="relative m-auto size-fit pt-6">
                                 <div className="relative flex h-24 w-56 items-center">
                                     <svg className="text-gray-600 absolute inset-0 size-full" viewBox="0 0 254 104" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -35,10 +35,10 @@ export function FeaturesEnhanced() {
                             </CardContent>
                         </Card>
                         
-                        <Card className="relative col-span-full overflow-hidden sm:col-span-3 lg:col-span-2 bg-gray-900/50 border-gray-800/50 hover:border-gray-400/50 transition-all duration-300 backdrop-blur-sm">
+                        <Card className="relative col-span-full overflow-hidden sm:col-span-3 lg:col-span-2 bg-gray-900/50 border-gray-800/50 hover:border-purple-500/50 transition-all duration-300 backdrop-blur-sm">
                             <CardContent className="pt-6">
-                                <div className="relative mx-auto flex aspect-square size-32 rounded-full border border-gray-600/50 before:absolute before:-inset-2 before:rounded-full before:border before:border-gray-600/30">
-                                    <Shield className="m-auto h-fit w-16 text-gray-400" strokeWidth={1} />
+                                <div className="relative mx-auto flex aspect-square size-32 rounded-full border border-gray-700/50 before:absolute before:-inset-2 before:rounded-full before:border before:border-gray-700/30">
+                                    <Shield className="m-auto h-fit w-16 text-purple-400" strokeWidth={1} />
                                 </div>
                                 <div className="relative z-10 mt-6 space-y-2 text-center">
                                     <h2 className="text-lg font-medium text-white">Enterprise Security</h2>
@@ -47,19 +47,19 @@ export function FeaturesEnhanced() {
                             </CardContent>
                         </Card>
                         
-                        <Card className="relative col-span-full overflow-hidden sm:col-span-3 lg:col-span-2 bg-gray-900/50 border-gray-800/50 hover:border-gray-400/50 transition-all duration-300 backdrop-blur-sm">
+                        <Card className="relative col-span-full overflow-hidden sm:col-span-3 lg:col-span-2 bg-gray-900/50 border-gray-800/50 hover:border-purple-500/50 transition-all duration-300 backdrop-blur-sm">
                             <CardContent className="pt-6">
                                 <div className="pt-6 lg:px-6">
                                     <div className="w-full flex items-center justify-center mb-6">
-                                        <Zap className="w-16 h-16 text-gray-400" strokeWidth={1} />
+                                        <Zap className="w-16 h-16 text-violet-400" strokeWidth={1} />
                                     </div>
-                                    <div className="bg-gradient-to-r from-gray-600/20 to-gray-500/20 rounded-lg p-4 border border-gray-500/30">
+                                    <div className="bg-gradient-to-r from-purple-600/20 to-violet-600/20 rounded-lg p-4 border border-purple-500/30">
                                         <div className="flex items-center justify-between mb-2">
                                             <span className="text-sm text-gray-400">Build Speed</span>
-                                            <span className="text-sm text-gray-300">Weeks, not quarters</span>
+                                            <span className="text-sm text-purple-400">Weeks, not quarters</span>
                                         </div>
                                         <div className="w-full bg-gray-800 rounded-full h-2">
-                                            <div className="bg-gradient-to-r from-gray-500 to-gray-400 h-2 rounded-full" style={{width: '85%'}}></div>
+                                            <div className="bg-gradient-to-r from-purple-500 to-violet-500 h-2 rounded-full" style={{width: '85%'}}></div>
                                         </div>
                                     </div>
                                 </div>
@@ -70,30 +70,30 @@ export function FeaturesEnhanced() {
                             </CardContent>
                         </Card>
                         
-                        <Card className="relative col-span-full overflow-hidden lg:col-span-3 bg-gray-900/50 border-gray-800/50 hover:border-gray-400/50 transition-all duration-300 backdrop-blur-sm">
+                        <Card className="relative col-span-full overflow-hidden lg:col-span-3 bg-gray-900/50 border-gray-800/50 hover:border-purple-500/50 transition-all duration-300 backdrop-blur-sm">
                             <CardContent className="grid pt-6 sm:grid-cols-2">
                                 <div className="relative z-10 flex flex-col justify-between space-y-6">
-                                    <div className="relative flex aspect-square size-12 rounded-full border border-gray-600/50 before:absolute before:-inset-2 before:rounded-full before:border before:border-gray-600/30">
-                                        <Target className="m-auto size-5 text-gray-400" strokeWidth={1} />
+                                    <div className="relative flex aspect-square size-12 rounded-full border border-gray-700/50 before:absolute before:-inset-2 before:rounded-full before:border before:border-gray-700/30">
+                                        <Target className="m-auto size-5 text-purple-400" strokeWidth={1} />
                                     </div>
                                     <div className="space-y-2">
                                         <h2 className="text-lg font-medium text-white">AI Voice Intelligence</h2>
                                         <p className="text-gray-400">Human-grade conversations with context memory.</p>
                                     </div>
                                 </div>
-                                <div className="relative -mb-6 -mr-6 mt-6 h-fit border-l border-t border-gray-600/50 p-6 sm:ml-6">
+                                <div className="relative -mb-6 -mr-6 mt-6 h-fit border-l border-t border-gray-700/50 p-6 sm:ml-6">
                                     <div className="absolute left-3 top-2 flex gap-1">
-                                        <span className="block size-2 rounded-full border border-gray-600/50 bg-gray-600/50"></span>
-                                        <span className="block size-2 rounded-full border border-gray-600/50 bg-gray-600/50"></span>
-                                        <span className="block size-2 rounded-full border border-gray-600/50 bg-gray-600/50"></span>
+                                        <span className="block size-2 rounded-full border border-gray-700/50 bg-gray-700/50"></span>
+                                        <span className="block size-2 rounded-full border border-gray-700/50 bg-gray-700/50"></span>
+                                        <span className="block size-2 rounded-full border border-gray-700/50 bg-gray-700/50"></span>
                                     </div>
                                     <div className="space-y-3 mt-6">
-                                        <div className="bg-gray-800/50 rounded-lg p-3 border-l-2 border-gray-400">
-                                            <div className="text-xs text-gray-400 mb-1">Incoming Call</div>
+                                        <div className="bg-gray-800/50 rounded-lg p-3 border-l-2 border-purple-500">
+                                            <div className="text-xs text-purple-400 mb-1">Incoming Call</div>
                                             <div className="text-sm text-white">"Hi, I'm calling about pricing..."</div>
                                         </div>
-                                        <div className="bg-gray-800/50 rounded-lg p-3 border-l-2 border-gray-300">
-                                            <div className="text-xs text-gray-300 mb-1">AI Response</div>
+                                        <div className="bg-gray-800/50 rounded-lg p-3 border-l-2 border-violet-500">
+                                            <div className="text-xs text-violet-400 mb-1">AI Response</div>
                                             <div className="text-sm text-white">"I'd be happy to help! Let me get you connected with the right person..."</div>
                                         </div>
                                     </div>
@@ -101,35 +101,35 @@ export function FeaturesEnhanced() {
                             </CardContent>
                         </Card>
                         
-                        <Card className="relative col-span-full overflow-hidden lg:col-span-3 bg-gray-900/50 border-gray-800/50 hover:border-gray-400/50 transition-all duration-300 backdrop-blur-sm">
+                        <Card className="relative col-span-full overflow-hidden lg:col-span-3 bg-gray-900/50 border-gray-800/50 hover:border-purple-500/50 transition-all duration-300 backdrop-blur-sm">
                             <CardContent className="grid h-full pt-6 sm:grid-cols-2">
                                 <div className="relative z-10 flex flex-col justify-between space-y-6">
-                                    <div className="relative flex aspect-square size-12 rounded-full border border-gray-600/50 before:absolute before:-inset-2 before:rounded-full before:border before:border-gray-600/30">
-                                        <TrendingUp className="m-auto size-6 text-gray-400" strokeWidth={1} />
+                                    <div className="relative flex aspect-square size-12 rounded-full border border-gray-700/50 before:absolute before:-inset-2 before:rounded-full before:border before:border-gray-700/30">
+                                        <TrendingUp className="m-auto size-6 text-violet-400" strokeWidth={1} />
                                     </div>
                                     <div className="space-y-2">
                                         <h2 className="text-lg font-medium text-white">MVP Excellence</h2>
                                         <p className="text-gray-400">Production-ready MVPs with scalable architecture, modern UI, and conversion optimization.</p>
                                     </div>
                                 </div>
-                                <div className="relative mt-6 before:absolute before:inset-0 before:mx-auto before:w-px before:bg-gray-600/50 sm:-my-6 sm:-mr-6">
+                                <div className="relative mt-6 before:absolute before:inset-0 before:mx-auto before:w-px before:bg-gray-700/50 sm:-my-6 sm:-mr-6">
                                     <div className="relative flex h-full flex-col justify-center space-y-4 py-6">
                                         <div className="relative flex w-[calc(50%+0.875rem)] items-center justify-end gap-2">
-                                            <span className="block h-fit rounded border border-gray-600/50 bg-gray-800/50 px-2 py-1 text-xs text-white shadow-sm">Auth</span>
-                                            <div className="ring-background size-6 ring-2 ring-gray-400">
-                                                <div className="size-full rounded-full bg-gradient-to-r from-gray-500 to-gray-400" />
+                                            <span className="block h-fit rounded border border-gray-700/50 bg-gray-800/50 px-2 py-1 text-xs text-white shadow-sm">Auth</span>
+                                            <div className="ring-background size-6 ring-2 ring-purple-500">
+                                                <div className="size-full rounded-full bg-gradient-to-r from-purple-500 to-violet-500" />
                                             </div>
                                         </div>
                                         <div className="relative ml-[calc(50%-1rem)] flex items-center gap-2">
-                                            <div className="ring-background size-7 ring-2 ring-gray-300">
-                                                <div className="size-full rounded-full bg-gradient-to-r from-gray-400 to-gray-500" />
+                                            <div className="ring-background size-7 ring-2 ring-violet-500">
+                                                <div className="size-full rounded-full bg-gradient-to-r from-violet-500 to-purple-500" />
                                             </div>
-                                            <span className="block h-fit rounded border border-gray-600/50 bg-gray-800/50 px-2 py-1 text-xs text-white shadow-sm">Billing</span>
+                                            <span className="block h-fit rounded border border-gray-700/50 bg-gray-800/50 px-2 py-1 text-xs text-white shadow-sm">Billing</span>
                                         </div>
                                         <div className="relative flex w-[calc(50%+0.875rem)] items-center justify-end gap-2">
-                                            <span className="block h-fit rounded border border-gray-600/50 bg-gray-800/50 px-2 py-1 text-xs text-white shadow-sm">Analytics</span>
-                                            <div className="ring-background size-6 ring-2 ring-gray-400">
-                                                <div className="size-full rounded-full bg-gradient-to-r from-gray-500 to-gray-400" />
+                                            <span className="block h-fit rounded border border-gray-700/50 bg-gray-800/50 px-2 py-1 text-xs text-white shadow-sm">Analytics</span>
+                                            <div className="ring-background size-6 ring-2 ring-purple-500">
+                                                <div className="size-full rounded-full bg-gradient-to-r from-purple-500 to-violet-500" />
                                             </div>
                                         </div>
                                     </div>

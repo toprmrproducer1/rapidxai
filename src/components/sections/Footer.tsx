@@ -22,9 +22,9 @@ export function Footer({ primaryCTA, secondaryCTA, setCurrentPage }: FooterProps
           
           <div className="text-center order-3 md:order-2">
             <div className="flex flex-wrap justify-center gap-3 sm:gap-6 text-xs sm:text-sm mb-3 sm:mb-4">
-              <button onClick={() => setCurrentPage('services')} className="text-gray-400 hover:text-gray-200 transition-colors">Services</button>
-              <button onClick={() => setCurrentPage('case-studies')} className="text-gray-400 hover:text-gray-200 transition-colors">Cases</button>
-              <button onClick={() => setCurrentPage('pricing')} className="text-gray-400 hover:text-gray-200 transition-colors">Pricing</button>
+              <button onClick={() => setCurrentPage('services')} className="text-gray-400 hover:text-purple-400 transition-colors">Services</button>
+              <button onClick={() => setCurrentPage('case-studies')} className="text-gray-400 hover:text-purple-400 transition-colors">Cases</button>
+              <button onClick={() => setCurrentPage('pricing')} className="text-gray-400 hover:text-purple-400 transition-colors">Pricing</button>
             </div>
           </div>
           
@@ -36,7 +36,7 @@ export function Footer({ primaryCTA, secondaryCTA, setCurrentPage }: FooterProps
                 saved: "Booked!"
               }}
               onClick={primaryCTA}
-              className="text-xs sm:text-sm bg-gradient-to-r from-gray-800 to-black"
+              className="text-xs sm:text-sm bg-gradient-to-r from-purple-600 to-violet-600"
             />
           </div>
         </div>
@@ -45,10 +45,10 @@ export function Footer({ primaryCTA, secondaryCTA, setCurrentPage }: FooterProps
         <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-gray-800 text-center text-gray-400 text-xs sm:text-sm">
           <div className="flex flex-col items-center gap-4">
             <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
-              <button onClick={() => setCurrentPage('terms')} className="text-gray-400 hover:text-gray-200 transition-colors text-xs sm:text-sm font-medium">
+              <button onClick={() => setCurrentPage('terms')} className="text-gray-400 hover:text-purple-400 transition-colors text-xs sm:text-sm font-medium">
                 Terms
               </button>
-              <button onClick={() => setCurrentPage('privacy')} className="text-gray-400 hover:text-gray-200 transition-colors text-xs sm:text-sm font-medium">
+              <button onClick={() => setCurrentPage('privacy')} className="text-gray-400 hover:text-purple-400 transition-colors text-xs sm:text-sm font-medium">
                 Privacy
               </button>
               <a href="tel:+919307512816" className="text-gray-400 hover:text-purple-400 transition-colors text-xs sm:text-sm font-medium">

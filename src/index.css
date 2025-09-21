@@ -7,34 +7,34 @@
 
 @layer base {
   :root {
-    --background: 0 0% 3%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 6%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 6%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 85%;
-    --primary-foreground: 0 0% 10%;
-    --secondary: 0 0% 12%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 12%;
-    --muted-foreground: 0 0% 65%;
-    --accent: 0 0% 12%;
-    --accent-foreground: 0 0% 98%;
+    --background: 210 40% 2%;
+    --foreground: 210 40% 98%;
+    --card: 210 40% 4%;
+    --card-foreground: 210 40% 98%;
+    --popover: 210 40% 4%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 262 83% 58%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 10%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 210 40% 10%;
+    --muted-foreground: 210 40% 65%;
+    --accent: 210 40% 10%;
+    --accent-foreground: 210 40% 98%;
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 0 0% 85%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 210 40% 18%;
+    --input: 210 40% 18%;
+    --ring: 262 83% 58%;
     --radius: 0.75rem;
     --success: 142.1 70.6% 45.3%;
     --success-foreground: 0 0% 100%;
-    --gradient-color: #d1d5db;
-    --sparkles-color: #d1d5db;
+    --gradient-color: #8350e8;
+    --sparkles-color: #8350e8;
   }
 
   .dark {
-    --gradient-color: #d1d5db;
+    --gradient-color: #8350e8;
     --sparkles-color: #ffffff;
   }
 }
@@ -74,39 +74,39 @@
   }
   
   .glossy-button {
-    @apply relative px-6 py-3 bg-gradient-to-r from-gray-800 to-black rounded-xl font-semibold text-white overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-gray-500/25 hover:scale-[1.02] active:scale-[0.98] backdrop-blur-sm border border-gray-500/20;
+    @apply relative px-6 py-3 bg-gradient-to-r from-purple-600 to-violet-600 rounded-xl font-semibold text-white overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/25 hover:scale-[1.02] active:scale-[0.98] backdrop-blur-sm border border-purple-500/20;
   }
   
   .glossy-card {
-    @apply bg-gray-900/20 backdrop-blur-sm border border-gray-800/20 rounded-xl hover:border-gray-400/30 transition-all duration-500;
+    @apply bg-gray-900/20 backdrop-blur-sm border border-gray-800/20 rounded-xl hover:border-purple-500/30 transition-all duration-500;
   }
   
   .gradient-text {
-    @apply bg-gradient-to-r from-gray-300 via-white to-gray-300 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-purple-400 via-violet-400 to-purple-400 bg-clip-text text-transparent;
     font-family: "Cormorant Garamond", "Playfair Display", Georgia, serif;
     font-weight: 600;
     letter-spacing: -0.02em;
   }
   
   .premium-button {
-    @apply relative px-6 py-3 bg-gradient-to-r from-gray-800 to-black rounded-xl font-premium font-semibold text-white overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-gray-500/25 hover:scale-[1.02] active:scale-[0.98];
+    @apply relative px-6 py-3 bg-gradient-to-r from-purple-600 to-violet-600 rounded-xl font-premium font-semibold text-white overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/25 hover:scale-[1.02] active:scale-[0.98];
     font-family: "Inter", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
     letter-spacing: -0.01em;
   }
   
   .premium-button::before {
-    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent bg-[length:200%_100%] opacity-0 transition-opacity duration-300;
+    @apply absolute inset-0 bg-shimmer-gradient bg-[length:200%_100%] opacity-0 transition-opacity duration-300;
     content: '';
   }
   
   .premium-button-secondary {
-    @apply relative px-6 py-3 bg-transparent border-2 border-gray-400 rounded-xl font-premium font-semibold text-gray-400 overflow-hidden transition-all duration-300 hover:bg-gray-400/10 hover:border-gray-300 hover:text-gray-300 hover:shadow-lg hover:shadow-gray-500/20 hover:scale-[1.02] active:scale-[0.98];
+    @apply relative px-6 py-3 bg-transparent border-2 border-purple-500 rounded-xl font-premium font-semibold text-purple-400 overflow-hidden transition-all duration-300 hover:bg-purple-500/10 hover:border-purple-400 hover:text-purple-300 hover:shadow-lg hover:shadow-purple-500/20 hover:scale-[1.02] active:scale-[0.98];
     font-family: "Inter", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
     letter-spacing: -0.01em;
   }
   
   .premium-button-secondary::before {
-    @apply absolute inset-0 bg-gradient-to-r from-transparent via-gray-400/20 to-transparent opacity-0 transition-opacity duration-300;
+    @apply absolute inset-0 bg-gradient-to-r from-transparent via-purple-500/20 to-transparent opacity-0 transition-opacity duration-300;
     content: '';
     transform: translateX(-100%);
     animation: shimmer 1.5s ease-in-out infinite;
@@ -114,12 +114,12 @@
   
   .ultra-premium-button {
     @apply relative overflow-hidden rounded-full font-premium font-bold text-white transition-all duration-300;
-    background: linear-gradient(135deg, #374151 0%, #6b7280 25%, #9ca3af 50%, #6b7280 75%, #374151 100%);
+    background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 25%, #c084fc 50%, #a855f7 75%, #8b5cf6 100%);
     background-size: 300% 300%;
     animation: gradient-shift 3s ease infinite;
     box-shadow: 
-      0 0 20px rgba(156, 163, 175, 0.4),
-      0 0 40px rgba(156, 163, 175, 0.2),
+      0 0 20px rgba(139, 92, 246, 0.4),
+      0 0 40px rgba(139, 92, 246, 0.2),
       inset 0 1px 0 rgba(255, 255, 255, 0.2);
     font-family: "Inter", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
     letter-spacing: -0.01em;
@@ -128,9 +128,9 @@
   .ultra-premium-button:hover {
     animation-duration: 1s;
     box-shadow: 
-      0 0 30px rgba(156, 163, 175, 0.6),
-      0 0 60px rgba(156, 163, 175, 0.4),
-      0 0 90px rgba(156, 163, 175, 0.2),
+      0 0 30px rgba(139, 92, 246, 0.6),
+      0 0 60px rgba(139, 92, 246, 0.4),
+      0 0 90px rgba(139, 92, 246, 0.2),
       inset 0 1px 0 rgba(255, 255, 255, 0.3);
     transform: scale(1.05);
   }
@@ -149,7 +149,7 @@
     position: absolute;
     inset: -2px;
     padding: 2px;
-    background: linear-gradient(45deg, #374151, #6b7280, #9ca3af, #d1d5db, #f3f4f6, #374151);
+    background: linear-gradient(45deg, #8b5cf6, #a855f7, #c084fc, #e879f9, #f0abfc, #8b5cf6);
     background-size: 300% 300%;
     border-radius: inherit;
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -169,7 +169,7 @@
   
   .glass-morphism:hover {
     background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(156, 163, 175, 0.3);
+    border-color: rgba(139, 92, 246, 0.3);
   }
   
   @keyframes gradient-shift {
@@ -179,7 +179,7 @@
   }
   
   .pill-nav {
-    @apply relative bg-gray-900/60 backdrop-blur-xl border border-gray-700/40 rounded-full transition-all duration-500 hover:bg-gray-900/80 hover:border-gray-400/30 hover:shadow-xl hover:shadow-gray-500/20 font-premium;
+    @apply relative bg-gray-900/60 backdrop-blur-xl border border-gray-700/40 rounded-full transition-all duration-500 hover:bg-gray-900/80 hover:border-purple-500/30 hover:shadow-xl hover:shadow-purple-500/20 font-premium;
     font-family: "Inter", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
   }
   
@@ -190,7 +190,7 @@
   }
   
   .nav-item-active {
-    @apply text-white bg-gradient-to-r from-gray-700/30 to-gray-600/30 shadow-lg shadow-gray-500/20 border border-gray-500/20;
+    @apply text-white bg-gradient-to-r from-purple-600/30 to-violet-600/30 shadow-lg shadow-purple-500/20 border border-purple-500/20;
   }
   
   .nav-item-inactive {
@@ -198,23 +198,23 @@
   }
   
   .tech-card {
-    @apply bg-gray-900/50 backdrop-blur-sm border border-gray-800/50 rounded-xl transition-all duration-300 hover:border-gray-400/50 hover:shadow-xl hover:shadow-gray-500/10 hover:scale-[1.02] font-premium;
+    @apply bg-gray-900/50 backdrop-blur-sm border border-gray-800/50 rounded-xl transition-all duration-300 hover:border-purple-500/50 hover:shadow-xl hover:shadow-purple-500/10 hover:scale-[1.02] font-premium;
     font-family: "Inter", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
   }
   
   .tech-button {
-    @apply relative inline-flex items-center justify-center px-4 py-2 font-mono text-sm font-medium text-white bg-gray-900 border border-gray-700 rounded-lg overflow-hidden transition-all duration-300 hover:border-gray-400 hover:text-gray-300 hover:shadow-lg hover:shadow-gray-500/20;
+    @apply relative inline-flex items-center justify-center px-4 py-2 font-mono text-sm font-medium text-white bg-gray-900 border border-gray-700 rounded-lg overflow-hidden transition-all duration-300 hover:border-purple-500 hover:text-purple-300 hover:shadow-lg hover:shadow-purple-500/20;
     font-family: "JetBrains Mono", "Fira Code", monospace;
   }
   
   .tech-button::before {
-    @apply absolute inset-0 bg-gradient-to-r from-gray-600/20 to-gray-500/20 opacity-0 transition-opacity duration-300;
+    @apply absolute inset-0 bg-gradient-to-r from-purple-600/20 to-violet-600/20 opacity-0 transition-opacity duration-300;
     content: '';
   }
   
   .glow-text {
-    @apply bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent font-display;
-    text-shadow: 0 0 20px rgba(156, 163, 175, 0.3);
+    @apply bg-gradient-to-r from-white via-purple-200 to-white bg-clip-text text-transparent font-display;
+    text-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
     font-family: "Playfair Display", "Cormorant Garamond", Georgia, serif;
   }
 
@@ -409,20 +409,20 @@
 
 /* Gradient Button Styles */
 :root {
-  --color-background: #000000;
+  --color-background: #0f0f23;
   --color-text: #ffffff;
 }
 
 .rotatingGradient {
   background: conic-gradient(
     from var(--r),
-    #374151 0deg,
-    #6b7280 60deg,
-    #9ca3af 120deg,
-    #d1d5db 180deg,
-    #f3f4f6 240deg,
-    #374151 300deg,
-    #374151 360deg
+    #8b5cf6 0deg,
+    #a855f7 60deg,
+    #c084fc 120deg,
+    #e879f9 180deg,
+    #f0abfc 240deg,
+    #8b5cf6 300deg,
+    #8b5cf6 360deg
   );
   animation: rotateGradient 3s linear infinite;
 }
