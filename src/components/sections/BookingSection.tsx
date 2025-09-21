@@ -81,7 +81,6 @@ export function BookingSection({ primaryCTA, secondaryCTA }: BookingSectionProps
           </motion.p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-16 items-center px-4">
           {/* Left Content */}
           <motion.div
@@ -90,7 +89,6 @@ export function BookingSection({ primaryCTA, secondaryCTA }: BookingSectionProps
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl font-display font-bold mb-6 text-white" style={{ fontFamily: '"Playfair Display", serif' }}>
             <h3 className="text-xl sm:text-2xl font-display font-bold mb-4 sm:mb-6 text-white" style={{ fontFamily: '"Playfair Display", serif' }}>
               What to Expect in Your Call
             </h3>
@@ -149,9 +147,6 @@ export function BookingSection({ primaryCTA, secondaryCTA }: BookingSectionProps
                 </a>
               </div>
             </motion.div>
-          )
-          )
-          }
           </motion.div>
 
           {/* Right Content - Simplified Booking */}
@@ -171,11 +166,9 @@ export function BookingSection({ primaryCTA, secondaryCTA }: BookingSectionProps
                   <div className="w-20 h-20 bg-gradient-to-r from-purple-600 to-violet-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-2xl shadow-purple-500/30 group-hover:scale-110 transition-transform duration-300">
                     <Calendar className="w-10 h-10 text-white" strokeWidth={2} />
                   </div>
-                  <h3 className="text-2xl font-display font-bold mb-3 text-white group-hover:text-purple-200 transition-colors duration-300" style={{ fontFamily: '"Playfair Display", serif' }}>
                   <h3 className="text-xl sm:text-2xl font-display font-bold mb-3 text-white group-hover:text-purple-200 transition-colors duration-300" style={{ fontFamily: '"Playfair Display", serif' }}>
                     Discovery Call
                   </h3>
-                  <p className="text-gray-300 text-base font-light" style={{ fontFamily: '"Merriweather", serif' }}>
                   <p className="text-gray-300 text-sm sm:text-base font-light" style={{ fontFamily: '"Merriweather", serif' }}>
                     30 min • Free
                   </p>
