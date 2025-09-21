@@ -130,9 +130,6 @@ function App() {
       {/* Enhanced Features Section */}
       <FeaturesEnhanced />
 
-      {/* AI Voice Showcase */}
-      <AudioShowcase primaryCTA={primaryCTA} />
-
       {/* Testimonials Section */}
       <section id="testimonials" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900/30">
         <div className="max-w-7xl mx-auto">
