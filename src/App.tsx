@@ -37,6 +37,7 @@ import { ContentLibraryPage } from './pages/ContentLibraryPage';
 import { TermsPage } from './pages/TermsPage';
 import { PrivacyPage } from './pages/PrivacyPage';
 import { CaseStudiesPage } from './pages/CaseStudiesPage';
+import GradientButton from './components/ui/button-1';
 
 type PageType = 'home' | 'pricing' | 'services' | 'content' | 'team' | 'socials' | 'terms' | 'privacy' | 'case-studies';
 
@@ -160,32 +161,29 @@ function App() {
       <section className="relative">
         <LampDemo />
         <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 flex flex-col sm:flex-row gap-4">
-          <StarBorder
-            as="button"
+          <GradientButton
             onClick={primaryCTA}
-            color="#8b5cf6"
-            speed="5s"
-            className="bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-500 hover:to-violet-500 text-white font-semibold transition-all duration-300 shadow-2xl shadow-purple-500/40"
+            width="280px"
+            height="60px"
           >
             <div className="flex items-center gap-3 group text-lg">
               <Bot className="w-5 h-5" />
               Book Your Discovery Call
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </div>
-          </StarBorder>
+          </GradientButton>
           
-          <StarBorder
-            as="button"
+          <GradientButton
             onClick={secondaryCTA}
-            color="#ffffff"
-            speed="7s"
-            className="bg-white/5 backdrop-blur-sm border-2 border-white/30 hover:border-purple-400/50 text-white font-semibold transition-all duration-300 shadow-lg hover:shadow-xl"
+            width="280px"
+            height="60px"
+            className="opacity-80 hover:opacity-100"
           >
             <div className="flex items-center gap-3 group text-lg">
               <Code className="w-5 h-5" />
               $250 Deep-Dive with Shreyas
             </div>
-          </StarBorder>
+          </GradientButton>
         </div>
       </section>
     </>
@@ -251,18 +249,16 @@ function App() {
               ? 'shadow-2xl shadow-purple-500/40' 
               : 'shadow-xl shadow-purple-500/30'
           } rounded-full hover:shadow-3xl hover:shadow-purple-500/60`}>
-            <StarBorder
-              as="button"
+            <GradientButton
               onClick={primaryCTA}
-              color="#8b5cf6"
-              speed="4s"
-             className="bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-500 hover:to-violet-500 text-white font-semibold transition-all duration-300 shadow-lg"
+              width="200px"
+              height="50px"
             >
-             <div className="flex items-center justify-center gap-2 text-sm px-6 py-3 whitespace-nowrap">
+             <div className="flex items-center justify-center gap-2 text-sm whitespace-nowrap">
                 <Bot className="w-4 h-4" />
                 <span className="whitespace-nowrap">Book Discovery Call</span>
               </div>
-            </StarBorder>
+            </GradientButton>
           </div>
 
           {/* Mobile menu button */}
@@ -304,19 +300,17 @@ function App() {
                 </button>
               ))}
               <div className="pt-2 pb-1 space-y-2">
-                <SaveButton
-                  text={{
-                    idle: "Book Call",
-                    saving: "Booking...",
-                    saved: "Booked!"
-                  }}
-                  onClick={async () => {
+                <GradientButton
+                  onClick={() => {
                     primaryCTA();
                     setMobileMenuOpen(false);
-                    await new Promise(resolve => setTimeout(resolve, 1000));
                   }}
-                  className="text-sm w-full bg-gradient-to-r from-purple-600 to-violet-600 rounded-xl hover:from-purple-500 hover:to-violet-500 font-bold shadow-lg shadow-purple-500/30"
-                />
+                  width="100%"
+                  height="40px"
+                  className="text-sm"
+                >
+                  Book Call
+                </GradientButton>
               </div>
             </div>
           </div>

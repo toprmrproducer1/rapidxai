@@ -2,6 +2,7 @@ import React from 'react';
 import { Phone, Rocket, Target, Zap, Users, Clock, Star, Shield, TrendingUp, ArrowRight, Bot } from 'lucide-react';
 import { GlowingEffect } from '@/components/ui/glowing-effect';
 import { cn } from '@/lib/utils';
+import GradientButton from '../ui/button-1';
 
 interface GlowingFeaturesSectionProps {
   primaryCTA: () => void;
@@ -97,14 +98,17 @@ export function GlowingFeaturesSection({ primaryCTA }: GlowingFeaturesSectionPro
         </ul>
 
         <div className="text-center">
-          <button
+          <GradientButton
             onClick={primaryCTA}
-            className="premium-button text-xl flex items-center gap-4 mx-auto group px-12 py-6"
+            width="320px"
+            height="70px"
           >
-            <Bot className="w-6 h-6 drop-shadow-lg" strokeWidth={2.5} />
-            Experience RapidXAI
-            <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" strokeWidth={2.5} />
-          </button>
+            <div className="flex items-center gap-4 group text-xl font-bold">
+              <Bot className="w-6 h-6 drop-shadow-lg" strokeWidth={2.5} />
+              Experience RapidXAI
+              <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" strokeWidth={2.5} />
+            </div>
+          </GradientButton>
         </div>
       </div>
     </section>

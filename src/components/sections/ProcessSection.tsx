@@ -2,6 +2,7 @@ import React from 'react';
 import { Bot, Code, ArrowRight, Target, Star, Rocket, TrendingUp, Zap } from 'lucide-react';
 import { StarBorder } from '../ui/star-border';
 import { motion } from 'framer-motion';
+import GradientButton from '../ui/button-1';
 
 interface ProcessSectionProps {
   primaryCTA: () => void;
@@ -156,32 +157,29 @@ export function ProcessSection({ primaryCTA, secondaryCTA }: ProcessSectionProps
           transition={{ duration: 0.8, delay: 0.5 }}
           viewport={{ once: true }}
         >
-          <StarBorder
-            as="button"
+          <GradientButton
             onClick={primaryCTA}
-            color="#8b5cf6"
-            speed="5s"
-            className="bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-500 hover:to-violet-500 text-white font-bold transition-all duration-300 shadow-2xl shadow-purple-500/40 hover:shadow-purple-500/60 hover:scale-105"
+            width="300px"
+            height="60px"
           >
-            <div className="flex items-center gap-4 group text-xl px-4 py-1">
+            <div className="flex items-center gap-3 group text-lg font-semibold">
               <Bot className="w-6 h-6 drop-shadow-lg" strokeWidth={2} />
               Book Your Discovery Call
               <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" strokeWidth={2} />
             </div>
-          </StarBorder>
+          </GradientButton>
           
-          <StarBorder
-            as="button"
+          <GradientButton
             onClick={secondaryCTA}
-            color="#ffffff"
-            speed="6s"
-            className="bg-white/5 backdrop-blur-sm hover:bg-white/15 text-white font-bold transition-all duration-300 border-2 border-white/30 hover:border-purple-400/50 shadow-lg hover:shadow-xl hover:scale-105"
+            width="300px"
+            height="60px"
+            className="opacity-80 hover:opacity-100"
           >
-            <div className="flex items-center gap-4 group text-xl px-4 py-1">
+            <div className="flex items-center gap-3 group text-lg font-semibold">
               <Code className="w-6 h-6 drop-shadow-lg" strokeWidth={2} />
               $250 Deep-Dive with Shreyas
             </div>
-          </StarBorder>
+          </GradientButton>
         </motion.div>
       </div>
     </section>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { CheckCircle, Calendar, ArrowRight } from 'lucide-react';
 import { StarBorder } from '../ui/star-border';
+import GradientButton from '../ui/button-1';
 
 interface BookingSectionProps {
   primaryCTA: () => void;
@@ -60,34 +61,31 @@ export function BookingSection({ primaryCTA, secondaryCTA }: BookingSectionProps
 
             <div className="space-y-3 mb-6">
               {timeSlots.map((time, index) => (
-                <StarBorder
-                  as="button"
+                <GradientButton
                   key={index}
                   onClick={primaryCTA}
-                  color="#8b5cf6"
-                  speed="8s"
-                  className="w-full bg-gray-800/50 hover:bg-purple-600/20 border border-gray-700 hover:border-purple-500 transition-all duration-200 text-white"
+                  width="100%"
+                  height="50px"
+                  className="opacity-90 hover:opacity-100"
                 >
-                  <div className="text-left p-2">
+                  <div className="text-center font-medium">
                     {time}
                   </div>
-                </StarBorder>
+                </GradientButton>
               ))}
             </div>
 
-            <StarBorder
-              as="button"
+            <GradientButton
               onClick={primaryCTA}
-              color="#8b5cf6"
-              speed="4s"
-              className="w-full bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-500 hover:to-violet-500 text-white font-semibold transition-all duration-300 shadow-lg"
+              width="100%"
+              height="60px"
             >
               <div className="flex items-center justify-center gap-3 group">
                 <Calendar className="w-5 h-5" />
                 Open Full Calendar
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </div>
-            </StarBorder>
+            </GradientButton>
           </div>
         </div>
       </div>

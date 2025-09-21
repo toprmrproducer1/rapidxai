@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Bot, ArrowRight, Menu, X } from 'lucide-react';
 import { Logo } from './logo';
 import { StarBorder } from './star-border';
+import GradientButton from './button-1';
 
 interface FeatureItemProps {
   name: string;
@@ -333,30 +334,27 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ primaryCTA, secondaryC
             variants={itemVariants}
             className="flex flex-col sm:flex-row gap-8 mb-20"
           >
-            <StarBorder
-              as="button"
+            <GradientButton
               onClick={primaryCTA}
-              color="#8b5cf6"
-              speed="4s"
-              className="bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-500 hover:to-violet-500 text-white font-bold transition-all duration-300 shadow-2xl shadow-purple-500/40 hover:shadow-purple-500/60 hover:scale-105"
+              width="320px"
+              height="60px"
             >
-              <div className="flex items-center gap-4 group text-xl px-10 py-2">
+              <div className="flex items-center gap-3 text-lg font-semibold">
                 <Bot className="w-6 h-6 drop-shadow-lg" strokeWidth={2} />
                 <span>Book Discovery Call</span>
                 <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" strokeWidth={2} />
               </div>
-            </StarBorder>
-            <StarBorder
-              as="button"
+            </GradientButton>
+            <GradientButton
               onClick={secondaryCTA}
-              color="#ffffff"
-              speed="6s"
-              className="bg-white/5 backdrop-blur-sm hover:bg-white/15 text-white font-bold transition-all duration-300 border-2 border-white/30 hover:border-purple-400/50 shadow-lg hover:shadow-xl hover:scale-105"
+              width="320px"
+              height="60px"
+              className="opacity-80 hover:opacity-100"
             >
-              <div className="text-xl px-10 py-2">
+              <div className="text-lg font-semibold">
                 $250 Deep-Dive with Shreyas
               </div>
-            </StarBorder>
+            </GradientButton>
           </motion.div>
         </motion.div>
       </div>

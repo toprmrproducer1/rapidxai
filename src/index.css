@@ -327,3 +327,36 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+/* Gradient Button Styles */
+:root {
+  --color-background: #0f0f23;
+  --color-text: #ffffff;
+}
+
+.rotatingGradient {
+  background: conic-gradient(
+    from var(--r),
+    #8b5cf6 0deg,
+    #a855f7 60deg,
+    #c084fc 120deg,
+    #e879f9 180deg,
+    #f0abfc 240deg,
+    #8b5cf6 300deg,
+    #8b5cf6 360deg
+  );
+  animation: rotateGradient 3s linear infinite;
+}
+
+@keyframes rotateGradient {
+  0% {
+    --r: 0deg;
+  }
+  100% {
+    --r: 360deg;
+  }
+}
+
+.rotatingGradient:hover::after {
+  opacity: 0.8;
+}

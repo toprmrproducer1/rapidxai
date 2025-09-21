@@ -1,5 +1,6 @@
 import React from 'react';
 import { ChevronDown, ChevronUp, Bot, ArrowRight } from 'lucide-react';
+import GradientButton from '../ui/button-1';
 
 interface FAQSectionProps {
   openFaq: number | null;
@@ -66,14 +67,17 @@ export function FAQSection({ openFaq, toggleFaq, primaryCTA }: FAQSectionProps) 
         </div>
 
         <div className="text-center">
-          <button
+          <GradientButton
             onClick={primaryCTA}
-            className="premium-button text-lg flex items-center gap-3 mx-auto group"
+            width="280px"
+            height="60px"
           >
-            <Bot className="w-5 h-5" />
-            Book Your Discovery Call
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </button>
+            <div className="flex items-center gap-3 group text-lg font-semibold">
+              <Bot className="w-5 h-5" />
+              Book Your Discovery Call
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </GradientButton>
         </div>
       </div>
     </section>
