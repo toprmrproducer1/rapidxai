@@ -1,7 +1,7 @@
 import React from 'react';
 import { CheckCircle, Calendar, ArrowRight } from 'lucide-react';
 import { StarBorder } from '../ui/star-border';
-import GradientButton from '../ui/button-1';
+import PremiumButton from '../ui/button-premium';
 
 interface BookingSectionProps {
   primaryCTA: () => void;
@@ -61,31 +61,34 @@ export function BookingSection({ primaryCTA, secondaryCTA }: BookingSectionProps
 
             <div className="space-y-3 mb-6">
               {timeSlots.map((time, index) => (
-                <GradientButton
+                <PremiumButton
                   key={index}
                   onClick={primaryCTA}
                   width="100%"
                   height="50px"
-                  className="opacity-90 hover:opacity-100"
+                  variant="secondary"
+                  size="sm"
                 >
                   <div className="text-center font-medium">
                     {time}
                   </div>
-                </GradientButton>
+                </PremiumButton>
               ))}
             </div>
 
-            <GradientButton
+            <PremiumButton
               onClick={primaryCTA}
               width="100%"
               height="60px"
+              variant="primary"
+              size="md"
             >
               <div className="flex items-center justify-center gap-3 group">
                 <Calendar className="w-5 h-5" />
                 Open Full Calendar
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </div>
-            </GradientButton>
+            </PremiumButton>
           </div>
         </div>
       </div>

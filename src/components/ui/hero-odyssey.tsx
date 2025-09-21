@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Bot, ArrowRight, Menu, X } from 'lucide-react';
 import { Logo } from './logo';
 import { StarBorder } from './star-border';
-import GradientButton from './button-1';
+import PremiumButton from './button-premium';
 
 interface FeatureItemProps {
   name: string;
@@ -334,27 +334,30 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ primaryCTA, secondaryC
             variants={itemVariants}
             className="flex flex-col sm:flex-row gap-8 mb-20"
           >
-            <GradientButton
+            <PremiumButton
               onClick={primaryCTA}
               width="320px"
               height="60px"
+              variant="primary"
+              size="lg"
             >
               <div className="flex items-center gap-3 text-lg font-semibold">
                 <Bot className="w-6 h-6 drop-shadow-lg" strokeWidth={2} />
                 <span>Book Discovery Call</span>
                 <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" strokeWidth={2} />
               </div>
-            </GradientButton>
-            <GradientButton
+            </PremiumButton>
+            <PremiumButton
               onClick={secondaryCTA}
               width="320px"
               height="60px"
-              className="opacity-80 hover:opacity-100"
+              variant="outline"
+              size="lg"
             >
               <div className="text-lg font-semibold">
                 $250 Deep-Dive with Shreyas
               </div>
-            </GradientButton>
+            </PremiumButton>
           </motion.div>
         </motion.div>
       </div>

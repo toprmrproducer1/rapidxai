@@ -2,7 +2,7 @@ import React from 'react';
 import { Bot, Code, ArrowRight, Target, Star, Rocket, TrendingUp, Zap } from 'lucide-react';
 import { StarBorder } from '../ui/star-border';
 import { motion } from 'framer-motion';
-import GradientButton from '../ui/button-1';
+import PremiumButton from '../ui/button-premium';
 
 interface ProcessSectionProps {
   primaryCTA: () => void;
@@ -157,29 +157,32 @@ export function ProcessSection({ primaryCTA, secondaryCTA }: ProcessSectionProps
           transition={{ duration: 0.8, delay: 0.5 }}
           viewport={{ once: true }}
         >
-          <GradientButton
+          <PremiumButton
             onClick={primaryCTA}
             width="300px"
             height="60px"
+            variant="primary"
+            size="md"
           >
             <div className="flex items-center gap-3 group text-lg font-semibold">
               <Bot className="w-6 h-6 drop-shadow-lg" strokeWidth={2} />
               Book Your Discovery Call
               <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" strokeWidth={2} />
             </div>
-          </GradientButton>
+          </PremiumButton>
           
-          <GradientButton
+          <PremiumButton
             onClick={secondaryCTA}
             width="300px"
             height="60px"
-            className="opacity-80 hover:opacity-100"
+            variant="outline"
+            size="md"
           >
             <div className="flex items-center gap-3 group text-lg font-semibold">
               <Code className="w-6 h-6 drop-shadow-lg" strokeWidth={2} />
               $250 Deep-Dive with Shreyas
             </div>
-          </GradientButton>
+          </PremiumButton>
         </motion.div>
       </div>
     </section>
