@@ -17,39 +17,7 @@ export function Footer({ primaryCTA, setCurrentPage }: FooterProps) {
           </div>
           
           <div className="flex justify-center md:justify-end">
-            <button
-              onClick={primaryCTA}
-              className="bg-gradient-to-r from-purple-600 to-violet-600 text-white px-6 py-2 rounded-lg text-sm font-medium hover:scale-105 transition-transform"
-            >
-              Book Call
-            </button>
-          </div>
-        </div>
-        
-        <div className="mt-6 pt-6 border-t border-gray-800 text-center text-gray-400 text-sm">
-          <div className="flex flex-col items-center gap-3">
-            <div className="flex flex-wrap justify-center gap-4 text-xs">
-              <button onClick={() => setCurrentPage('terms')} className="text-gray-400 hover:text-purple-400 transition-colors">
-                Terms
-              </button>
-              <button onClick={() => setCurrentPage('privacy')} className="text-gray-400 hover:text-purple-400 transition-colors">
-                Privacy
-              </button>
-              <a href="tel:+919307512816" className="text-gray-400 hover:text-purple-400 transition-colors">
-                +91 9307512816
-              </a>
-            </div>
-            <div className="flex items-center justify-center gap-2">
-              <Logo size="sm" showText={false} />
-              <p className="font-mono text-xs">© 2025 RapidXAI</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-  );
-}
-
+            <SaveButton
               text={{
                 idle: "Book Discovery Call",
                 saving: "Booking...",
