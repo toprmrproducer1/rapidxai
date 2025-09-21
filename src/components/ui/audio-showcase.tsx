@@ -112,10 +112,15 @@ export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
     } else {
       if (currentTrack !== trackId) {
         audioRef.current.src = track.url;
+        audioRef.current.load(); // Force reload of new audio source
         setCurrentTrack(trackId);
         setCurrentTime(0);
       }
-      audioRef.current.play();
+      audioRef.current.play().catch(error => {
+        console.error('Audio playback failed:', error);
+        // Handle autoplay restrictions
+        setIsPlaying(false);
+      });
       setIsPlaying(true);
     }
   };
@@ -285,7 +290,7 @@ export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
                   className={`w-full p-6 rounded-2xl transition-all duration-300 flex items-center justify-center gap-4 group/play ${
                     currentTrack === track.id && isPlaying
                       ? 'bg-gradient-to-r from-purple-600 to-violet-600 text-white shadow-2xl shadow-purple-500/40'
-                      : 'bg-gray-800/50 hover:bg-gradient-to-r hover:from-purple-600/50 hover:to-violet-600/50 text-gray-300 hover:text-white border border-gray-700/50 hover:border-purple-500/50'
+                      : 'bg-gray-800/50 hover:bg-gradient-to-r hover:from-purple-600/50 hover:to-violet-600/50 text-gray-300 hover:text-white border border-gray-700/50 hover:border-purple-500/50 cursor-pointer'
                   }`}
                 >
                   {currentTrack === track.id && isPlaying ? (
@@ -350,7 +355,14 @@ export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
         </motion.div>
 
         {/* Audio Element */}
-        <audio ref={audioRef} preload="metadata" />
+        <audio 
+          ref={audioRef} 
+          preload="metadata" 
+          crossOrigin="anonymous"
+          onLoadStart={() => console.log('Audio loading started')}
+          onCanPlay={() => console.log('Audio can play')}
+          onError={(e) => console.error('Audio error:', e)}
+        />
 
         {/* Bottom CTA */}
         <motion.div 
