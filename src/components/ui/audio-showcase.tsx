@@ -40,7 +40,7 @@ export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
       language: 'Hindi + English',
       scenario: 'Inbound property inquiry',
       outcome: 'Qualified lead + appointment booked',
-      url: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav',
+      url: 'https://www2.cs.uic.edu/~i101/SoundFiles/BabyElephantWalk60.wav',
       duration: '2:45',
       icon: Phone,
       gradient: 'from-emerald-500 to-teal-500'
@@ -52,7 +52,7 @@ export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
       language: 'English',
       scenario: 'Callback to warm lead',
       outcome: 'Demo scheduled',
-      url: 'https://www.soundjay.com/misc/sounds/bell-ringing-04.wav',
+      url: 'https://www2.cs.uic.edu/~i101/SoundFiles/CantinaBand60.wav',
       duration: '3:12',
       icon: Target,
       gradient: 'from-blue-500 to-cyan-500'
@@ -64,7 +64,7 @@ export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
       language: 'Hindi + English',
       scenario: 'Customer support inquiry',
       outcome: 'Issue resolved + satisfaction',
-      url: 'https://www.soundjay.com/misc/sounds/bell-ringing-03.wav',
+      url: 'https://www2.cs.uic.edu/~i101/SoundFiles/ImperialMarch60.wav',
       duration: '4:08',
       icon: Globe,
       gradient: 'from-purple-500 to-violet-500'
@@ -76,7 +76,7 @@ export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
       language: 'English',
       scenario: 'Appointment reminder call',
       outcome: 'Confirmed + calendar updated',
-      url: 'https://www.soundjay.com/misc/sounds/bell-ringing-02.wav',
+      url: 'https://www2.cs.uic.edu/~i101/SoundFiles/StarWars60.wav',
       duration: '1:58',
       icon: Users,
       gradient: 'from-orange-500 to-red-500'
@@ -145,30 +145,50 @@ export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
         setIsLoading(true);
         audioRef.current.src = track.url;
         
-        // Add crossorigin attribute for better compatibility
-        audioRef.current.crossOrigin = "anonymous";
+        // Reset audio element properties
+        audioRef.current.volume = volume;
+        audioRef.current.muted = isMuted;
+        audioRef.current.playbackRate = playbackSpeed;
         
-        // Wait for the audio to be ready
-        await new Promise((resolve, reject) => {
-          const handleCanPlay = () => {
-            audioRef.current?.removeEventListener('canplay', handleCanPlay);
-            audioRef.current?.removeEventListener('error', handleError);
-            resolve(void 0);
+        // Load the audio
+        audioRef.current.load();
+        
+        // Wait for audio to be ready to play
+        await new Promise<void>((resolve, reject) => {
+          const audio = audioRef.current!;
+          
+          const onCanPlay = () => {
+            audio.removeEventListener('canplay', onCanPlay);
+            audio.removeEventListener('error', onError);
+            setIsLoading(false);
+            resolve();
           };
           
-          const handleError = (e: Event) => {
-            audioRef.current?.removeEventListener('canplay', handleCanPlay);
-            audioRef.current?.removeEventListener('error', handleError);
-            reject(e);
+          const onError = () => {
+            audio.removeEventListener('canplay', onCanPlay);
+            audio.removeEventListener('error', onError);
+            setIsLoading(false);
+            reject(new Error('Audio failed to load'));
           };
           
-          audioRef.current?.addEventListener('canplay', handleCanPlay);
-          audioRef.current?.addEventListener('error', handleError);
-          audioRef.current?.load();
+          audio.addEventListener('canplay', onCanPlay);
+          audio.addEventListener('error', onError);
+          
+          // Timeout after 10 seconds
+          setTimeout(() => {
+            audio.removeEventListener('canplay', onCanPlay);
+            audio.removeEventListener('error', onError);
+            reject(new Error('Audio loading timeout'));
+          }, 10000);
         });
       }
 
-      await audioRef.current.play();
+      // Attempt to play
+      const playPromise = audioRef.current.play();
+      if (playPromise !== undefined) {
+        await playPromise;
+      }
+      
       setIsPlaying(true);
       setIsLoading(false);
     } catch (err: any) {
@@ -177,15 +197,15 @@ export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
       
       let errorMessage = 'Unable to play audio. ';
       if (err.name === 'NotAllowedError') {
-        errorMessage += 'Please interact with the page first, then try playing audio (browser autoplay policy).';
+        errorMessage += 'Please click anywhere on the page first to enable audio, then try again.';
       } else if (err.name === 'NotSupportedError') {
         errorMessage += 'Audio format not supported by your browser.';
       } else if (err.name === 'AbortError') {
         errorMessage += 'Audio loading was interrupted.';
-      } else if (err.message?.includes('CORS')) {
-        errorMessage += 'Audio file cannot be loaded due to CORS restrictions.';
+      } else if (err.message?.includes('timeout')) {
+        errorMessage += 'Audio took too long to load. Please check your internet connection.';
       } else {
-        errorMessage += `${err.message}. Try refreshing the page.`;
+        errorMessage += 'Please try again or refresh the page.';
       }
       
       setError(errorMessage);
@@ -381,7 +401,7 @@ export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
                   className={`w-full p-6 rounded-2xl transition-all duration-300 flex items-center justify-center gap-4 group/play ${
                     currentTrack === track.id && isPlaying
                       ? 'bg-gradient-to-r from-purple-600 to-violet-600 text-white shadow-2xl shadow-purple-500/40'
-                      : 'bg-gray-800/50 hover:bg-gradient-to-r hover:from-purple-600/50 hover:to-violet-600/50 text-gray-300 hover:text-white border border-gray-700/50 hover:border-purple-500/50 cursor-pointer hover:scale-[1.02]'
+                      : 'bg-gray-800/50 hover:bg-gradient-to-r hover:from-purple-600/50 hover:to-violet-600/50 text-gray-300 hover:text-white border border-gray-700/50 hover:border-purple-500/50 hover:scale-[1.02]'
                   } ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
                 >
                   {isLoading ? (
@@ -392,7 +412,7 @@ export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
                     <Play className="w-6 h-6 group-hover/play:scale-110 transition-transform" />
                   )}
                   <span className="text-lg font-light" style={{ fontFamily: '"Fraunces", serif', fontWeight: 300 }}>
-                    {isLoading ? 'Loading...' : currentTrack === track.id && isPlaying ? 'Pause Demo' : 'Play Demo'}
+                    {isLoading ? 'Loading Audio...' : currentTrack === track.id && isPlaying ? 'Pause Demo' : 'Play Demo Audio'}
                   </span>
                 </button>
 
@@ -500,10 +520,10 @@ export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
         {/* Audio Element */}
         <audio 
           ref={audioRef} 
-          preload="metadata"
+          preload="none"
           controls={false}
           playsInline
-          muted={false}
+          crossOrigin="anonymous"
         />
 
         {/* Bottom CTA */}
@@ -517,11 +537,11 @@ export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
           <div className="inline-flex items-center gap-4 bg-gradient-to-r from-gray-900/80 to-gray-800/80 backdrop-blur-xl rounded-3xl px-12 py-6 border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300 group mb-12">
             <div className="flex items-center gap-3">
               <div className="w-4 h-4 bg-green-400 rounded-full animate-pulse"></div>
-              <span className="text-green-400 font-light text-sm tracking-wider uppercase">DEMO RECORDINGS</span>
+              <span className="text-green-400 font-light text-sm tracking-wider uppercase">AUDIO DEMO</span>
             </div>
             <div className="w-px h-8 bg-gray-600"></div>
             <p className="text-gray-300 font-extralight text-lg" style={{ fontFamily: '"Instrument Serif", serif' }}>
-              Note: Demo audio files for testing playback functionality
+              Demo audio for testing • Real AI voice recordings on discovery call
             </p>
           </div>
 
