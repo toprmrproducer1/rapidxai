@@ -249,20 +249,20 @@ function App() {
             </div>
           </div>
 
-          {/* CTA Button Pill - Only Book Discovery Call */}
-          <div className={`relative transition-all duration-300 group hover:scale-105 active:scale-95 ${
+          {/* CTA Button Pill - Only Book Discovery Call - Hidden on mobile */}
+          <div className={`hidden lg:block relative transition-all duration-300 group hover:scale-105 active:scale-95 ${
             isScrolled 
               ? 'shadow-2xl shadow-purple-500/40' 
               : 'shadow-xl shadow-purple-500/30'
           } rounded-full hover:shadow-3xl hover:shadow-purple-500/60`}>
             <GradientButton
-              width="200px"
-              height="50px"
+              width="180px"
+              height="45px"
               onClick={primaryCTA}
             >
              <div className="flex items-center justify-center gap-2 text-sm whitespace-nowrap text-white">
                 <Bot className="w-4 h-4" />
-                <span className="whitespace-nowrap">Book Discovery Call</span>
+                <span className="whitespace-nowrap">Book Call</span>
               </div>
             </GradientButton>
           </div>
@@ -306,16 +306,15 @@ function App() {
                 </button>
               ))}
               <div className="pt-2 pb-1 space-y-2">
-                <GradientButton
-                  width="100%"
-                  height="40px"
+                <button
                   onClick={() => {
                     primaryCTA();
                     setMobileMenuOpen(false);
                   }}
+                  className="w-full bg-gradient-to-r from-purple-600 to-violet-600 text-white py-3 rounded-xl font-medium"
                 >
-                  <span className="text-white">Book Call</span>
-                </GradientButton>
+                  Book Call
+                </button>
               </div>
             </div>
           </div>

@@ -292,7 +292,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ primaryCTA, secondaryC
         >
           <motion.h1
             variants={itemVariants}
-            className="text-6xl md:text-8xl lg:text-9xl font-display font-light mb-8 tracking-tight leading-[0.85] drop-shadow-2xl"
+            className="text-4xl md:text-6xl lg:text-7xl font-display font-light mb-6 tracking-tight leading-[0.9] drop-shadow-2xl"
             style={{ fontFamily: '"Playfair Display", "Cormorant Garamond", Georgia, serif', letterSpacing: '-0.03em', fontWeight: 300 }}
           >
             Build Faster.
@@ -300,59 +300,33 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ primaryCTA, secondaryC
 
           <motion.h2
             variants={itemVariants}
-            className="text-4xl md:text-6xl lg:text-7xl font-display font-light bg-gradient-to-r from-gray-100 via-purple-200 to-gray-300 bg-clip-text text-transparent mb-12 tracking-tight leading-[0.85] drop-shadow-lg"
+            className="text-2xl md:text-4xl lg:text-5xl font-display font-light bg-gradient-to-r from-gray-100 via-purple-200 to-gray-300 bg-clip-text text-transparent mb-8 tracking-tight leading-[0.9] drop-shadow-lg"
             style={{ fontFamily: '"Playfair Display", "Cormorant Garamond", Georgia, serif', letterSpacing: '-0.03em', fontWeight: 300 }}
           >
             Sell Smarter.
           </motion.h2>
 
-          <motion.h3
-            variants={itemVariants}
-            className="text-3xl md:text-5xl lg:text-6xl font-display font-light text-gray-200 mb-12 tracking-tight leading-[0.85] drop-shadow-lg"
-            style={{ fontFamily: '"Playfair Display", "Cormorant Garamond", Georgia, serif', letterSpacing: '-0.03em', fontWeight: 300 }}
-          >
-            Sleep Better.
-          </motion.h3>
-
           <motion.p
             variants={itemVariants}
-            className="text-gray-300 mb-8 max-w-5xl text-xl md:text-2xl leading-relaxed font-elegant font-light tracking-wide drop-shadow-sm"
+            className="text-gray-300 mb-6 max-w-3xl text-lg md:text-xl leading-relaxed font-elegant font-light tracking-wide drop-shadow-sm"
             style={{ fontFamily: '"Crimson Text", "Cormorant Garamond", Georgia, serif', lineHeight: '1.8', letterSpacing: '0.01em' }}
           >
-            AI Voice agents that handle the grind 24/7 + MVP/Micro-SaaS that validates your market before you burn budget. Led by Shreyas Raj—we turn "we should" into "we shipped."
-          </motion.p>
-
-          <motion.p
-            variants={itemVariants}
-            className="text-purple-300 mb-16 max-w-4xl text-lg md:text-xl leading-relaxed font-elegant font-light italic drop-shadow-sm"
-            style={{ fontFamily: '"Crimson Text", "Cormorant Garamond", Georgia, serif', lineHeight: '1.9', letterSpacing: '0.005em' }}
-          >
-            Worst case: you leave with an action plan. Best case: you add a 24/7 closer to your team.
+            AI Voice agents that work 24/7 + MVPs that validate fast. We turn "we should" into "we shipped."
           </motion.p>
 
           <motion.div
             variants={itemVariants}
-            className="flex flex-col sm:flex-row gap-8 mb-20"
+            className="flex flex-col gap-4 mb-16"
           >
             <GradientButton
-              width="320px"
-              height="60px"
+              width="280px"
+              height="55px"
               onClick={primaryCTA}
             >
-              <div className="flex items-center gap-3 text-lg font-semibold text-white">
-                <Bot className="w-6 h-6 drop-shadow-lg" strokeWidth={2} />
+              <div className="flex items-center gap-3 text-base font-semibold text-white">
+                <Bot className="w-5 h-5 drop-shadow-lg" strokeWidth={2} />
                 <span>Book Discovery Call</span>
-                <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" strokeWidth={2} />
-              </div>
-            </GradientButton>
-            <GradientButton
-              width="320px"
-              height="60px"
-              onClick={secondaryCTA}
-              className="border-2 border-purple-500/50 bg-transparent"
-            >
-              <div className="text-lg font-semibold text-white">
-                $250 Deep-Dive with Shreyas
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" strokeWidth={2} />
               </div>
             </GradientButton>
           </motion.div>
