@@ -2,7 +2,7 @@ import React from 'react';
 import { Bot, Code, ArrowRight, Target, Star, Rocket, TrendingUp, Zap } from 'lucide-react';
 import { StarBorder } from '../ui/star-border';
 import { motion } from 'framer-motion';
-import GradientButton from '../components/ui/button-1.tsx';
+import GradientButton from '../components/ui/button-1';
 
 interface ProcessSectionProps {
   primaryCTA: () => void;
