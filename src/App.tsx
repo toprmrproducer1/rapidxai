@@ -131,6 +131,13 @@ function App() {
       {/* Enhanced Features Section */}
       <FeaturesEnhanced />
 
+      {/* Services Section with Animated Card */}
+      <ServicesSection 
+        activeService={activeService}
+        setActiveService={setActiveService}
+        scrollToBooking={scrollToBooking}
+      />
+
       {/* How We Work */}
       <ProcessSection primaryCTA={primaryCTA} secondaryCTA={secondaryCTA} />
 
