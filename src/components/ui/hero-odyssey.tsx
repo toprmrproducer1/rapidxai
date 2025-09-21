@@ -4,6 +4,7 @@ import { Bot, ArrowRight, Menu, X } from 'lucide-react';
 import { Logo } from './logo';
 import { StarBorder } from './star-border';
 import GradientButton from './button-1';
+import ShaderBackground from './shader-background';
 
 interface FeatureItemProps {
   name: string;
@@ -262,6 +263,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ primaryCTA, secondaryC
 
   return (
     <div className="relative w-full bg-gray-950 text-white overflow-hidden">
+      {/* Shader Background */}
+      <ShaderBackground />
+      
       {/* Main container with more space */}
       <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 h-screen">
         <motion.div
@@ -353,25 +357,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ primaryCTA, secondaryC
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
-        className="absolute inset-0 z-0 overflow-hidden"
+        className="absolute inset-0 z-0 overflow-hidden opacity-30"
       >
-        <div className="absolute inset-0 bg-gray-950/80"></div>
+        <div className="absolute inset-0 bg-gray-950/60"></div>
 
-        {/* Purple glowing circle */}
-        <div className="absolute top-[55%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-gradient-to-b from-purple-500/20 to-violet-600/10 blur-3xl"></div>
-        
-        <div className="absolute top-[5%] w-[100%] left-1/2 transform -translate-x-1/2 h-[90%] opacity-60">
-          <Lightning
-            hue={lightningHue}
-            xOffset={0}
-            speed={1.6}
-            intensity={0.6}
-            size={2}
-          />
-        </div>
+        {/* Silver glowing circle */}
+        <div className="absolute top-[55%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-gradient-to-b from-gray-400/10 to-gray-600/5 blur-3xl"></div>
 
-        {/* Purple planet/sphere */}
-        <div className="z-10 absolute top-[75%] left-1/2 transform -translate-x-1/2 w-[600px] h-[600px] backdrop-blur-3xl rounded-full bg-[radial-gradient(circle_at_25%_90%,_#7c3aed_15%,_#1e1b4b_70%,_#0f0f23_100%)]"></div>
+        {/* Silver sphere */}
+        <div className="z-10 absolute top-[75%] left-1/2 transform -translate-x-1/2 w-[600px] h-[600px] backdrop-blur-3xl rounded-full bg-[radial-gradient(circle_at_25%_90%,_#6b7280_15%,_#374151_70%,_#111827_100%)]"></div>
       </motion.div>
     </div>
   );
