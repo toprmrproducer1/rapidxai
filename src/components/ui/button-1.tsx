@@ -61,6 +61,7 @@ const GradientButton = ({
     #f3f4f6 240deg,
     #374151 300deg,
     #374151 360deg
+  )
   );
 };
 
