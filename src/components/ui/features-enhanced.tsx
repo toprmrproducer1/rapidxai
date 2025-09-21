@@ -144,5 +144,4 @@ export function FeaturesEnhanced() {
         </section>
     )
 }
-    )
 }

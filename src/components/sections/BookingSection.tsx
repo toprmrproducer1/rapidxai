@@ -110,7 +110,6 @@ export function BookingSection({ primaryCTA, secondaryCTA }: BookingSectionProps
                     <div className="absolute -inset-1 bg-purple-500/10 rounded-xl blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </div>
                   <p className="text-base text-gray-300 group-hover:text-gray-200 transition-colors font-light leading-relaxed" style={{ fontFamily: '"Merriweather", serif' }}>
-                  <p className="text-sm sm:text-base text-gray-300 group-hover:text-gray-200 transition-colors font-light leading-relaxed" style={{ fontFamily: '"Merriweather", serif' }}>
                     {item}
                   </p>
                 </motion.div>
