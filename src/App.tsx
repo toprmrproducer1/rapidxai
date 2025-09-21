@@ -41,6 +41,7 @@ import { PrivacyPage } from './pages/PrivacyPage';
 import { CaseStudiesPage } from './pages/CaseStudiesPage';
 import GradientButton from './components/ui/button-1';
 import { AudioShowcase } from './components/ui/audio-showcase';
+import { TestimonialsSection } from './components/ui/testimonials-section';
 
 type PageType = 'home' | 'pricing' | 'services' | 'content' | 'team' | 'socials' | 'terms' | 'privacy' | 'case-studies';
 
@@ -130,25 +131,17 @@ function App() {
       {/* Enhanced Features Section */}
       <FeaturesEnhanced />
 
-      {/* Testimonials Section */}
-      <section id="testimonials" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900/30">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-6">What Our Clients Say</h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Don't take our word for it—hear from founders and teams who've transformed their businesses with RapidXAI.
-            </p>
-          </div>
-          
-          <StaggerTestimonials />
-        </div>
-      </section>
-
       {/* How We Work */}
       <ProcessSection primaryCTA={primaryCTA} secondaryCTA={secondaryCTA} />
 
       {/* Interactive Section with Robot */}
       <InteractiveSection primaryCTA={primaryCTA} />
+
+      {/* Audio Showcase */}
+      <AudioShowcase primaryCTA={primaryCTA} />
+
+      {/* New Testimonials Section */}
+      <TestimonialsSection />
 
       {/* Live Booking */}
       <BookingSection primaryCTA={primaryCTA} secondaryCTA={secondaryCTA} />
