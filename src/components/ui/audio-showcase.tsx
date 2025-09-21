@@ -107,43 +107,69 @@ export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
     const track = tracks.find(t => t.id === trackId);
     if (!track || !audioRef.current) return;
 
-    console.log('Attempting to play track:', track.title, 'URL:', track.url);
+    console.log('🎵 Attempting to play track:', track.title);
+    console.log('🔗 Audio URL:', track.url);
 
     if (currentTrack === trackId && isPlaying) {
       audioRef.current.pause();
       setIsPlaying(false);
-      console.log('Paused current track');
+      console.log('⏸️ Paused current track');
     } else {
       if (currentTrack !== trackId) {
-        console.log('Loading new track:', track.url);
+        console.log('🔄 Loading new track...');
         audioRef.current.src = track.url;
         audioRef.current.load(); // Force reload of new audio source
         setCurrentTrack(trackId);
         setCurrentTime(0);
       }
       
-      // Add a small delay to ensure the audio is loaded
-      setTimeout(() => {
-        if (audioRef.current) {
-          audioRef.current.play()
-            .then(() => {
-              console.log('Audio playback started successfully');
-              setIsPlaying(true);
-            })
-            .catch(error => {
-              console.error('Audio playback failed:', error);
-              console.error('Error details:', {
-                name: error.name,
-                message: error.message,
-                code: error.code
-              });
-              setIsPlaying(false);
-              
-              // Show user-friendly error
-              alert(`Unable to play audio: ${error.message}. Please try clicking the play button again or check your browser's audio settings.`);
-            });
+      // Try to play with better error handling
+      const attemptPlay = async () => {
+        if (!audioRef.current) return;
+        
+        try {
+          console.log('🎯 Attempting to play audio...');
+          await audioRef.current.play();
+          console.log('✅ Audio playback started successfully');
+          setIsPlaying(true);
+        } catch (error: any) {
+          console.error('❌ Audio playback failed:', error);
+          console.error('📊 Error details:', {
+            name: error.name,
+            message: error.message,
+            code: error.code,
+            audioSrc: audioRef.current.src,
+            readyState: audioRef.current.readyState,
+            networkState: audioRef.current.networkState
+          });
+          setIsPlaying(false);
+          
+          // More specific error messages
+          let errorMessage = 'Unable to play audio. ';
+          if (error.name === 'NotAllowedError') {
+            errorMessage += 'Please interact with the page first (browser autoplay policy).';
+          } else if (error.name === 'NotSupportedError') {
+            errorMessage += 'Audio format not supported by your browser.';
+          } else if (error.name === 'AbortError') {
+            errorMessage += 'Audio loading was interrupted.';
+          } else {
+            errorMessage += `${error.message}. Try refreshing the page.`;
+          }
+          
+          alert(errorMessage);
         }
-      }, 100);
+      };
+      
+      // Wait for audio to be ready
+      if (audioRef.current.readyState >= 2) {
+        attemptPlay();
+      } else {
+        const handleCanPlay = () => {
+          attemptPlay();
+          audioRef.current?.removeEventListener('canplay', handleCanPlay);
+        };
+        audioRef.current.addEventListener('canplay', handleCanPlay);
+      }
     }
   };
 
@@ -329,9 +355,8 @@ export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
                   className={`w-full p-6 rounded-2xl transition-all duration-300 flex items-center justify-center gap-4 group/play ${
                     currentTrack === track.id && isPlaying
                       ? 'bg-gradient-to-r from-purple-600 to-violet-600 text-white shadow-2xl shadow-purple-500/40'
-                      : 'bg-gray-800/50 hover:bg-gradient-to-r hover:from-purple-600/50 hover:to-violet-600/50 text-gray-300 hover:text-white border border-gray-700/50 hover:border-purple-500/50'
+                      : 'bg-gray-800/50 hover:bg-gradient-to-r hover:from-purple-600/50 hover:to-violet-600/50 text-gray-300 hover:text-white border border-gray-700/50 hover:border-purple-500/50 cursor-pointer'
                   }`}
-                  style={{ cursor: 'pointer' }}
                 >
                   {currentTrack === track.id && isPlaying ? (
                     <Pause className="w-6 h-6 group-hover/play:scale-110 transition-transform" />
@@ -340,6 +365,11 @@ export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
                   )}
                   <span className="text-lg font-light" style={{ fontFamily: '"Fraunces", serif', fontWeight: 300 }}>
                     {currentTrack === track.id && isPlaying ? 'Pause' : 'Listen'}
+                  </span>
+                  
+                  {/* Test Audio Button - for debugging */}
+                  <span className="text-xs text-gray-500 ml-2">
+                    (Click to test)
                   </span>
                 </button>
 
@@ -445,31 +475,42 @@ export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
         {/* Audio Element */}
         <audio 
           ref={audioRef} 
-          preload="auto"
+          preload="metadata"
           crossOrigin="anonymous"
           controls={false}
           playsInline
-          onLoadStart={() => console.log('Audio loading started')}
-          onCanPlay={() => console.log('Audio can play')}
-          onCanPlayThrough={() => console.log('Audio can play through')}
+          onLoadStart={() => console.log('🔄 Audio loading started')}
+          onCanPlay={() => console.log('✅ Audio can play')}
+          onCanPlayThrough={() => console.log('✅ Audio can play through')}
           onError={(e) => {
-            console.error('Audio error event:', e);
+            console.error('❌ Audio error event:', e);
             const audio = e.target as HTMLAudioElement;
-            console.error('Audio error details:', {
+            console.error('📊 Audio error details:', {
               error: audio.error,
+              errorCode: audio.error?.code,
+              errorMessage: audio.error?.message,
               networkState: audio.networkState,
               readyState: audio.readyState,
               src: audio.src
             });
+            
+            // Try to provide helpful error message
+            if (audio.error?.code === 4) {
+              console.error('🚫 Media format error - file may be corrupted or unsupported');
+            } else if (audio.error?.code === 3) {
+              console.error('🌐 Network error - check internet connection');
+            } else if (audio.error?.code === 2) {
+              console.error('🔒 Network error - file may not be accessible');
+            }
           }}
           onLoadedData={() => {
             if (audioRef.current) {
               audioRef.current.playbackRate = playbackSpeed;
-              console.log('Audio data loaded, playback rate set to:', playbackSpeed);
+              console.log('📊 Audio data loaded, playback rate set to:', playbackSpeed);
             }
           }}
           onLoadedMetadata={() => {
-            console.log('Audio metadata loaded');
+            console.log('📋 Audio metadata loaded');
           }}
         />
 
