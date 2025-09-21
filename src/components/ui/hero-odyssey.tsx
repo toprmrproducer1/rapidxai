@@ -230,10 +230,9 @@ const FeatureItem: React.FC<FeatureItemProps> = ({ name, value, position }) => {
 
 interface HeroSectionProps {
   primaryCTA: () => void;
-  secondaryCTA: () => void;
 }
 
-export const HeroSection: React.FC<HeroSectionProps> = ({ primaryCTA, secondaryCTA }) => {
+export const HeroSection: React.FC<HeroSectionProps> = ({ primaryCTA }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const lightningHue = 270; // Fixed purple hue
 
@@ -292,67 +291,32 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ primaryCTA, secondaryC
         >
           <motion.h1
             variants={itemVariants}
-            className="text-6xl md:text-8xl lg:text-9xl font-display font-light mb-8 tracking-tight leading-[0.85] drop-shadow-2xl"
+            className="text-4xl md:text-6xl lg:text-7xl font-display font-light mb-6 tracking-tight leading-[0.85] drop-shadow-2xl"
             style={{ fontFamily: '"Playfair Display", "Cormorant Garamond", Georgia, serif', letterSpacing: '-0.03em', fontWeight: 300 }}
           >
-            Build Faster
+            Build Faster. Sell Smarter.
           </motion.h1>
 
-          <motion.h2
-            variants={itemVariants}
-            className="text-4xl md:text-6xl lg:text-7xl font-display font-light bg-gradient-to-r from-gray-100 via-purple-200 to-gray-300 bg-clip-text text-transparent mb-12 tracking-tight leading-[0.85] drop-shadow-lg"
-            style={{ fontFamily: '"Playfair Display", "Cormorant Garamond", Georgia, serif', letterSpacing: '-0.03em', fontWeight: 300 }}
-          >
-            Sell Smarter
-          </motion.h2>
-
-          <motion.h3
-            variants={itemVariants}
-            className="text-3xl md:text-5xl lg:text-6xl font-display font-light text-gray-200 mb-12 tracking-tight leading-[0.85] drop-shadow-lg"
-            style={{ fontFamily: '"Playfair Display", "Cormorant Garamond", Georgia, serif', letterSpacing: '-0.03em', fontWeight: 300 }}
-          >
-            Sleep Better
-          </motion.h3>
-
           <motion.p
             variants={itemVariants}
-            className="text-gray-300 mb-8 max-w-4xl text-lg md:text-xl leading-relaxed font-elegant font-light tracking-wide drop-shadow-sm"
+            className="text-gray-300 mb-8 max-w-3xl text-base md:text-lg leading-relaxed font-elegant font-light tracking-wide drop-shadow-sm"
             style={{ fontFamily: '"Crimson Text", "Cormorant Garamond", Georgia, serif', lineHeight: '1.8', letterSpacing: '0.01em' }}
           >
-            AI Voice agents + MVP/Micro-SaaS. We turn "we should" into "we shipped."
-          </motion.p>
-
-          <motion.p
-            variants={itemVariants}
-            className="text-purple-300 mb-16 max-w-3xl text-base md:text-lg leading-relaxed font-elegant font-light italic drop-shadow-sm"
-            style={{ fontFamily: '"Crimson Text", "Cormorant Garamond", Georgia, serif', lineHeight: '1.9', letterSpacing: '0.005em' }}
-          >
-            Worst case: clarity. Best case: compound advantage.
+            AI Voice agents + MVP development. We turn "we should" into "we shipped."
           </motion.p>
 
           <motion.div
             variants={itemVariants}
-            className="flex flex-col sm:flex-row gap-8 mb-20"
+            className="flex flex-col sm:flex-row gap-4 mb-16"
           >
             <GradientButton
-              width="280px"
-              height="56px"
+              width="200px"
+              height="50px"
               onClick={primaryCTA}
             >
-              <div className="flex items-center gap-2 text-base font-semibold text-white">
+              <div className="flex items-center gap-2 text-sm font-semibold text-white">
                 <Bot className="w-6 h-6 drop-shadow-lg" strokeWidth={2} />
                 <span>Book Call</span>
-                <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" strokeWidth={2} />
-              </div>
-            </GradientButton>
-            <GradientButton
-              width="280px"
-              height="56px"
-              onClick={secondaryCTA}
-              className="border-2 border-purple-500/50 bg-transparent"
-            >
-              <div className="text-base font-semibold text-white">
-                $250 Deep-Dive
               </div>
             </GradientButton>
           </motion.div>

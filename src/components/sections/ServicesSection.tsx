@@ -8,29 +8,25 @@ import { EvervaultCard } from '../ui/evervault-card';
 interface ServicesSectionProps {
   activeService: 'voice' | 'mvp';
   setActiveService: (service: 'voice' | 'mvp') => void;
-  scrollToBooking: () => void;
 }
 
-export function ServicesSection({ activeService, setActiveService, scrollToBooking }: ServicesSectionProps) {
+export function ServicesSection({ activeService, setActiveService }: ServicesSectionProps) {
   return (
-    <section id="services" className="py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-950 via-purple-950/20 to-gray-950 relative overflow-hidden">
+    <section id="services" className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-950 via-purple-950/20 to-gray-950 relative overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-to-r from-purple-600/5 via-transparent to-violet-600/5"></div>
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] bg-purple-600/10 rounded-full blur-3xl"></div>
       
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 text-white tracking-tight">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-display font-bold mb-4 text-white tracking-tight">
             <span className="gradient-text">Core Services</span>
           </h2>
-          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Two pillars. One goal.
-          </p>
         </div>
         
         {/* Service Toggle */}
-        <div className="flex justify-center mb-20">
-          <div className="relative bg-gray-900/50 backdrop-blur-xl rounded-3xl p-3 border border-purple-500/30 shadow-2xl shadow-purple-500/20">
+        <div className="flex justify-center mb-12">
+          <div className="relative bg-gray-900/50 backdrop-blur-xl rounded-2xl p-2 border border-purple-500/30 shadow-xl shadow-purple-500/20">
             <GlowingEffect
               spread={60}
               glow={true}
@@ -42,25 +38,25 @@ export function ServicesSection({ activeService, setActiveService, scrollToBooki
             <div className="flex items-center">
               <button
                 onClick={() => setActiveService('voice')}
-                className={`flex items-center gap-4 px-8 py-4 rounded-2xl transition-all duration-500 font-display font-semibold text-lg ${
+                className={`flex items-center gap-2 px-4 py-3 rounded-xl transition-all duration-500 font-display font-semibold text-sm ${
                   activeService === 'voice'
                     ? 'bg-gradient-to-r from-purple-600 to-violet-600 text-white shadow-2xl shadow-purple-500/40 scale-105'
                     : 'text-gray-400 hover:text-white hover:bg-white/5'
                 }`}
               >
-                <Phone className="w-6 h-6" strokeWidth={2.5} />
-                <span className="font-medium">AI Voice Agents</span>
+                <Phone className="w-4 h-4" strokeWidth={2.5} />
+                <span className="font-medium">Voice</span>
               </button>
               <button
                 onClick={() => setActiveService('mvp')}
-                className={`flex items-center gap-4 px-8 py-4 rounded-2xl transition-all duration-500 font-display font-semibold text-lg ${
+                className={`flex items-center gap-2 px-4 py-3 rounded-xl transition-all duration-500 font-display font-semibold text-sm ${
                   activeService === 'mvp'
                     ? 'bg-gradient-to-r from-purple-600 to-violet-600 text-white shadow-2xl shadow-purple-500/40 scale-105'
                     : 'text-gray-400 hover:text-white hover:bg-white/5'
                 }`}
               >
-                <Rocket className="w-6 h-6" strokeWidth={2.5} />
-                <span className="font-medium">MVP & Micro-SaaS</span>
+                <Rocket className="w-4 h-4" strokeWidth={2.5} />
+                <span className="font-medium">MVP</span>
               </button>
             </div>
           </div>
@@ -77,18 +73,17 @@ export function ServicesSection({ activeService, setActiveService, scrollToBooki
                     <div className="absolute -inset-2 bg-purple-500/20 rounded-3xl animate-pulse"></div>
                   </div>
                   <h2 className="text-5xl md:text-6xl font-display font-bold mb-8 tracking-tight leading-tight">
-                    AI Voice Agents
+                    Voice Agents
                   </h2>
-                  <p className="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed font-light">
-                    24/7 receptionist + SDR. Never miss a lead.
+                  <p className="text-base md:text-lg text-gray-300 mb-6 leading-relaxed font-light">
+                    24/7 reception. Never miss leads.
                   </p>
                   
-                  <div className="space-y-4 mb-8">
+                  <div className="space-y-3 mb-6">
                     {[
-                      { icon: Target, text: "Greet → qualify → route → schedule" },
-                      { icon: Phone, text: "Targeted campaigns + callbacks" },
-                      { icon: Zap, text: "Automated follow-ups" },
-                      { icon: Users, text: "CRM sync + notes" }
+                      { icon: Target, text: "Qualify & schedule" },
+                      { icon: Phone, text: "Campaigns & callbacks" },
+                      { icon: Zap, text: "Auto follow-ups" }
                     ].map((item, index) => (
                       <div key={index} className="flex items-start gap-4 group">
                         <div className="relative p-2 rounded-lg bg-gradient-to-r from-purple-600/20 to-violet-600/20 hover:from-purple-600/30 hover:to-violet-600/30 transition-all duration-300 border border-purple-500/20 group-hover:border-purple-500/40">
@@ -100,9 +95,6 @@ export function ServicesSection({ activeService, setActiveService, scrollToBooki
                     ))}
                   </div>
 
-                  <div className="text-sm text-purple-400 font-light">
-                    Go-live: 7–14 days
-                  </div>
                 </div>
               </>
             )}
@@ -117,18 +109,17 @@ export function ServicesSection({ activeService, setActiveService, scrollToBooki
                     <div className="absolute -inset-2 bg-violet-500/20 rounded-3xl animate-pulse"></div>
                   </div>
                   <h2 className="text-5xl md:text-6xl font-display font-bold mb-8 tracking-tight leading-tight">
-                    MVP & Micro-SaaS
+                    MVP Development
                   </h2>
-                  <p className="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed font-light">
-                    Validate before you scale.
+                  <p className="text-base md:text-lg text-gray-300 mb-6 leading-relaxed font-light">
+                    Validate fast. Scale smart.
                   </p>
                   
-                  <div className="space-y-4 mb-8">
+                  <div className="space-y-3 mb-6">
                     {[
-                      { icon: Target, text: "Features that test demand" },
-                      { icon: Star, text: "Clean UI + auth + core workflow" },
-                      { icon: Shield, text: "Analytics from day one" },
-                      { icon: TrendingUp, text: "Deploy anywhere" }
+                      { icon: Target, text: "Test demand fast" },
+                      { icon: Star, text: "Clean UI + auth" },
+                      { icon: Shield, text: "Built-in analytics" }
                     ].map((item, index) => (
                       <div key={index} className="flex items-start gap-4 group">
                         <div className="relative p-2 rounded-lg bg-gradient-to-r from-violet-600/20 to-purple-600/20 hover:from-violet-600/30 hover:to-purple-600/30 transition-all duration-300 border border-violet-500/20 group-hover:border-violet-500/40">
@@ -140,9 +131,6 @@ export function ServicesSection({ activeService, setActiveService, scrollToBooki
                     ))}
                   </div>
 
-                  <div className="text-sm text-violet-400 font-light">
-                    Time-to-live: 3–6 weeks
-                  </div>
                 </div>
               </>
             )}
@@ -169,12 +157,12 @@ export function ServicesSection({ activeService, setActiveService, scrollToBooki
                 </CardVisual>
                 <CardBody>
                   <CardTitle className="font-display text-2xl">
-                    {activeService === 'voice' ? 'AI Voice Performance' : 'MVP Dashboard'}
+                    {activeService === 'voice' ? 'Voice Analytics' : 'MVP Dashboard'}
                   </CardTitle>
-                  <CardDescription className="text-lg">
+                  <CardDescription className="text-base">
                     {activeService === 'voice' 
-                      ? 'Real-time analytics and conversation intelligence'
-                      : 'Production-ready with analytics and user insights'
+                      ? 'Real-time call analytics'
+                      : 'User insights & metrics'
                     }
                   </CardDescription>
                 </CardBody>

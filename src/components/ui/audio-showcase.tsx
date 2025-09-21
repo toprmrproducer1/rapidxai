@@ -169,40 +169,32 @@ export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
   const recordings: AudioRecording[] = [
     {
       id: 'customer-support',
-      title: 'Customer Support Inquiry',
-      description: 'AI agent handles customer inquiry in Hindi and English',
-      scenario: 'Customer calls with a support question',
-      outcome: 'Issue resolved + satisfaction confirmed',
+      title: 'Customer Support',
+      description: 'AI handles Hindi/English inquiries',
+      scenario: 'Support question',
+      outcome: 'Issue resolved',
       url: 'https://files.catbox.moe/xp7f12.mp3'
     },
     {
       id: 'appointment-reminder',
-      title: 'Appointment Reminder Call',
-      description: 'AI agent confirms appointment and handles rescheduling',
-      scenario: 'Automated reminder call to customer',
-      outcome: 'Confirmed + calendar updated',
+      title: 'Appointment Reminder',
+      description: 'Confirms & reschedules meetings',
+      scenario: 'Reminder call',
+      outcome: 'Confirmed',
       url: 'https://files.catbox.moe/p50jhw.mp3'
     },
     {
       id: 'lead-qualification',
       title: 'Lead Qualification',
-      description: 'AI agent qualifies incoming lead and books meeting',
-      scenario: 'Potential customer inquiry call',
-      outcome: 'Lead qualified + meeting scheduled',
+      description: 'Qualifies leads & books meetings',
+      scenario: 'Customer inquiry',
+      outcome: 'Meeting booked',
       url: 'https://files.catbox.moe/zif1y8.mp3'
-    },
-    {
-      id: 'follow-up-call',
-      title: 'Follow-up Call',
-      description: 'AI agent follows up on previous interaction',
-      scenario: 'Automated follow-up sequence',
-      outcome: 'Engagement maintained + next steps confirmed',
-      url: 'https://files.catbox.moe/0mvogy.mp3'
     }
   ];
 
   return (
-    <section className="py-32 px-4 sm:px-6 lg:px-8 bg-gray-950 relative overflow-hidden">
+    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-950 relative overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl"></div>
@@ -216,29 +208,20 @@ export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-12"
         >
-          <div className="inline-flex items-center gap-3 bg-gradient-to-r from-purple-600/20 to-violet-600/20 backdrop-blur-xl rounded-full px-8 py-4 border border-purple-500/30 mb-12">
-            <div className="w-3 h-3 bg-purple-400 rounded-full animate-pulse"></div>
-            <span className="text-purple-300 font-medium text-sm tracking-[0.2em] uppercase">VOICE DEMONSTRATIONS</span>
-          </div>
-          
-          <h2 className="text-6xl md:text-7xl font-display font-bold mb-12 text-white tracking-tight leading-tight" 
+          <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 text-white tracking-tight leading-tight" 
               style={{ fontFamily: '"Playfair Display", "Cormorant Garamond", Georgia, serif' }}>
-            Listen to our <span className="gradient-text">AI voice</span> in action
+            <span className="gradient-text">Voice</span> Demos
           </h2>
-          <p className="text-2xl md:text-3xl text-gray-300 max-w-4xl mx-auto font-light leading-relaxed mb-8" 
-             style={{ fontFamily: '"Crimson Text", "Cormorant Garamond", Georgia, serif' }}>
-            Real scenarios. Human-grade conversations.
-          </p>
-          <p className="text-lg text-purple-400 max-w-3xl mx-auto font-light" 
+          <p className="text-base text-purple-400 max-w-2xl mx-auto font-light" 
              style={{ fontFamily: '"Merriweather", "Crimson Text", Georgia, serif' }}>
-            Actual AI voice recordings from live deployments
+            Real recordings from live systems
           </p>
         </motion.div>
 
         {/* Audio Recordings Grid */}
-        <div className="grid md:grid-cols-2 gap-8 mb-20">
+        <div className="grid md:grid-cols-3 gap-6 mb-12">
           {recordings.map((recording, index) => (
             <motion.div
               key={recording.id}
@@ -260,26 +243,14 @@ export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
           viewport={{ once: true }}
           className="text-center"
         >
-          <div className="inline-flex items-center gap-4 bg-gradient-to-r from-gray-900/80 to-gray-800/80 backdrop-blur-xl rounded-3xl px-12 py-6 border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300 group mb-12">
-            <div className="flex items-center gap-3">
-              <div className="w-4 h-4 bg-green-400 rounded-full animate-pulse"></div>
-              <span className="text-green-400 font-medium text-sm tracking-wider uppercase">LIVE RECORDINGS</span>
-            </div>
-            <div className="w-px h-8 bg-gray-600"></div>
-            <p className="text-gray-300 font-light text-lg" style={{ fontFamily: '"Merriweather", serif' }}>
-              Real AI voice agents from production deployments
-            </p>
-          </div>
-
           <GradientButton
-            width="320px"
-            height="70px"
+            width="240px"
+            height="50px"
             onClick={primaryCTA}
           >
-            <div className="flex items-center gap-4 group text-xl font-semibold text-white">
-              <Phone className="w-6 h-6 drop-shadow-lg" strokeWidth={2} />
-              Get This For Your Business
-              <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" strokeWidth={2} />
+            <div className="flex items-center gap-2 group text-sm font-semibold text-white">
+              <Phone className="w-4 h-4" strokeWidth={2} />
+              Get This Setup
             </div>
           </GradientButton>
         </motion.div>
