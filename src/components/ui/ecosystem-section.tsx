@@ -1,4 +1,5 @@
 import React from 'react';
+import { PerformanceChart } from './performance-chart';
 import { Cpu, Zap, Target, Users } from 'lucide-react';
 
 export default function EcosystemSection() {
@@ -45,16 +46,11 @@ export default function EcosystemSection() {
           </div>
           
           <div className="relative mt-6 sm:mt-0">
-            <div className="bg-gradient-to-b aspect-[67/34] relative rounded-2xl from-purple-600/20 to-transparent p-px border border-purple-500/30">
-              <img 
-                src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=1200&h=600&fit=crop" 
-                className="rounded-[15px] shadow-2xl shadow-purple-500/20 w-full h-full object-cover" 
-                alt="AI automation dashboard" 
-                width={1206} 
-                height={612} 
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-gray-950/60 via-transparent to-transparent rounded-[15px]"></div>
-            </div>
+            <PerformanceChart
+              title="AI Performance Metrics"
+              subtitle="Real-time analytics showing voice agent efficiency and MVP conversion rates"
+              className="aspect-[67/34]"
+            />
           </div>
         </div>
 
