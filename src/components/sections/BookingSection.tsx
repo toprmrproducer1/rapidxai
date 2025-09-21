@@ -23,30 +23,30 @@ export function BookingSection({ primaryCTA, secondaryCTA }: BookingSectionProps
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           <div>
-            <h2 className="text-5xl md:text-6xl font-display font-extralight mb-8 tracking-tighter leading-tight">Ready to <span className="gradient-text">automate</span>?</h2>
-            <p className="text-2xl text-gray-200 mb-12 font-extralight leading-relaxed">
-              30-minute discovery call. Or $250 deep-dive.
+            <h2 className="text-4xl font-bold mb-6">Ready to turn "we should automate this" into "it's already handled"?</h2>
+            <p className="text-xl text-gray-300 mb-8">
+              Book a 30-minute discovery call or start with a $250 Deep-Dive with Shreyas.
             </p>
-            <p className="text-xl text-purple-300 mb-12 font-extralight italic">
-              Clarity guaranteed. Advantage likely.
+            <p className="text-lg text-purple-400 mb-8 font-light italic">
+              Worst case: clarity. Best case: compound advantage.
             </p>
             
             <div className="space-y-4 mb-8">
               {features.map((item, index) => (
                 <div key={index} className="flex items-center gap-3">
                   <CheckCircle className="w-5 h-5 text-purple-400" />
-                  <span className="text-gray-200 font-light">{item}</span>
+                  <span className="text-gray-300">{item}</span>
                 </div>
               ))}
             </div>
 
-            <p className="text-purple-300 font-light mb-4 text-lg">
-              Prefer founder-to-founder? 
+            <p className="text-purple-400 font-medium mb-4">
+              Prefer a founder session? 
               <button 
                 onClick={secondaryCTA}
-                className="ml-2 underline hover:text-purple-200 transition-colors font-medium"
+                className="ml-2 underline hover:text-purple-300 transition-colors"
               >
-                $250 Deep-Dive
+                $250 Deep-Dive with Shreyas
               </button>
             </p>
           </div>
@@ -55,8 +55,8 @@ export function BookingSection({ primaryCTA, secondaryCTA }: BookingSectionProps
           <div className="tech-card p-8">
             <div className="text-center mb-6">
               <Calendar className="w-12 h-12 text-purple-400 mx-auto mb-4" />
-              <h3 className="text-3xl font-display font-light mb-3">Discovery Call</h3>
-              <p className="text-gray-200 font-light">30 minutes • Free</p>
+              <h3 className="text-2xl font-bold mb-2">Discovery Call</h3>
+              <p className="text-gray-300">30 minutes • Free consultation</p>
             </div>
 
             <div className="space-y-3 mb-6">

@@ -39,8 +39,8 @@ export function FAQSection({ openFaq, toggleFaq, primaryCTA }: FAQSectionProps) 
   return (
     <section id="faq" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900/30">
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-5xl md:text-6xl font-display font-extralight text-center mb-6 tracking-tighter">FAQs</h2>
-        <p className="text-2xl text-purple-300 text-center mb-20 font-extralight italic">(straight talk)</p>
+        <h2 className="text-4xl font-bold text-center mb-8">FAQs</h2>
+        <p className="text-xl text-gray-300 text-center mb-16 font-light">(straight talk)</p>
         
         <div className="space-y-4 mb-12">
           {faqs.map((faq, index) => (
@@ -59,7 +59,7 @@ export function FAQSection({ openFaq, toggleFaq, primaryCTA }: FAQSectionProps) 
               
               {openFaq === index && (
                 <div className="px-6 pb-6 animate-slide-up">
-                  <p className="text-gray-200 leading-relaxed font-light text-lg">{faq.a}</p>
+                  <p className="text-gray-300 leading-relaxed">{faq.a}</p>
                 </div>
               )}
             </div>
