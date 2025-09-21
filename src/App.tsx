@@ -129,12 +129,6 @@ function App() {
       {/* Enhanced Features Section */}
       <FeaturesEnhanced />
 
-      {/* Clients Section */}
-      <ClientsSection primaryCTA={primaryCTA} />
-
-      {/* Tech Stack Section */}
-      <TechStackSection primaryCTA={primaryCTA} />
-
       {/* Testimonials Section */}
       <section id="testimonials" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900/30">
         <div className="max-w-7xl mx-auto">
@@ -151,6 +145,12 @@ function App() {
 
       {/* How We Work */}
       <ProcessSection primaryCTA={primaryCTA} secondaryCTA={secondaryCTA} />
+
+      {/* Clients Section */}
+      <ClientsSection primaryCTA={primaryCTA} />
+
+      {/* Tech Stack Section */}
+      <TechStackSection primaryCTA={primaryCTA} />
 
       {/* Interactive Section with Robot */}
       <InteractiveSection primaryCTA={primaryCTA} />

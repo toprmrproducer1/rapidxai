@@ -58,12 +58,6 @@ export function TechStackSection({ primaryCTA }: TechStackSectionProps) {
       category: "Automation"
     },
     {
-      name: "n8n Workflows",
-      logo: "https://i.ibb.co/xSgPdcBk/N8n-logo-new-copy-svg.png",
-      alt: "n8n Workflows Logo",
-      category: "Automation"
-    },
-    {
       name: "Stripe",
       logo: "https://i.ibb.co/23Hg5xrL/unnamed-1.png",
       alt: "Stripe Logo",
