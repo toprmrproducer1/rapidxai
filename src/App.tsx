@@ -209,10 +209,10 @@ function App() {
           {/* Logo Pill */}
           <div className={`relative transition-all duration-500 group hover:scale-105 ${
             isScrolled 
-              ? 'bg-gray-900/95 backdrop-blur-3xl border border-gray-600/60 shadow-2xl shadow-purple-500/30' 
+              ? 'bg-gray-900/95 backdrop-blur-3xl border border-gray-600/60 shadow-2xl shadow-gray-500/30' 
               : 'bg-gray-900/70 backdrop-blur-2xl border border-gray-700/50'
-          } rounded-full px-3 py-1.5 hover:bg-gray-900/98 hover:border-purple-500/40 hover:shadow-2xl hover:shadow-purple-500/40`}>
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-600/10 via-transparent to-violet-600/10 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          } rounded-full px-3 py-1.5 hover:bg-gray-900/98 hover:border-gray-400/40 hover:shadow-2xl hover:shadow-gray-500/40`}>
+            <div className="absolute inset-0 bg-gradient-to-r from-gray-600/10 via-transparent to-gray-500/10 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <button
               onClick={() => setCurrentPage('home')}
               className="relative z-10 hover:scale-105 transition-all duration-300 group-hover:drop-shadow-2xl"
@@ -224,10 +224,10 @@ function App() {
           {/* Navigation Pill */}
           <div className={`hidden xl:flex relative transition-all duration-500 group hover:scale-105 ${
             isScrolled 
-              ? 'bg-gray-900/95 backdrop-blur-3xl border border-gray-600/60 shadow-2xl shadow-purple-500/30' 
+              ? 'bg-gray-900/95 backdrop-blur-3xl border border-gray-600/60 shadow-2xl shadow-gray-500/30' 
               : 'bg-gray-900/70 backdrop-blur-2xl border border-gray-700/50'
-          } rounded-full px-1 py-0.5 hover:bg-gray-900/98 hover:border-purple-500/40 hover:shadow-2xl hover:shadow-purple-500/40`}>
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-600/5 via-transparent to-violet-600/5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          } rounded-full px-1 py-0.5 hover:bg-gray-900/98 hover:border-gray-400/40 hover:shadow-2xl hover:shadow-gray-500/40`}>
+            <div className="absolute inset-0 bg-gradient-to-r from-gray-600/5 via-transparent to-gray-500/5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div className="relative z-10 flex items-center space-x-0.5">
               {navigation.map((item) => (
                 <button
@@ -235,14 +235,14 @@ function App() {
                   onClick={() => setCurrentPage(item.page)}
                   className={`relative px-3 py-1.5 rounded-full transition-all duration-300 font-semibold text-sm group/nav ${
                     currentPage === item.page 
-                      ? 'text-white bg-gradient-to-r from-purple-600/50 to-violet-600/50 shadow-lg shadow-purple-500/30 border border-purple-500/30' 
+                      ? 'text-white bg-gradient-to-r from-gray-700/50 to-gray-600/50 shadow-lg shadow-gray-500/30 border border-gray-500/30' 
                       : 'text-gray-300 hover:text-white hover:bg-white/15 hover:shadow-lg hover:shadow-white/10'
                   }`}
                   style={{ fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, system-ui, sans-serif', fontWeight: 600, letterSpacing: '-0.01em' }}
                 >
                   <span className="relative z-10">{item.name}</span>
                   {currentPage !== item.page && (
-                    <div className="absolute inset-0 bg-gradient-to-r from-purple-600/30 to-violet-600/30 rounded-full opacity-0 group-hover/nav:opacity-100 transition-opacity duration-300"></div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-gray-600/30 to-gray-500/30 rounded-full opacity-0 group-hover/nav:opacity-100 transition-opacity duration-300"></div>
                   )}
                 </button>
               ))}
@@ -252,9 +252,9 @@ function App() {
           {/* CTA Button Pill - Only Book Discovery Call */}
           <div className={`relative transition-all duration-300 group hover:scale-105 active:scale-95 ${
             isScrolled 
-              ? 'shadow-2xl shadow-purple-500/40' 
-              : 'shadow-xl shadow-purple-500/30'
-          } rounded-full hover:shadow-3xl hover:shadow-purple-500/60`}>
+              ? 'shadow-2xl shadow-gray-500/40' 
+              : 'shadow-xl shadow-gray-500/30'
+          } rounded-full hover:shadow-3xl hover:shadow-gray-500/60`}>
             <GradientButton
               width="180px"
               height="48px"
@@ -271,9 +271,9 @@ function App() {
           <div className="xl:hidden">
             <div className={`relative transition-all duration-500 hover:scale-105 ${
               isScrolled 
-                ? 'bg-gray-900/95 backdrop-blur-3xl border border-gray-600/60 shadow-2xl shadow-purple-500/30' 
+                ? 'bg-gray-900/95 backdrop-blur-3xl border border-gray-600/60 shadow-2xl shadow-gray-500/30' 
                 : 'bg-gray-900/70 backdrop-blur-2xl border border-gray-700/50'
-            } rounded-full p-1.5 hover:bg-gray-900/98 hover:border-purple-500/40 hover:shadow-xl hover:shadow-purple-500/30`}>
+            } rounded-full p-1.5 hover:bg-gray-900/98 hover:border-gray-400/40 hover:shadow-xl hover:shadow-gray-500/30`}>
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className="text-gray-300 hover:text-white p-1 rounded-full hover:bg-white/15 transition-all duration-300 hover:scale-110"
@@ -286,7 +286,7 @@ function App() {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className="xl:hidden absolute top-full left-1/2 transform -translate-x-1/2 mt-2 border border-gray-700/60 bg-gray-900/98 backdrop-blur-3xl rounded-2xl shadow-2xl shadow-purple-500/30 min-w-[280px]">
+          <div className="xl:hidden absolute top-full left-1/2 transform -translate-x-1/2 mt-2 border border-gray-700/60 bg-gray-900/98 backdrop-blur-3xl rounded-2xl shadow-2xl shadow-gray-500/30 min-w-[280px]">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navigation.map((item) => (
                 <button
@@ -297,7 +297,7 @@ function App() {
                   }}
                   className={`block px-3 py-2 text-sm font-semibold transition-all duration-300 w-full text-left rounded-xl hover:scale-[1.02] ${
                     currentPage === item.page 
-                      ? 'text-white bg-gradient-to-r from-purple-600/40 to-violet-600/40 shadow-lg shadow-purple-500/20' 
+                      ? 'text-white bg-gradient-to-r from-gray-700/40 to-gray-600/40 shadow-lg shadow-gray-500/20' 
                       : 'text-gray-300 hover:text-white hover:bg-white/15'
                   }`}
                   style={{ fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, system-ui, sans-serif' }}

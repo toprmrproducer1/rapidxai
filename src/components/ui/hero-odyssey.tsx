@@ -300,7 +300,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ primaryCTA, secondaryC
 
           <motion.h2
             variants={itemVariants}
-            className="text-4xl md:text-6xl lg:text-7xl font-display font-light bg-gradient-to-r from-gray-100 via-purple-200 to-gray-300 bg-clip-text text-transparent mb-12 tracking-tight leading-[0.85] drop-shadow-lg"
+            className="text-4xl md:text-6xl lg:text-7xl font-display font-light bg-gradient-to-r from-gray-100 via-gray-200 to-gray-300 bg-clip-text text-transparent mb-12 tracking-tight leading-[0.85] drop-shadow-lg"
             style={{ fontFamily: '"Playfair Display", "Cormorant Garamond", Georgia, serif', letterSpacing: '-0.03em', fontWeight: 300 }}
           >
             Sell Smarter.
@@ -324,7 +324,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ primaryCTA, secondaryC
 
           <motion.p
             variants={itemVariants}
-            className="text-purple-300 mb-16 max-w-3xl text-base md:text-lg leading-relaxed font-elegant font-light italic drop-shadow-sm"
+            className="text-gray-300 mb-16 max-w-3xl text-base md:text-lg leading-relaxed font-elegant font-light italic drop-shadow-sm"
             style={{ fontFamily: '"Crimson Text", "Cormorant Garamond", Georgia, serif', lineHeight: '1.9', letterSpacing: '0.005em' }}
           >
             Worst case: clarity. Best case: compound advantage.
@@ -358,11 +358,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ primaryCTA, secondaryC
         <div className="absolute inset-0 bg-gray-950/80"></div>
 
         {/* Purple glowing circle */}
-        <div className="absolute top-[55%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-gradient-to-b from-purple-500/20 to-violet-600/10 blur-3xl"></div>
+        <div className="absolute top-[55%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-gradient-to-b from-gray-500/20 to-gray-600/10 blur-3xl"></div>
         
         <div className="absolute top-[5%] w-[100%] left-1/2 transform -translate-x-1/2 h-[90%] opacity-60">
           <Lightning
-            hue={lightningHue}
+            hue={0}
             xOffset={0}
             speed={1.6}
             intensity={0.6}
@@ -370,8 +370,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ primaryCTA, secondaryC
           />
         </div>
 
-        {/* Purple planet/sphere */}
-        <div className="z-10 absolute top-[75%] left-1/2 transform -translate-x-1/2 w-[600px] h-[600px] backdrop-blur-3xl rounded-full bg-[radial-gradient(circle_at_25%_90%,_#7c3aed_15%,_#1e1b4b_70%,_#0f0f23_100%)]"></div>
+        {/* Silver planet/sphere */}
+        <div className="z-10 absolute top-[75%] left-1/2 transform -translate-x-1/2 w-[600px] h-[600px] backdrop-blur-3xl rounded-full bg-[radial-gradient(circle_at_25%_90%,_#6b7280_15%,_#1f2937_70%,_#000000_100%)]"></div>
       </motion.div>
     </div>
   );
