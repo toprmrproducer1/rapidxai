@@ -7,14 +7,23 @@ interface AudioShowcaseProps {
   primaryCTA: () => void;
 }
 
-export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
+interface AudioRecording {
+  id: string;
+  title: string;
+  description: string;
+  scenario: string;
+  outcome: string;
+  url: string;
+  duration?: string;
+}
+
+const AudioPlayer = ({ recording }: { recording: AudioRecording }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const audioRef = useRef<HTMLAudioElement>(null);
-
-  // Simple working audio URL for testing
-  const audioUrl = "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav";
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -26,43 +35,171 @@ export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
       setIsPlaying(false);
       setCurrentTime(0);
     };
+    const handleError = () => {
+      setError('Failed to load audio');
+      setIsLoading(false);
+    };
 
     audio.addEventListener('timeupdate', updateTime);
     audio.addEventListener('loadedmetadata', updateDuration);
     audio.addEventListener('ended', handleEnded);
+    audio.addEventListener('error', handleError);
 
     return () => {
       audio.removeEventListener('timeupdate', updateTime);
       audio.removeEventListener('loadedmetadata', updateDuration);
       audio.removeEventListener('ended', handleEnded);
+      audio.removeEventListener('error', handleError);
     };
   }, []);
 
-  const togglePlay = () => {
+  const togglePlay = async () => {
     if (!audioRef.current) return;
 
-    if (isPlaying) {
-      audioRef.current.pause();
-      setIsPlaying(false);
-    } else {
-      audioRef.current.play().then(() => {
+    try {
+      setError(null);
+      if (isPlaying) {
+        audioRef.current.pause();
+        setIsPlaying(false);
+      } else {
+        setIsLoading(true);
+        await audioRef.current.play();
         setIsPlaying(true);
-      }).catch((error) => {
-        console.error('Audio play failed:', error);
-      });
+        setIsLoading(false);
+      }
+    } catch (err) {
+      console.error('Audio play failed:', err);
+      setError('Unable to play audio. Please try the browser controls below.');
+      setIsLoading(false);
     }
   };
 
   const formatTime = (time: number) => {
+    if (isNaN(time)) return '0:00';
     const minutes = Math.floor(time / 60);
     const seconds = Math.floor(time % 60);
     return `${minutes}:${seconds.toString().padStart(2, '0')}`;
   };
 
   const getProgressPercentage = () => {
-    if (duration === 0) return 0;
+    if (duration === 0 || isNaN(duration)) return 0;
     return (currentTime / duration) * 100;
   };
+
+  return (
+    <div className="bg-gray-900/50 backdrop-blur-xl rounded-2xl p-6 border border-gray-800/50 hover:border-purple-500/50 transition-all duration-300 group">
+      <div className="mb-4">
+        <h3 className="text-xl font-bold text-white mb-2 group-hover:text-purple-200 transition-colors">
+          {recording.title}
+        </h3>
+        <p className="text-gray-400 text-sm mb-3">{recording.description}</p>
+        
+        <div className="space-y-2 text-sm">
+          <div className="bg-gray-800/50 rounded-lg p-3 border border-gray-700/30">
+            <span className="text-purple-400 font-medium">Scenario: </span>
+            <span className="text-gray-300">{recording.scenario}</span>
+          </div>
+          <div className="bg-purple-600/20 rounded-lg p-3 border border-purple-500/30">
+            <span className="text-purple-300 font-medium">Outcome: </span>
+            <span className="text-white">{recording.outcome}</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Custom Audio Controls */}
+      <div className="space-y-4">
+        <button
+          onClick={togglePlay}
+          disabled={isLoading}
+          className="w-full p-4 rounded-xl bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-500 hover:to-violet-500 text-white transition-all duration-300 flex items-center justify-center gap-3 group/btn shadow-lg shadow-purple-500/25 hover:scale-[1.02] disabled:opacity-50"
+        >
+          {isLoading ? (
+            <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+          ) : isPlaying ? (
+            <Pause className="w-5 h-5 group-hover/btn:scale-110 transition-transform" />
+          ) : (
+            <Play className="w-5 h-5 group-hover/btn:scale-110 transition-transform" />
+          )}
+          <span className="font-semibold">
+            {isLoading ? 'Loading...' : isPlaying ? 'Pause' : 'Play Demo'}
+          </span>
+        </button>
+
+        {/* Progress Bar */}
+        {duration > 0 && !isNaN(duration) && (
+          <div className="space-y-2">
+            <div className="flex items-center justify-between text-xs text-gray-400 font-mono">
+              <span>{formatTime(currentTime)}</span>
+              <span>{formatTime(duration)}</span>
+            </div>
+            <div className="w-full h-2 bg-gray-800 rounded-full overflow-hidden">
+              <div 
+                className="h-full bg-gradient-to-r from-purple-500 to-violet-500 rounded-full transition-all duration-200"
+                style={{ width: `${getProgressPercentage()}%` }}
+              />
+            </div>
+          </div>
+        )}
+
+        {error && (
+          <div className="text-red-400 text-sm text-center bg-red-500/10 rounded-lg p-3 border border-red-500/30">
+            {error}
+          </div>
+        )}
+
+        {/* Fallback Browser Controls */}
+        <div className="pt-4 border-t border-gray-700/30">
+          <p className="text-xs text-gray-500 mb-2">Browser audio controls:</p>
+          <audio 
+            ref={audioRef}
+            controls 
+            className="w-full h-8"
+            preload="metadata"
+            src={recording.url}
+          >
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
+  const recordings: AudioRecording[] = [
+    {
+      id: 'customer-support',
+      title: 'Customer Support Inquiry',
+      description: 'AI agent handles customer inquiry in Hindi and English',
+      scenario: 'Customer calls with a support question',
+      outcome: 'Issue resolved + satisfaction confirmed',
+      url: 'https://files.catbox.moe/xp7f12.mp3'
+    },
+    {
+      id: 'appointment-reminder',
+      title: 'Appointment Reminder Call',
+      description: 'AI agent confirms appointment and handles rescheduling',
+      scenario: 'Automated reminder call to customer',
+      outcome: 'Confirmed + calendar updated',
+      url: 'https://files.catbox.moe/p50jhw.mp3'
+    },
+    {
+      id: 'lead-qualification',
+      title: 'Lead Qualification',
+      description: 'AI agent qualifies incoming lead and books meeting',
+      scenario: 'Potential customer inquiry call',
+      outcome: 'Lead qualified + meeting scheduled',
+      url: 'https://files.catbox.moe/zif1y8.mp3'
+    },
+    {
+      id: 'follow-up-call',
+      title: 'Follow-up Call',
+      description: 'AI agent follows up on previous interaction',
+      scenario: 'Automated follow-up sequence',
+      outcome: 'Engagement maintained + next steps confirmed',
+      url: 'https://files.catbox.moe/0mvogy.mp3'
+    }
+  ];
 
   return (
     <section className="py-32 px-4 sm:px-6 lg:px-8 bg-gray-950 relative overflow-hidden">
@@ -96,77 +233,24 @@ export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
           </p>
           <p className="text-lg text-purple-400 max-w-3xl mx-auto font-light" 
              style={{ fontFamily: '"Merriweather", "Crimson Text", Georgia, serif' }}>
-            Demo audio for testing • Real recordings available on discovery call
+            Actual AI voice recordings from live deployments
           </p>
         </motion.div>
 
-        {/* Simple Audio Player */}
-        <div className="max-w-2xl mx-auto mb-20">
-          <div className="bg-gray-900/50 backdrop-blur-xl rounded-3xl p-8 border border-gray-800/50 hover:border-purple-500/50 transition-all duration-300">
-            <div className="text-center mb-8">
-              <div className="w-20 h-20 bg-gradient-to-r from-purple-600 to-violet-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-2xl shadow-purple-500/30">
-                <Phone className="w-10 h-10 text-white" strokeWidth={2} />
-              </div>
-              <h3 className="text-2xl font-display font-bold text-white mb-2">AI Voice Demo</h3>
-              <p className="text-gray-400">Sample conversation with our AI agent</p>
-            </div>
-
-            {/* Audio Controls */}
-            <div className="space-y-6">
-              <button
-                onClick={togglePlay}
-                className="w-full p-6 rounded-2xl bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-500 hover:to-violet-500 text-white transition-all duration-300 flex items-center justify-center gap-4 group shadow-2xl shadow-purple-500/40 hover:scale-[1.02]"
-              >
-                {isPlaying ? (
-                  <Pause className="w-8 h-8 group-hover:scale-110 transition-transform" />
-                ) : (
-                  <Play className="w-8 h-8 group-hover:scale-110 transition-transform" />
-                )}
-                <span className="text-xl font-semibold">
-                  {isPlaying ? 'Pause Demo' : 'Play Demo Audio'}
-                </span>
-              </button>
-
-              {/* Progress Bar */}
-              {duration > 0 && (
-                <div className="space-y-3">
-                  <div className="flex items-center justify-between text-sm text-gray-400">
-                    <span className="font-mono">{formatTime(currentTime)}</span>
-                    <span className="font-mono">{formatTime(duration)}</span>
-                  </div>
-                  <div className="w-full h-2 bg-gray-800 rounded-full overflow-hidden">
-                    <div 
-                      className="h-full bg-gradient-to-r from-purple-500 to-violet-500 rounded-full transition-all duration-200"
-                      style={{ width: `${getProgressPercentage()}%` }}
-                    />
-                  </div>
-                </div>
-              )}
-            </div>
-
-            {/* Direct Audio Element for Fallback */}
-            <div className="mt-8 p-4 bg-gray-800/30 rounded-xl border border-gray-700/30">
-              <p className="text-sm text-gray-400 mb-3">If the player above doesn't work, use the browser's default audio controls:</p>
-              <audio 
-                controls 
-                className="w-full"
-                preload="metadata"
-              >
-                <source src={audioUrl} type="audio/wav" />
-                <source src="https://www2.cs.uic.edu/~i101/SoundFiles/BabyElephantWalk60.wav" type="audio/wav" />
-                <source src="https://www2.cs.uic.edu/~i101/SoundFiles/CantinaBand60.wav" type="audio/wav" />
-                Your browser does not support the audio element.
-              </audio>
-            </div>
-          </div>
+        {/* Audio Recordings Grid */}
+        <div className="grid md:grid-cols-2 gap-8 mb-20">
+          {recordings.map((recording, index) => (
+            <motion.div
+              key={recording.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+            >
+              <AudioPlayer recording={recording} />
+            </motion.div>
+          ))}
         </div>
-
-        {/* Hidden Audio Element for Custom Player */}
-        <audio 
-          ref={audioRef}
-          src={audioUrl}
-          preload="metadata"
-        />
 
         {/* Bottom CTA */}
         <motion.div 
@@ -179,11 +263,11 @@ export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
           <div className="inline-flex items-center gap-4 bg-gradient-to-r from-gray-900/80 to-gray-800/80 backdrop-blur-xl rounded-3xl px-12 py-6 border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300 group mb-12">
             <div className="flex items-center gap-3">
               <div className="w-4 h-4 bg-green-400 rounded-full animate-pulse"></div>
-              <span className="text-green-400 font-medium text-sm tracking-wider uppercase">AUDIO DEMO</span>
+              <span className="text-green-400 font-medium text-sm tracking-wider uppercase">LIVE RECORDINGS</span>
             </div>
             <div className="w-px h-8 bg-gray-600"></div>
             <p className="text-gray-300 font-light text-lg" style={{ fontFamily: '"Merriweather", serif' }}>
-              Demo audio for testing • Real AI voice recordings on discovery call
+              Real AI voice agents from production deployments
             </p>
           </div>
 
@@ -194,7 +278,7 @@ export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
           >
             <div className="flex items-center gap-4 group text-xl font-semibold text-white">
               <Phone className="w-6 h-6 drop-shadow-lg" strokeWidth={2} />
-              Experience Our AI
+              Get This For Your Business
               <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" strokeWidth={2} />
             </div>
           </GradientButton>
