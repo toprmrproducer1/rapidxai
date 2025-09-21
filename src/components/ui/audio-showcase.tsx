@@ -225,10 +225,15 @@ export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
           
           <h2 className="text-6xl md:text-7xl font-display font-bold mb-12 text-white tracking-tight leading-tight" 
               style={{ fontFamily: '"Playfair Display", "Cormorant Garamond", Georgia, serif' }}>
-            <span className="gradient-text">Voice Demos</span>
+            Listen to our <span className="gradient-text">AI voice</span> in action
           </h2>
-          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto font-light leading-relaxed mb-6 px-4">
-            Real AI voice recordings from live deployments.
+          <p className="text-2xl md:text-3xl text-gray-300 max-w-4xl mx-auto font-light leading-relaxed mb-8" 
+             style={{ fontFamily: '"Crimson Text", "Cormorant Garamond", Georgia, serif' }}>
+            Real scenarios. Human-grade conversations.
+          </p>
+          <p className="text-lg text-purple-400 max-w-3xl mx-auto font-light" 
+             style={{ fontFamily: '"Merriweather", "Crimson Text", Georgia, serif' }}>
+            Actual AI voice recordings from live deployments
           </p>
         </motion.div>
 

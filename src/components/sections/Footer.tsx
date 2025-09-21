@@ -37,7 +37,16 @@ export function Footer({ primaryCTA, secondaryCTA, setCurrentPage }: FooterProps
           <div className="flex justify-end gap-3">
             <SaveButton
               text={{
-                idle: "Book Call",
+                idle: "$250 Deep-Dive",
+                saving: "Connecting...",
+                saved: "Booked!"
+              }}
+              onClick={secondaryCTA}
+              className="text-sm"
+            />
+            <SaveButton
+              text={{
+                idle: "Book Discovery Call",
                 saving: "Booking...",
                 saved: "Booked!"
               }}

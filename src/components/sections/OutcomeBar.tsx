@@ -5,43 +5,43 @@ import { CheckCircle, TrendingUp, Clock, Users, Target, Zap } from 'lucide-react
 export function OutcomeBar() {
   const outcomes = [
     {
-      title: "3x More Meetings",
-      subtitle: "same team size",
+      title: "More booked calls",
+      subtitle: "without more headcount",
       icon: Users,
       metric: "3x",
-      description: "qualified meetings",
+      description: "increase in qualified meetings",
       gradient: "from-emerald-500 to-teal-500"
     },
     {
-      title: "Never Miss Calls",
+      title: "Zero missed inbound",
       subtitle: "24/7 availability",
       icon: Clock,
       metric: "100%",
-      description: "answer rate",
+      description: "call answer rate",
       gradient: "from-blue-500 to-cyan-500"
     },
     {
-      title: "Follow-ups Work",
-      subtitle: "automated",
+      title: "Follow-ups that happen",
+      subtitle: "automated sequences",
       icon: Target,
       metric: "85%",
-      description: "callback success",
+      description: "callback success rate",
       gradient: "from-purple-500 to-violet-500"
     },
     {
-      title: "Fast MVPs",
-      subtitle: "weeks not quarters",
+      title: "MVPs in weeks",
+      subtitle: "not quarters",
       icon: Zap,
       metric: "3-6",
-      description: "weeks to live",
+      description: "weeks to production",
       gradient: "from-orange-500 to-red-500"
     },
     {
-      title: "Strong ROI",
-      subtitle: "first quarter",
+      title: "Outcomes over overhead",
+      subtitle: "ROI-focused delivery",
       icon: TrendingUp,
       metric: "300%",
-      description: "average ROI",
+      description: "average ROI first quarter",
       gradient: "from-pink-500 to-rose-500"
     }
   ];
@@ -100,10 +100,10 @@ export function OutcomeBar() {
           </div>
           
           <h2 className="text-5xl md:text-6xl font-display font-bold mb-8 text-white tracking-tight leading-tight">
-            <span className="gradient-text">Results</span>
+            Value <span className="gradient-text">Delivered</span>
           </h2>
-          <p className="text-lg md:text-xl text-gray-300 font-light max-w-3xl mx-auto leading-relaxed px-4">
-            Real outcomes from clients who automated instead of hiring.
+          <p className="text-2xl md:text-3xl text-gray-300 font-light max-w-4xl mx-auto leading-relaxed">
+            Real outcomes from real clients who chose to automate instead of hiring.
           </p>
         </motion.div>
 
@@ -112,52 +112,52 @@ export function OutcomeBar() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 px-4"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8"
         >
           {outcomes.map((outcome, index) => (
             <motion.div
               key={index}
               variants={cardVariants}
               whileHover={{ 
-                y: -4, 
+                y: -8, 
                 scale: 1.05,
                 transition: { duration: 0.3, ease: "easeOut" }
               }}
               className="group relative"
             >
               {/* Premium Card Container */}
-              <div className="relative h-full p-6 rounded-2xl bg-gradient-to-br from-gray-900/80 via-gray-800/60 to-gray-900/80 backdrop-blur-xl border border-gray-700/50 hover:border-purple-500/50 transition-all duration-500 overflow-hidden">
+              <div className="relative h-full p-8 rounded-3xl bg-gradient-to-br from-gray-900/80 via-gray-800/60 to-gray-900/80 backdrop-blur-xl border border-gray-700/50 hover:border-purple-500/50 transition-all duration-500 overflow-hidden">
                 
                 {/* Animated Background Glow */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${outcome.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-2xl`}></div>
+                <div className={`absolute inset-0 bg-gradient-to-br ${outcome.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-3xl`}></div>
                 
                 {/* Shimmer Effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 rounded-2xl"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 rounded-3xl"></div>
                 
                 {/* Icon Container */}
-                <div className="relative mb-4">
-                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${outcome.gradient} flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300`}>
-                    <outcome.icon className="w-6 h-6 text-white" strokeWidth={2} />
+                <div className="relative mb-6">
+                  <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${outcome.gradient} flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-300`}>
+                    <outcome.icon className="w-8 h-8 text-white" strokeWidth={2} />
                   </div>
-                  <div className={`absolute -inset-1 bg-gradient-to-br ${outcome.gradient} rounded-xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity duration-300`}></div>
+                  <div className={`absolute -inset-2 bg-gradient-to-br ${outcome.gradient} rounded-2xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-300`}></div>
                 </div>
 
                 {/* Metric Display */}
                 <div className="mb-4">
-                  <div className="text-2xl sm:text-3xl font-display font-bold text-white mb-1 group-hover:scale-105 transition-transform duration-300">
+                  <div className="text-4xl font-display font-bold text-white mb-2 group-hover:scale-105 transition-transform duration-300">
                     {outcome.metric}
                   </div>
-                  <div className={`text-xs font-medium bg-gradient-to-r ${outcome.gradient} bg-clip-text text-transparent`}>
+                  <div className={`text-sm font-medium bg-gradient-to-r ${outcome.gradient} bg-clip-text text-transparent`}>
                     {outcome.description}
                   </div>
                 </div>
 
                 {/* Content */}
                 <div className="space-y-2">
-                  <h3 className="text-lg font-display font-bold text-white group-hover:text-purple-200 transition-colors duration-300 leading-tight">
+                  <h3 className="text-xl font-display font-bold text-white group-hover:text-purple-200 transition-colors duration-300 leading-tight">
                     {outcome.title}
                   </h3>
-                  <p className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors duration-300 font-light">
+                  <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300 font-light">
                     {outcome.subtitle}
                   </p>
                 </div>

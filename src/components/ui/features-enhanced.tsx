@@ -10,11 +10,11 @@ export function FeaturesEnhanced() {
             
             <div className="mx-auto max-w-7xl relative z-10">
                 <div className="text-center mb-20">
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold mb-6 text-white tracking-tight">
+                    <h2 className="text-5xl md:text-6xl font-display font-bold mb-8 text-white tracking-tight">
                         Why Choose <span className="gradient-text">RapidXAI</span>
                     </h2>
-                    <p className="text-lg md:text-xl text-gray-300 font-light max-w-3xl mx-auto leading-relaxed px-4">
-                        Enterprise-grade solutions built for speed and scale.
+                    <p className="text-2xl md:text-3xl text-gray-300 font-light max-w-4xl mx-auto leading-relaxed">
+                        Enterprise-grade solutions built for speed, security, and scalability.
                     </p>
                 </div>
                 
