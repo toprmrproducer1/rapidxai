@@ -80,19 +80,19 @@ export function ProcessSection({ primaryCTA, secondaryCTA }: ProcessSectionProps
         >
           <div className="inline-flex items-center gap-3 bg-purple-600/20 backdrop-blur-xl rounded-full px-6 py-3 border border-purple-500/30 mb-8">
             <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></div>
-            <span className="text-purple-300 font-medium text-sm tracking-wide">OUR METHODOLOGY</span>
+            <span className="text-purple-300 font-medium text-sm tracking-wide">HOW WE WORK</span>
           </div>
           
-          <h2 className="text-5xl md:text-6xl font-display font-bold mb-8 text-white tracking-tight" style={{ fontFamily: '"Fraunces", "Playfair Display", serif' }}>
+          <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 text-white tracking-tight" style={{ fontFamily: '"Fraunces", "Playfair Display", serif' }}>
             How We <span className="gradient-text">Work</span>
           </h2>
-          <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto font-light leading-relaxed" style={{ fontFamily: '"Newsreader", "Crimson Text", serif' }}>
-          We operate like a product team: ship fast, measure honestly, iterate to traction.
+          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto font-light leading-relaxed" style={{ fontFamily: '"Newsreader", "Crimson Text", serif' }}>
+          Ship fast. Measure. Iterate.
           </p>
         </motion.div>
         
         <motion.div 
-          className="grid md:grid-cols-4 gap-8 mb-20"
+          className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -101,7 +101,7 @@ export function ProcessSection({ primaryCTA, secondaryCTA }: ProcessSectionProps
           {phases.map((phase, index) => (
             <motion.div 
               key={index} 
-              className="relative group"
+              className="relative group text-center"
               variants={itemVariants}
               whileHover={{ 
                 y: -10, 
@@ -110,7 +110,7 @@ export function ProcessSection({ primaryCTA, secondaryCTA }: ProcessSectionProps
               }}
             >
               {/* Enhanced Card Container */}
-              <div className="relative h-full p-8 rounded-3xl bg-gray-900/50 backdrop-blur-xl border border-gray-800/50 hover:border-purple-500/50 transition-all duration-500 overflow-hidden">
+              <div className="relative h-full p-6 rounded-2xl bg-gray-900/50 backdrop-blur-xl border border-gray-800/50 hover:border-purple-500/50 transition-all duration-500 overflow-hidden">
                 
                 {/* Animated Background Glow */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${phase.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-3xl`}></div>
@@ -130,10 +130,10 @@ export function ProcessSection({ primaryCTA, secondaryCTA }: ProcessSectionProps
 
                 {/* Content */}
                 <div className="space-y-4 text-center">
-                  <h3 className="text-2xl font-display font-bold text-white group-hover:text-purple-200 transition-colors duration-300" style={{ fontFamily: '"Fraunces", serif' }}>
+                  <h3 className="text-xl font-display font-bold text-white group-hover:text-purple-200 transition-colors duration-300" style={{ fontFamily: '"Fraunces", serif' }}>
                     {phase.title}
                   </h3>
-                  <p className="text-gray-300 group-hover:text-gray-200 transition-colors duration-300 leading-relaxed font-light" style={{ fontFamily: '"Newsreader", serif' }}>
+                  <p className="text-sm text-gray-300 group-hover:text-gray-200 transition-colors duration-300 leading-relaxed font-light" style={{ fontFamily: '"Newsreader", serif' }}>
                     {phase.description}
                   </p>
                 </div>
@@ -150,37 +150,6 @@ export function ProcessSection({ primaryCTA, secondaryCTA }: ProcessSectionProps
           ))}
         </motion.div>
 
-        <motion.div 
-          className="flex flex-col sm:flex-row gap-6 justify-center items-center"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          viewport={{ once: true }}
-        >
-          <GradientButton
-            width="300px"
-            height="60px"
-            onClick={primaryCTA}
-          >
-            <div className="flex items-center gap-3 group text-lg font-semibold text-white">
-              <Bot className="w-6 h-6 drop-shadow-lg" strokeWidth={2} />
-              Book Your Discovery Call
-              <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" strokeWidth={2} />
-            </div>
-          </GradientButton>
-          
-          <GradientButton
-            width="300px"
-            height="60px"
-            onClick={secondaryCTA}
-            className="border-2 border-purple-500/50 bg-transparent"
-          >
-            <div className="flex items-center gap-3 group text-lg font-semibold text-white">
-              <Code className="w-6 h-6 drop-shadow-lg" strokeWidth={2} />
-              $250 Deep-Dive with Shreyas
-            </div>
-          </GradientButton>
-        </motion.div>
       </div>
     </section>
   );

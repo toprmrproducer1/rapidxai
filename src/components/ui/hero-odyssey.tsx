@@ -316,43 +316,33 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ primaryCTA, secondaryC
 
           <motion.p
             variants={itemVariants}
-            className="text-gray-300 mb-8 max-w-5xl text-xl md:text-2xl leading-relaxed font-elegant font-light tracking-wide drop-shadow-sm"
+            className="text-gray-300 mb-8 max-w-4xl text-lg md:text-xl leading-relaxed font-elegant font-light tracking-wide drop-shadow-sm"
             style={{ fontFamily: '"Crimson Text", "Cormorant Garamond", Georgia, serif', lineHeight: '1.8', letterSpacing: '0.01em' }}
           >
-            AI Voice agents that handle the grind 24/7 + MVP/Micro-SaaS that validates your market before you burn budget. Led by Shreyas Raj—we turn "we should" into "we shipped."
+            AI Voice agents + MVP/Micro-SaaS. We turn "we should" into "we shipped."
           </motion.p>
 
           <motion.p
             variants={itemVariants}
-            className="text-purple-300 mb-16 max-w-4xl text-lg md:text-xl leading-relaxed font-elegant font-light italic drop-shadow-sm"
+            className="text-purple-300 mb-16 max-w-3xl text-base md:text-lg leading-relaxed font-elegant font-light italic drop-shadow-sm"
             style={{ fontFamily: '"Crimson Text", "Cormorant Garamond", Georgia, serif', lineHeight: '1.9', letterSpacing: '0.005em' }}
           >
-            Worst case: you leave with an action plan. Best case: you add a 24/7 closer to your team.
+            Worst case: clarity. Best case: compound advantage.
           </motion.p>
 
           <motion.div
             variants={itemVariants}
-            className="flex flex-col sm:flex-row gap-8 mb-20"
+            className="flex flex-col sm:flex-row gap-6 mb-20"
           >
             <GradientButton
-              width="320px"
-              height="60px"
+              width="280px"
+              height="56px"
               onClick={primaryCTA}
             >
-              <div className="flex items-center gap-3 text-lg font-semibold text-white">
+              <div className="flex items-center gap-2 text-base font-semibold text-white">
                 <Bot className="w-6 h-6 drop-shadow-lg" strokeWidth={2} />
                 <span>Book Discovery Call</span>
                 <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" strokeWidth={2} />
-              </div>
-            </GradientButton>
-            <GradientButton
-              width="320px"
-              height="60px"
-              onClick={secondaryCTA}
-              className="border-2 border-purple-500/50 bg-transparent"
-            >
-              <div className="text-lg font-semibold text-white">
-                $250 Deep-Dive with Shreyas
               </div>
             </GradientButton>
           </motion.div>

@@ -220,25 +220,21 @@ export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
         >
           <div className="inline-flex items-center gap-3 bg-gradient-to-r from-purple-600/20 to-violet-600/20 backdrop-blur-xl rounded-full px-8 py-4 border border-purple-500/30 mb-12">
             <div className="w-3 h-3 bg-purple-400 rounded-full animate-pulse"></div>
-            <span className="text-purple-300 font-medium text-sm tracking-[0.2em] uppercase">VOICE DEMONSTRATIONS</span>
+            <span className="text-purple-300 font-medium text-sm tracking-[0.2em] uppercase">LIVE DEMOS</span>
           </div>
           
-          <h2 className="text-6xl md:text-7xl font-display font-bold mb-12 text-white tracking-tight leading-tight" 
+          <h2 className="text-4xl md:text-5xl font-display font-bold mb-8 text-white tracking-tight leading-tight" 
               style={{ fontFamily: '"Playfair Display", "Cormorant Garamond", Georgia, serif' }}>
-            Listen to our <span className="gradient-text">AI voice</span> in action
+            <span className="gradient-text">AI voice</span> in action
           </h2>
-          <p className="text-2xl md:text-3xl text-gray-300 max-w-4xl mx-auto font-light leading-relaxed mb-8" 
+          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto font-light leading-relaxed mb-8" 
              style={{ fontFamily: '"Crimson Text", "Cormorant Garamond", Georgia, serif' }}>
-            Real scenarios. Human-grade conversations.
-          </p>
-          <p className="text-lg text-purple-400 max-w-3xl mx-auto font-light" 
-             style={{ fontFamily: '"Merriweather", "Crimson Text", Georgia, serif' }}>
-            Actual AI voice recordings from live deployments
+            Real scenarios. Human-grade.
           </p>
         </motion.div>
 
         {/* Audio Recordings Grid */}
-        <div className="grid md:grid-cols-2 gap-8 mb-20">
+        <div className="grid md:grid-cols-2 gap-6 mb-16">
           {recordings.map((recording, index) => (
             <motion.div
               key={recording.id}
@@ -260,25 +256,14 @@ export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
           viewport={{ once: true }}
           className="text-center"
         >
-          <div className="inline-flex items-center gap-4 bg-gradient-to-r from-gray-900/80 to-gray-800/80 backdrop-blur-xl rounded-3xl px-12 py-6 border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300 group mb-12">
-            <div className="flex items-center gap-3">
-              <div className="w-4 h-4 bg-green-400 rounded-full animate-pulse"></div>
-              <span className="text-green-400 font-medium text-sm tracking-wider uppercase">LIVE RECORDINGS</span>
-            </div>
-            <div className="w-px h-8 bg-gray-600"></div>
-            <p className="text-gray-300 font-light text-lg" style={{ fontFamily: '"Merriweather", serif' }}>
-              Real AI voice agents from production deployments
-            </p>
-          </div>
-
           <GradientButton
-            width="320px"
-            height="70px"
+            width="280px"
+            height="56px"
             onClick={primaryCTA}
           >
-            <div className="flex items-center gap-4 group text-xl font-semibold text-white">
+            <div className="flex items-center gap-3 group text-base font-semibold text-white">
               <Phone className="w-6 h-6 drop-shadow-lg" strokeWidth={2} />
-              Get This For Your Business
+              Get Started
               <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" strokeWidth={2} />
             </div>
           </GradientButton>

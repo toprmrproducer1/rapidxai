@@ -27,26 +27,13 @@ export function Footer({ primaryCTA, secondaryCTA, setCurrentPage }: FooterProps
               <button onClick={() => setCurrentPage('content')} className="text-gray-400 hover:text-purple-400 transition-colors">Content</button>
               <button onClick={() => setCurrentPage('pricing')} className="text-gray-400 hover:text-purple-400 transition-colors">Pricing</button>
               <button onClick={() => setCurrentPage('team')} className="text-gray-400 hover:text-purple-400 transition-colors">Team</button>
-              <button onClick={() => setCurrentPage('socials')} className="text-gray-400 hover:text-purple-400 transition-colors">Socials</button>
             </div>
-            <p className="text-sm text-purple-400 font-light italic mb-4">
-              "We build what moves numbers."
-            </p>
           </div>
           
-          <div className="flex justify-end gap-3">
+          <div className="flex justify-end">
             <SaveButton
               text={{
-                idle: "$250 Deep-Dive",
-                saving: "Connecting...",
-                saved: "Booked!"
-              }}
-              onClick={secondaryCTA}
-              className="text-sm"
-            />
-            <SaveButton
-              text={{
-                idle: "Book Discovery Call",
+                idle: "Book Call",
                 saving: "Booking...",
                 saved: "Booked!"
               }}
@@ -58,23 +45,20 @@ export function Footer({ primaryCTA, secondaryCTA, setCurrentPage }: FooterProps
         
         <div className="mt-8 pt-8 border-t border-gray-800 text-center text-gray-400 text-sm">
           <div className="flex flex-col items-center gap-4">
-            <div className="flex flex-wrap justify-center gap-6">
+            <div className="flex flex-wrap justify-center gap-4">
               <button onClick={() => setCurrentPage('terms')} className="text-gray-400 hover:text-purple-400 transition-colors text-sm font-medium">
-                Terms of Service
+                Terms
               </button>
               <button onClick={() => setCurrentPage('privacy')} className="text-gray-400 hover:text-purple-400 transition-colors text-sm font-medium">
-                Privacy Policy
+                Privacy
               </button>
               <a href="tel:+919307512816" className="text-gray-400 hover:text-purple-400 transition-colors text-sm font-medium">
                 +91 9307512816
               </a>
-              <a href="https://wa.me/919307512816" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-green-400 transition-colors text-sm font-medium">
-                WhatsApp
-              </a>
             </div>
             <div className="flex items-center justify-center gap-2">
               <Logo size="sm" showText={false} />
-              <p className="font-mono">© 2025 RapidXAI. All rights reserved.</p>
+              <p className="font-mono text-xs">© 2025 RapidXAI</p>
             </div>
           </div>
         </div>

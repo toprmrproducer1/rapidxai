@@ -256,13 +256,13 @@ function App() {
               : 'shadow-xl shadow-purple-500/30'
           } rounded-full hover:shadow-3xl hover:shadow-purple-500/60`}>
             <GradientButton
-              width="200px"
-              height="50px"
+              width="180px"
+              height="48px"
               onClick={primaryCTA}
             >
-             <div className="flex items-center justify-center gap-2 text-sm whitespace-nowrap text-white">
+             <div className="flex items-center justify-center gap-2 text-xs whitespace-nowrap text-white">
                 <Bot className="w-4 h-4" />
-                <span className="whitespace-nowrap">Book Discovery Call</span>
+                <span className="whitespace-nowrap">Book Call</span>
               </div>
             </GradientButton>
           </div>
@@ -295,7 +295,7 @@ function App() {
                     setCurrentPage(item.page);
                     setMobileMenuOpen(false);
                   }}
-                  className={`block px-4 py-2 text-sm font-semibold transition-all duration-300 w-full text-left rounded-xl hover:scale-[1.02] ${
+                  className={`block px-3 py-2 text-sm font-semibold transition-all duration-300 w-full text-left rounded-xl hover:scale-[1.02] ${
                     currentPage === item.page 
                       ? 'text-white bg-gradient-to-r from-purple-600/40 to-violet-600/40 shadow-lg shadow-purple-500/20' 
                       : 'text-gray-300 hover:text-white hover:bg-white/15'
@@ -305,16 +305,16 @@ function App() {
                   {item.name}
                 </button>
               ))}
-              <div className="pt-2 pb-1 space-y-2">
+              <div className="pt-2 pb-1">
                 <GradientButton
                   width="100%"
-                  height="40px"
+                  height="36px"
                   onClick={() => {
                     primaryCTA();
                     setMobileMenuOpen(false);
                   }}
                 >
-                  <span className="text-white">Book Call</span>
+                  <span className="text-white text-sm">Book Call</span>
                 </GradientButton>
               </div>
             </div>

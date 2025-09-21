@@ -14,9 +14,9 @@ export function LampDemo() {
           duration: 0.8,
           ease: "easeInOut",
         }}
-        className="mt-8 bg-gradient-to-br from-white to-purple-300 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl"
+        className="mt-8 bg-gradient-to-br from-white to-purple-300 py-4 bg-clip-text text-center text-3xl font-medium tracking-tight text-transparent md:text-5xl"
       >
-        Ready to turn "we should automate this" <br /> into "it's already handled"?
+        Ready to automate?
       </motion.h1>
       <motion.p
         initial={{ opacity: 0.5, y: 50 }}
@@ -26,9 +26,9 @@ export function LampDemo() {
           duration: 0.8,
           ease: "easeInOut",
         }}
-        className="mt-6 text-center text-lg text-purple-200 max-w-2xl"
+        className="mt-6 text-center text-base text-purple-200 max-w-xl"
       >
-        Worst case: clarity. Best case: compound advantage.
+        Let's build something that sells itself.
       </motion.p>
     </LampContainer>
   );

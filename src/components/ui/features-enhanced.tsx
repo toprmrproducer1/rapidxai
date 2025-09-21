@@ -42,7 +42,7 @@ export function FeaturesEnhanced() {
                                 </div>
                                 <div className="relative z-10 mt-6 space-y-2 text-center">
                                     <h2 className="text-lg font-medium text-white">Enterprise Security</h2>
-                                    <p className="text-gray-400">SOC2-ready processes with end-to-end encryption and compliance-first architecture.</p>
+                                    <p className="text-gray-400">SOC2-ready with compliance-first architecture.</p>
                                 </div>
                             </CardContent>
                         </Card>
@@ -65,7 +65,7 @@ export function FeaturesEnhanced() {
                                 </div>
                                 <div className="relative z-10 mt-6 space-y-2 text-center">
                                     <h2 className="text-lg font-medium text-white">Lightning Fast</h2>
-                                    <p className="text-gray-400">Rapid deployment with our proven framework and battle-tested components.</p>
+                                    <p className="text-gray-400">Weeks, not quarters.</p>
                                 </div>
                             </CardContent>
                         </Card>
@@ -78,7 +78,7 @@ export function FeaturesEnhanced() {
                                     </div>
                                     <div className="space-y-2">
                                         <h2 className="text-lg font-medium text-white">AI Voice Intelligence</h2>
-                                        <p className="text-gray-400">Advanced conversational AI that understands context and delivers human-grade interactions.</p>
+                                        <p className="text-gray-400">Human-grade conversations with context memory.</p>
                                     </div>
                                 </div>
                                 <div className="relative -mb-6 -mr-6 mt-6 h-fit border-l border-t border-gray-700/50 p-6 sm:ml-6">
@@ -132,11 +132,11 @@ export function FeaturesEnhanced() {
                                                 <div className="size-full rounded-full bg-gradient-to-r from-purple-500 to-violet-500" />
                                             </div>
                                         </div>
-                                    </div>
+                <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 text-white tracking-tight">
                                 </div>
                             </CardContent>
-                        </Card>
-                    </div>
+                <p className="text-lg md:text-xl text-gray-300 font-light max-w-3xl mx-auto leading-relaxed">
+                    Built for speed and scale.
                 </div>
             </div>
         </section>

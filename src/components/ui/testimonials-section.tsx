@@ -25,18 +25,18 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ classN
         >
           <div className="inline-flex items-center gap-3 bg-purple-600/20 backdrop-blur-xl rounded-full px-6 py-3 border border-purple-500/30 mb-8">
             <Star className="w-4 h-4 text-purple-400" />
-            <span className="text-purple-300 font-medium text-sm tracking-wide">CLIENT TESTIMONIALS</span>
+            <span className="text-purple-300 font-medium text-sm tracking-wide">TESTIMONIALS</span>
           </div>
 
-          <h2 className="text-5xl md:text-6xl font-display font-bold tracking-tight text-center text-white mb-8" style={{ fontFamily: '"Fraunces", "Playfair Display", serif' }}>
+          <h2 className="text-4xl md:text-5xl font-display font-bold tracking-tight text-center text-white mb-6" style={{ fontFamily: '"Fraunces", "Playfair Display", serif' }}>
             What Our <span className="gradient-text">Clients Say</span>
           </h2>
-          <p className="text-center text-xl md:text-2xl text-gray-300 font-light leading-relaxed max-w-3xl" style={{ fontFamily: '"Newsreader", "Crimson Text", serif' }}>
-            Don't take our word for it—hear from founders and teams who've transformed their businesses with RapidXAI.
+          <p className="text-center text-lg md:text-xl text-gray-300 font-light leading-relaxed max-w-2xl" style={{ fontFamily: '"Newsreader", "Crimson Text", serif' }}>
+            Real results from real clients.
           </p>
         </motion.div>
 
-        <div className="flex justify-center gap-8 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] max-h-[740px] overflow-hidden">
+        <div className="flex justify-center gap-4 md:gap-8 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] max-h-[600px] overflow-hidden">
           <TestimonialsColumn testimonials={firstColumn} duration={15} />
           <TestimonialsColumn testimonials={secondColumn} className="hidden md:block" duration={19} />
           <TestimonialsColumn testimonials={thirdColumn} className="hidden lg:block" duration={17} />
