@@ -136,6 +136,8 @@ export function OutcomeBar() {
                 
                 {/* Icon Container */}
                 <div className="relative mb-6">
+                  <div className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${outcome.gradient} p-4 group-hover:scale-110 transition-transform duration-300`}>
+                    <outcome.icon className="w-8 h-8 text-white" />
                   </div>
                   <div className={`absolute -inset-2 bg-gradient-to-br ${outcome.gradient} rounded-2xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-300`}></div>
                 </div>
