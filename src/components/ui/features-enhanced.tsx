@@ -132,15 +132,3 @@ export function FeaturesEnhanced() {
                                                 <div className="size-full rounded-full bg-gradient-to-r from-purple-500 to-violet-500" />
                                             </div>
                                         </div>
-                <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 text-white tracking-tight">
-                                </div>
-                            </CardContent>
-                <p className="text-lg md:text-xl text-gray-300 font-light max-w-3xl mx-auto leading-relaxed">
-                    Built for speed and scale.
-                </div>
-            </div>
-        </section>
-    )
-}
-    )
-}
