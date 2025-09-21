@@ -20,11 +20,11 @@ export function ServicesSection({ activeService, setActiveService, scrollToBooki
       
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-20">
-          <h2 className="text-5xl md:text-6xl font-display font-bold mb-8 text-white tracking-tight">
-            Our <span className="gradient-text">Core Services</span>
+          <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 text-white tracking-tight">
+            <span className="gradient-text">Core Services</span>
           </h2>
-          <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-            Two pillars. One goal: revenue momentum.
+          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            Two pillars. One goal.
           </p>
         </div>
         
@@ -77,39 +77,32 @@ export function ServicesSection({ activeService, setActiveService, scrollToBooki
                     <div className="absolute -inset-2 bg-purple-500/20 rounded-3xl animate-pulse"></div>
                   </div>
                   <h2 className="text-5xl md:text-6xl font-display font-bold mb-8 tracking-tight leading-tight">
-                    AI Voice Agents <span className="gradient-text">(Inbound + Outbound)</span>
+                    AI Voice Agents
                   </h2>
-                  <p className="text-xl md:text-2xl text-gray-300 mb-12 leading-relaxed font-light">
-                    Your always-on receptionist + SDR—polite, persistent, and impossible to "forget to follow up."
+                  <p className="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed font-light">
+                    24/7 receptionist + SDR. Never miss a lead.
                   </p>
                   
-                  <div className="space-y-6 mb-12">
+                  <div className="space-y-4 mb-8">
                     {[
-                      { icon: Target, text: "Inbound that never misses: greet → qualify → route → schedule" },
-                      { icon: Phone, text: "Outbound that performs: targeted campaigns, callbacks, re-engagement" },
-                      { icon: Zap, text: "Follow-ups on rails: multistep cadences across phone/SMS/WhatsApp/email" },
-                      { icon: Users, text: "CRM-native: notes, statuses, tasks—no data dead-ends" },
-                      { icon: Clock, text: "Human-grade: natural dialogue, context memory, graceful handoff to your team" }
+                      { icon: Target, text: "Greet → qualify → route → schedule" },
+                      { icon: Phone, text: "Targeted campaigns + callbacks" },
+                      { icon: Zap, text: "Automated follow-ups" },
+                      { icon: Users, text: "CRM sync + notes" }
                     ].map((item, index) => (
                       <div key={index} className="flex items-start gap-4 group">
-                        <div className="relative p-3 rounded-xl bg-gradient-to-r from-purple-600/20 to-violet-600/20 hover:from-purple-600/30 hover:to-violet-600/30 transition-all duration-300 border border-purple-500/20 group-hover:border-purple-500/40">
-                          <item.icon className="w-6 h-6 text-purple-400 group-hover:text-purple-300 transition-colors" strokeWidth={2.5} />
+                        <div className="relative p-2 rounded-lg bg-gradient-to-r from-purple-600/20 to-violet-600/20 hover:from-purple-600/30 hover:to-violet-600/30 transition-all duration-300 border border-purple-500/20 group-hover:border-purple-500/40">
+                          <item.icon className="w-5 h-5 text-purple-400 group-hover:text-purple-300 transition-colors" strokeWidth={2} />
                           <div className="absolute -inset-1 bg-purple-500/10 rounded-xl blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         </div>
-                        <p className="text-lg text-gray-300 group-hover:text-gray-200 transition-colors font-light leading-relaxed">{item.text}</p>
+                        <p className="text-base text-gray-300 group-hover:text-gray-200 transition-colors font-light leading-relaxed">{item.text}</p>
                       </div>
                     ))}
                   </div>
 
-                  <SaveButton
-                    text={{
-                      idle: "Go-live speed: typically 7–14 days • See it in action on your discovery call",
-                      saving: "Connecting...",
-                      saved: "Booked!"
-                    }}
-                    onClick={scrollToBooking}
-                    className="text-lg bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-500 hover:to-violet-500"
-                  />
+                  <div className="text-sm text-purple-400 font-light">
+                    Go-live: 7–14 days
+                  </div>
                 </div>
               </>
             )}
@@ -124,38 +117,32 @@ export function ServicesSection({ activeService, setActiveService, scrollToBooki
                     <div className="absolute -inset-2 bg-violet-500/20 rounded-3xl animate-pulse"></div>
                   </div>
                   <h2 className="text-5xl md:text-6xl font-display font-bold mb-8 tracking-tight leading-tight">
-                    MVP & Micro-SaaS <span className="gradient-text">(Validation &gt; Vanity)</span>
+                    MVP & Micro-SaaS
                   </h2>
-                  <p className="text-xl md:text-2xl text-gray-300 mb-12 leading-relaxed font-light">
-                    Ship the smallest thing that proves the biggest thing.
+                  <p className="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed font-light">
+                    Validate before you scale.
                   </p>
                   
-                  <div className="space-y-6 mb-12">
+                  <div className="space-y-4 mb-8">
                     {[
-                      { icon: Target, text: "Scope to signal: features that actually test demand" },
-                      { icon: Star, text: "Production feel: clean UI, auth, 1 core workflow, 1–2 key integrations" },
-                      { icon: Shield, text: "Data-ready: analytics + feedback hooks from day one" },
-                      { icon: TrendingUp, text: "Deploy anywhere: your subdomain or your infra, with docs & handover" }
+                      { icon: Target, text: "Features that test demand" },
+                      { icon: Star, text: "Clean UI + auth + core workflow" },
+                      { icon: Shield, text: "Analytics from day one" },
+                      { icon: TrendingUp, text: "Deploy anywhere" }
                     ].map((item, index) => (
                       <div key={index} className="flex items-start gap-4 group">
-                        <div className="relative p-3 rounded-xl bg-gradient-to-r from-violet-600/20 to-purple-600/20 hover:from-violet-600/30 hover:to-purple-600/30 transition-all duration-300 border border-violet-500/20 group-hover:border-violet-500/40">
-                          <item.icon className="w-6 h-6 text-violet-400 group-hover:text-violet-300 transition-colors" strokeWidth={2.5} />
+                        <div className="relative p-2 rounded-lg bg-gradient-to-r from-violet-600/20 to-purple-600/20 hover:from-violet-600/30 hover:to-purple-600/30 transition-all duration-300 border border-violet-500/20 group-hover:border-violet-500/40">
+                          <item.icon className="w-5 h-5 text-violet-400 group-hover:text-violet-300 transition-colors" strokeWidth={2} />
                           <div className="absolute -inset-1 bg-violet-500/10 rounded-xl blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         </div>
-                        <p className="text-lg text-gray-300 group-hover:text-gray-200 transition-colors font-light leading-relaxed">{item.text}</p>
+                        <p className="text-base text-gray-300 group-hover:text-gray-200 transition-colors font-light leading-relaxed">{item.text}</p>
                       </div>
                     ))}
                   </div>
 
-                  <SaveButton
-                    text={{
-                      idle: "Time-to-live: typically 3–6 weeks • Discuss your MVP on the discovery call",
-                      saving: "Connecting...",
-                      saved: "Booked!"
-                    }}
-                    onClick={scrollToBooking}
-                    className="text-lg bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-500 hover:to-purple-500"
-                  />
+                  <div className="text-sm text-violet-400 font-light">
+                    Time-to-live: 3–6 weeks
+                  </div>
                 </div>
               </>
             )}
