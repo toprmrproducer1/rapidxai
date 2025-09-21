@@ -37,10 +37,11 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ classN
         </motion.div>
 
         <div className="flex justify-center gap-4 md:gap-8 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] max-h-[600px] overflow-hidden">
-        <div className="flex justify-center gap-2 sm:gap-4 md:gap-8 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] max-h-[500px] sm:max-h-[600px] overflow-hidden px-4">
+          <div className="flex justify-center gap-2 sm:gap-4 md:gap-8 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] max-h-[500px] sm:max-h-[600px] overflow-hidden px-4">
           <TestimonialsColumn testimonials={firstColumn} duration={15} />
           <TestimonialsColumn testimonials={secondColumn} className="hidden md:block" duration={19} />
           <TestimonialsColumn testimonials={thirdColumn} className="hidden xl:block" duration={17} />
+          </div>
         </div>
 
         {/* Floating Quote Icons */}
@@ -53,6 +54,4 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ classN
       </div>
     </section>
   );
-};
-  )
 }

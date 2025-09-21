@@ -3,7 +3,6 @@ import { Shield, Users, Zap, Target, TrendingUp, Clock } from 'lucide-react'
 
 export function FeaturesEnhanced() {
     return (
-        <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gray-950 relative overflow-hidden">
         <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gray-950 relative overflow-hidden">
             {/* Background effects */}
             <div className="absolute inset-0 bg-gradient-to-b from-gray-950 via-purple-950/20 to-gray-950"></div>
@@ -142,8 +141,5 @@ export function FeaturesEnhanced() {
                 </div>
             </div>
         </section>
-    )
-}
-}
     )
 }
