@@ -217,6 +217,7 @@ export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
           className="text-center mb-20"
+          className="text-center mb-16 px-4"
         >
           <div className="inline-flex items-center gap-3 bg-gradient-to-r from-purple-600/20 to-violet-600/20 backdrop-blur-xl rounded-full px-8 py-4 border border-purple-500/30 mb-12">
             <div className="w-3 h-3 bg-purple-400 rounded-full animate-pulse"></div>
@@ -224,17 +225,20 @@ export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
           </div>
           
           <h2 className="text-4xl md:text-5xl font-display font-bold mb-8 text-white tracking-tight leading-tight" 
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold mb-6 sm:mb-8 text-white tracking-tight leading-tight" 
               style={{ fontFamily: '"Playfair Display", "Cormorant Garamond", Georgia, serif' }}>
             <span className="gradient-text">AI voice</span> in action
           </h2>
           <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto font-light leading-relaxed mb-8" 
+          <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto font-light leading-relaxed mb-6 sm:mb-8" 
              style={{ fontFamily: '"Crimson Text", "Cormorant Garamond", Georgia, serif' }}>
-            Real scenarios. Human-grade.
+            Real demos.
           </p>
         </motion.div>
 
         {/* Audio Recordings Grid */}
         <div className="grid md:grid-cols-2 gap-6 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-12 sm:mb-16 px-4">
           {recordings.map((recording, index) => (
             <motion.div
               key={recording.id}
@@ -257,9 +261,10 @@ export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
           className="text-center"
         >
           <GradientButton
-            width="280px"
-            height="56px"
+            width="100%"
+            height="52px"
             onClick={primaryCTA}
+            className="sm:w-[280px]"
           >
             <div className="flex items-center gap-3 group text-base font-semibold text-white">
               <Phone className="w-6 h-6 drop-shadow-lg" strokeWidth={2} />

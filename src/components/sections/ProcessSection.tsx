@@ -78,21 +78,24 @@ export function ProcessSection({ primaryCTA, secondaryCTA }: ProcessSectionProps
           viewport={{ once: true }}
           className="mb-20"
         >
+        <div className="text-center mb-16 px-4">
           <div className="inline-flex items-center gap-3 bg-purple-600/20 backdrop-blur-xl rounded-full px-6 py-3 border border-purple-500/30 mb-8">
             <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></div>
             <span className="text-purple-300 font-medium text-sm tracking-wide">HOW WE WORK</span>
           </div>
           
           <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 text-white tracking-tight" style={{ fontFamily: '"Fraunces", "Playfair Display", serif' }}>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold mb-4 sm:mb-6 text-white tracking-tight" style={{ fontFamily: '"Fraunces", "Playfair Display", serif' }}>
             How We <span className="gradient-text">Work</span>
           </h2>
           <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto font-light leading-relaxed" style={{ fontFamily: '"Newsreader", "Crimson Text", serif' }}>
-          Ship fast. Measure. Iterate.
+          <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto font-light leading-relaxed" style={{ fontFamily: '"Newsreader", "Crimson Text", serif' }}>
+          Ship. Measure. Iterate.
           </p>
         </motion.div>
         
         <motion.div 
-          className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-16 px-4"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -111,14 +114,18 @@ export function ProcessSection({ primaryCTA, secondaryCTA }: ProcessSectionProps
             >
               {/* Enhanced Card Container */}
               <div className="relative h-full p-6 rounded-2xl bg-gray-900/50 backdrop-blur-xl border border-gray-800/50 hover:border-purple-500/50 transition-all duration-500 overflow-hidden">
+              <div className="relative h-full p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-gray-900/50 backdrop-blur-xl border border-gray-800/50 hover:border-purple-500/50 transition-all duration-500 overflow-hidden">
                 
                 {/* Animated Background Glow */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${phase.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-3xl`}></div>
                 
                 {/* Icon Container */}
                 <div className="relative mb-8">
+                <div className="relative mb-6 sm:mb-8">
                   <div className={`w-20 h-20 rounded-3xl bg-gradient-to-br ${phase.color} flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-300 mx-auto`}>
+                  <div className={`w-16 sm:w-20 h-16 sm:h-20 rounded-2xl sm:rounded-3xl bg-gradient-to-br ${phase.color} flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-300 mx-auto`}>
                     <phase.icon className="w-10 h-10 text-white" strokeWidth={2} />
+                    <phase.icon className="w-8 sm:w-10 h-8 sm:h-10 text-white" strokeWidth={2} />
                   </div>
                   <div className={`absolute -inset-2 bg-gradient-to-br ${phase.color} rounded-3xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-300`}></div>
                   
@@ -130,10 +137,13 @@ export function ProcessSection({ primaryCTA, secondaryCTA }: ProcessSectionProps
 
                 {/* Content */}
                 <div className="space-y-4 text-center">
+                <div className="space-y-3 sm:space-y-4 text-center">
                   <h3 className="text-xl font-display font-bold text-white group-hover:text-purple-200 transition-colors duration-300" style={{ fontFamily: '"Fraunces", serif' }}>
+                  <h3 className="text-lg sm:text-xl font-display font-bold text-white group-hover:text-purple-200 transition-colors duration-300" style={{ fontFamily: '"Fraunces", serif' }}>
                     {phase.title}
                   </h3>
                   <p className="text-sm text-gray-300 group-hover:text-gray-200 transition-colors duration-300 leading-relaxed font-light" style={{ fontFamily: '"Newsreader", serif' }}>
+                  <p className="text-xs sm:text-sm text-gray-300 group-hover:text-gray-200 transition-colors duration-300 leading-relaxed font-light" style={{ fontFamily: '"Newsreader", serif' }}>
                     {phase.description}
                   </p>
                 </div>

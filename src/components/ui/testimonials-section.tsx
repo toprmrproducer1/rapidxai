@@ -29,17 +29,20 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ classN
           </div>
 
           <h2 className="text-4xl md:text-5xl font-display font-bold tracking-tight text-center text-white mb-6" style={{ fontFamily: '"Fraunces", "Playfair Display", serif' }}>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold tracking-tight text-center text-white mb-4 sm:mb-6" style={{ fontFamily: '"Fraunces", "Playfair Display", serif' }}>
             What Our <span className="gradient-text">Clients Say</span>
           </h2>
           <p className="text-center text-lg md:text-xl text-gray-300 font-light leading-relaxed max-w-2xl" style={{ fontFamily: '"Newsreader", "Crimson Text", serif' }}>
-            Real results from real clients.
+          <p className="text-center text-base sm:text-lg md:text-xl text-gray-300 font-light leading-relaxed max-w-2xl px-4" style={{ fontFamily: '"Newsreader", "Crimson Text", serif' }}>
+            Real results.
           </p>
         </motion.div>
 
         <div className="flex justify-center gap-4 md:gap-8 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] max-h-[600px] overflow-hidden">
+        <div className="flex justify-center gap-2 sm:gap-4 md:gap-8 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] max-h-[500px] sm:max-h-[600px] overflow-hidden px-4">
           <TestimonialsColumn testimonials={firstColumn} duration={15} />
           <TestimonialsColumn testimonials={secondColumn} className="hidden md:block" duration={19} />
-          <TestimonialsColumn testimonials={thirdColumn} className="hidden lg:block" duration={17} />
+          <TestimonialsColumn testimonials={thirdColumn} className="hidden xl:block" duration={17} />
         </div>
 
         {/* Floating Quote Icons */}

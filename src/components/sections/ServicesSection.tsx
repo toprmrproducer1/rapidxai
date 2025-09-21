@@ -19,18 +19,18 @@ export function ServicesSection({ activeService, setActiveService, scrollToBooki
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] bg-purple-600/10 rounded-full blur-3xl"></div>
       
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 text-white tracking-tight">
+        <div className="text-center mb-16 px-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold mb-4 sm:mb-6 text-white tracking-tight">
             Our <span className="gradient-text">Core Services</span>
           </h2>
-          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Two pillars. One goal.
+          <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            Two pillars.
           </p>
         </div>
         
         {/* Service Toggle */}
-        <div className="flex justify-center mb-20">
-          <div className="relative bg-gray-900/50 backdrop-blur-xl rounded-3xl p-3 border border-purple-500/30 shadow-2xl shadow-purple-500/20">
+        <div className="flex justify-center mb-16 px-4">
+          <div className="relative bg-gray-900/50 backdrop-blur-xl rounded-2xl sm:rounded-3xl p-2 sm:p-3 border border-purple-500/30 shadow-2xl shadow-purple-500/20">
             <GlowingEffect
               spread={60}
               glow={true}
@@ -39,10 +39,10 @@ export function ServicesSection({ activeService, setActiveService, scrollToBooki
               inactiveZone={0.1}
               borderWidth={2}
             />
-            <div className="flex items-center">
+            <div className="flex flex-col sm:flex-row items-center">
               <button
                 onClick={() => setActiveService('voice')}
-                className={`flex items-center gap-4 px-8 py-4 rounded-2xl transition-all duration-500 font-display font-semibold text-lg ${
+                className={`flex items-center justify-center gap-2 sm:gap-4 px-4 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl transition-all duration-500 font-display font-semibold text-sm sm:text-lg w-full sm:w-auto ${
                   activeService === 'voice'
                     ? 'bg-gradient-to-r from-purple-600 to-violet-600 text-white shadow-2xl shadow-purple-500/40 scale-105'
                     : 'text-gray-400 hover:text-white hover:bg-white/5'
@@ -53,7 +53,7 @@ export function ServicesSection({ activeService, setActiveService, scrollToBooki
               </button>
               <button
                 onClick={() => setActiveService('mvp')}
-                className={`flex items-center gap-4 px-8 py-4 rounded-2xl transition-all duration-500 font-display font-semibold text-lg ${
+                className={`flex items-center justify-center gap-2 sm:gap-4 px-4 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl transition-all duration-500 font-display font-semibold text-sm sm:text-lg w-full sm:w-auto mt-2 sm:mt-0 ${
                   activeService === 'mvp'
                     ? 'bg-gradient-to-r from-purple-600 to-violet-600 text-white shadow-2xl shadow-purple-500/40 scale-105'
                     : 'text-gray-400 hover:text-white hover:bg-white/5'
@@ -66,7 +66,7 @@ export function ServicesSection({ activeService, setActiveService, scrollToBooki
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center px-4">
           {/* Content Section */}
           <div className={`transition-all duration-700 ${activeService === 'voice' ? 'opacity-100 transform-none' : 'opacity-0 absolute transform translate-x-8'}`}>
             {activeService === 'voice' && (
@@ -76,11 +76,11 @@ export function ServicesSection({ activeService, setActiveService, scrollToBooki
                     <Phone className="w-8 h-8 text-white" strokeWidth={2.5} />
                     <div className="absolute -inset-2 bg-purple-500/20 rounded-3xl animate-pulse"></div>
                   </div>
-                  <h2 className="text-5xl md:text-6xl font-display font-bold mb-8 tracking-tight leading-tight">
+                  <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 sm:mb-8 tracking-tight leading-tight">
                     AI Voice Agents <span className="gradient-text">(Inbound + Outbound)</span>
                   </h2>
-                  <p className="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed font-light">
-                    24/7 receptionist + SDR. Never miss a lead.
+                  <p className="text-base sm:text-lg md:text-xl text-gray-300 mb-6 sm:mb-8 leading-relaxed font-light">
+                    24/7 automation.
                   </p>
                   
                   <div className="space-y-4 mb-8">
@@ -114,11 +114,11 @@ export function ServicesSection({ activeService, setActiveService, scrollToBooki
                     <Rocket className="w-8 h-8 text-white" strokeWidth={2.5} />
                     <div className="absolute -inset-2 bg-violet-500/20 rounded-3xl animate-pulse"></div>
                   </div>
-                  <h2 className="text-5xl md:text-6xl font-display font-bold mb-8 tracking-tight leading-tight">
+                  <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 sm:mb-8 tracking-tight leading-tight">
                     MVP & Micro-SaaS <span className="gradient-text">(Validation &gt; Vanity)</span>
                   </h2>
-                  <p className="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed font-light">
-                    Ship fast. Prove demand.
+                  <p className="text-base sm:text-lg md:text-xl text-gray-300 mb-6 sm:mb-8 leading-relaxed font-light">
+                    Ship fast.
                   </p>
                   
                   <div className="space-y-4 mb-8">

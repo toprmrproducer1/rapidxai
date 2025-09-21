@@ -15,6 +15,7 @@ export function LampDemo() {
           ease: "easeInOut",
         }}
         className="mt-8 bg-gradient-to-br from-white to-purple-300 py-4 bg-clip-text text-center text-3xl font-medium tracking-tight text-transparent md:text-5xl"
+        className="mt-6 sm:mt-8 bg-gradient-to-br from-white to-purple-300 py-3 sm:py-4 bg-clip-text text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight text-transparent"
       >
         Ready to automate?
       </motion.h1>
@@ -27,8 +28,9 @@ export function LampDemo() {
           ease: "easeInOut",
         }}
         className="mt-6 text-center text-base text-purple-200 max-w-xl"
+        className="mt-4 sm:mt-6 text-center text-sm sm:text-base text-purple-200 max-w-xl px-4"
       >
-        Let's build something that sells itself.
+        Let's build.
       </motion.p>
     </LampContainer>
   );

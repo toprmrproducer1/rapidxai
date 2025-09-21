@@ -204,14 +204,14 @@ function App() {
       />
 
       {/* Enhanced Navbar with Navigation */}
-      <nav className="fixed top-2 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-500">
+      <nav className="fixed top-1 sm:top-2 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-500 w-full max-w-7xl px-2 sm:px-4">
         <div className="flex items-center gap-4">
           {/* Logo Pill */}
           <div className={`relative transition-all duration-500 group hover:scale-105 ${
             isScrolled 
               ? 'bg-gray-900/95 backdrop-blur-3xl border border-gray-600/60 shadow-2xl shadow-purple-500/30' 
               : 'bg-gray-900/70 backdrop-blur-2xl border border-gray-700/50'
-          } rounded-full px-3 py-1.5 hover:bg-gray-900/98 hover:border-purple-500/40 hover:shadow-2xl hover:shadow-purple-500/40`}>
+          } rounded-full px-2 sm:px-3 py-1 sm:py-1.5 hover:bg-gray-900/98 hover:border-purple-500/40 hover:shadow-2xl hover:shadow-purple-500/40`}>
             <div className="absolute inset-0 bg-gradient-to-r from-purple-600/10 via-transparent to-violet-600/10 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <button
               onClick={() => setCurrentPage('home')}
@@ -223,17 +223,18 @@ function App() {
 
           {/* Navigation Pill */}
           <div className={`hidden xl:flex relative transition-all duration-500 group hover:scale-105 ${
+          <div className={`hidden lg:flex relative transition-all duration-500 group hover:scale-105 ${
             isScrolled 
               ? 'bg-gray-900/95 backdrop-blur-3xl border border-gray-600/60 shadow-2xl shadow-purple-500/30' 
               : 'bg-gray-900/70 backdrop-blur-2xl border border-gray-700/50'
-          } rounded-full px-1 py-0.5 hover:bg-gray-900/98 hover:border-purple-500/40 hover:shadow-2xl hover:shadow-purple-500/40`}>
+          } rounded-full px-0.5 sm:px-1 py-0.5 hover:bg-gray-900/98 hover:border-purple-500/40 hover:shadow-2xl hover:shadow-purple-500/40`}>
             <div className="absolute inset-0 bg-gradient-to-r from-purple-600/5 via-transparent to-violet-600/5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            <div className="relative z-10 flex items-center space-x-0.5">
+            <div className="relative z-10 flex items-center space-x-0.5 sm:space-x-1">
               {navigation.map((item) => (
                 <button
                   key={item.name}
                   onClick={() => setCurrentPage(item.page)}
-                  className={`relative px-3 py-1.5 rounded-full transition-all duration-300 font-semibold text-sm group/nav ${
+                  className={`relative px-2 sm:px-3 py-1 sm:py-1.5 rounded-full transition-all duration-300 font-semibold text-xs sm:text-sm group/nav ${
                     currentPage === item.page 
                       ? 'text-white bg-gradient-to-r from-purple-600/50 to-violet-600/50 shadow-lg shadow-purple-500/30 border border-purple-500/30' 
                       : 'text-gray-300 hover:text-white hover:bg-white/15 hover:shadow-lg hover:shadow-white/10'
@@ -256,11 +257,11 @@ function App() {
               : 'shadow-xl shadow-purple-500/30'
           } rounded-full hover:shadow-3xl hover:shadow-purple-500/60`}>
             <GradientButton
-              width="180px"
-              height="48px"
+              width="140px"
+              height="44px"
               onClick={primaryCTA}
             >
-             <div className="flex items-center justify-center gap-2 text-xs whitespace-nowrap text-white">
+             <div className="flex items-center justify-center gap-1 sm:gap-2 text-xs whitespace-nowrap text-white">
                 <Bot className="w-4 h-4" />
                 <span className="whitespace-nowrap">Book Call</span>
               </div>
@@ -268,17 +269,17 @@ function App() {
           </div>
 
           {/* Mobile menu button */}
-          <div className="xl:hidden">
+          <div className="lg:hidden">
             <div className={`relative transition-all duration-500 hover:scale-105 ${
               isScrolled 
                 ? 'bg-gray-900/95 backdrop-blur-3xl border border-gray-600/60 shadow-2xl shadow-purple-500/30' 
                 : 'bg-gray-900/70 backdrop-blur-2xl border border-gray-700/50'
-            } rounded-full p-1.5 hover:bg-gray-900/98 hover:border-purple-500/40 hover:shadow-xl hover:shadow-purple-500/30`}>
+            } rounded-full p-1 sm:p-1.5 hover:bg-gray-900/98 hover:border-purple-500/40 hover:shadow-xl hover:shadow-purple-500/30`}>
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="text-gray-300 hover:text-white p-1 rounded-full hover:bg-white/15 transition-all duration-300 hover:scale-110"
+                className="text-gray-300 hover:text-white p-0.5 sm:p-1 rounded-full hover:bg-white/15 transition-all duration-300 hover:scale-110"
               >
-                {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+                {mobileMenuOpen ? <X className="w-4 h-4 sm:w-5 sm:h-5" /> : <Menu className="w-4 h-4 sm:w-5 sm:h-5" />}
               </button>
             </div>
           </div>
@@ -286,7 +287,7 @@ function App() {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className="xl:hidden absolute top-full left-1/2 transform -translate-x-1/2 mt-2 border border-gray-700/60 bg-gray-900/98 backdrop-blur-3xl rounded-2xl shadow-2xl shadow-purple-500/30 min-w-[280px]">
+          <div className="lg:hidden absolute top-full left-1/2 transform -translate-x-1/2 mt-2 border border-gray-700/60 bg-gray-900/98 backdrop-blur-3xl rounded-xl sm:rounded-2xl shadow-2xl shadow-purple-500/30 min-w-[240px] sm:min-w-[280px] mx-2">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navigation.map((item) => (
                 <button
@@ -295,7 +296,7 @@ function App() {
                     setCurrentPage(item.page);
                     setMobileMenuOpen(false);
                   }}
-                  className={`block px-3 py-2 text-sm font-semibold transition-all duration-300 w-full text-left rounded-xl hover:scale-[1.02] ${
+                  className={`block px-3 py-2 text-xs sm:text-sm font-semibold transition-all duration-300 w-full text-left rounded-lg sm:rounded-xl hover:scale-[1.02] ${
                     currentPage === item.page 
                       ? 'text-white bg-gradient-to-r from-purple-600/40 to-violet-600/40 shadow-lg shadow-purple-500/20' 
                       : 'text-gray-300 hover:text-white hover:bg-white/15'
@@ -308,13 +309,13 @@ function App() {
               <div className="pt-2 pb-1">
                 <GradientButton
                   width="100%"
-                  height="36px"
+                  height="40px"
                   onClick={() => {
                     primaryCTA();
                     setMobileMenuOpen(false);
                   }}
                 >
-                  <span className="text-white text-sm">Book Call</span>
+                  <span className="text-white text-xs sm:text-sm">Book Call</span>
                 </GradientButton>
               </div>
             </div>
