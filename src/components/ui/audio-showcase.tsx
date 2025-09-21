@@ -28,6 +28,8 @@ export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
   const [volume, setVolume] = useState(0.8);
   const [isMuted, setIsMuted] = useState(false);
   const [playbackSpeed, setPlaybackSpeed] = useState(1);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const audioRef = useRef<HTMLAudioElement>(null);
 
   const tracks: AudioTrack[] = [
@@ -90,86 +92,74 @@ export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
     const handleEnded = () => {
       setIsPlaying(false);
       setCurrentTime(0);
+      setIsLoading(false);
+    };
+    const handleLoadStart = () => setIsLoading(true);
+    const handleCanPlay = () => setIsLoading(false);
+    const handleError = (e: Event) => {
+      const audioElement = e.target as HTMLAudioElement;
+      setIsLoading(false);
+      setIsPlaying(false);
+      setError(`Failed to load audio: ${audioElement.error?.message || 'Unknown error'}`);
     };
 
     audio.addEventListener('timeupdate', updateTime);
     audio.addEventListener('loadedmetadata', updateDuration);
     audio.addEventListener('ended', handleEnded);
+    audio.addEventListener('loadstart', handleLoadStart);
+    audio.addEventListener('canplay', handleCanPlay);
+    audio.addEventListener('error', handleError);
 
     return () => {
       audio.removeEventListener('timeupdate', updateTime);
       audio.removeEventListener('loadedmetadata', updateDuration);
       audio.removeEventListener('ended', handleEnded);
+      audio.removeEventListener('loadstart', handleLoadStart);
+      audio.removeEventListener('canplay', handleCanPlay);
+      audio.removeEventListener('error', handleError);
     };
   }, [currentTrack]);
 
-  const playTrack = (trackId: string) => {
+  const playTrack = async (trackId: string) => {
     const track = tracks.find(t => t.id === trackId);
     if (!track || !audioRef.current) return;
 
-    console.log('🎵 Attempting to play track:', track.title);
-    console.log('🔗 Audio URL:', track.url);
+    setError(null);
 
-    if (currentTrack === trackId && isPlaying) {
-      audioRef.current.pause();
-      setIsPlaying(false);
-      console.log('⏸️ Paused current track');
-    } else {
+    try {
+      if (currentTrack === trackId && isPlaying) {
+        audioRef.current.pause();
+        setIsPlaying(false);
+        return;
+      }
+
       if (currentTrack !== trackId) {
-        console.log('🔄 Loading new track...');
-        audioRef.current.src = track.url;
-        audioRef.current.load(); // Force reload of new audio source
         setCurrentTrack(trackId);
         setCurrentTime(0);
+        audioRef.current.src = track.url;
+        audioRef.current.load();
       }
+
+      setIsLoading(true);
+      await audioRef.current.play();
+      setIsPlaying(true);
+      setIsLoading(false);
+    } catch (err: any) {
+      setIsLoading(false);
+      setIsPlaying(false);
       
-      // Try to play with better error handling
-      const attemptPlay = async () => {
-        if (!audioRef.current) return;
-        
-        try {
-          console.log('🎯 Attempting to play audio...');
-          await audioRef.current.play();
-          console.log('✅ Audio playback started successfully');
-          setIsPlaying(true);
-        } catch (error: any) {
-          console.error('❌ Audio playback failed:', error);
-          console.error('📊 Error details:', {
-            name: error.name,
-            message: error.message,
-            code: error.code,
-            audioSrc: audioRef.current.src,
-            readyState: audioRef.current.readyState,
-            networkState: audioRef.current.networkState
-          });
-          setIsPlaying(false);
-          
-          // More specific error messages
-          let errorMessage = 'Unable to play audio. ';
-          if (error.name === 'NotAllowedError') {
-            errorMessage += 'Please interact with the page first (browser autoplay policy).';
-          } else if (error.name === 'NotSupportedError') {
-            errorMessage += 'Audio format not supported by your browser.';
-          } else if (error.name === 'AbortError') {
-            errorMessage += 'Audio loading was interrupted.';
-          } else {
-            errorMessage += `${error.message}. Try refreshing the page.`;
-          }
-          
-          alert(errorMessage);
-        }
-      };
-      
-      // Wait for audio to be ready
-      if (audioRef.current.readyState >= 2) {
-        attemptPlay();
+      let errorMessage = 'Unable to play audio. ';
+      if (err.name === 'NotAllowedError') {
+        errorMessage += 'Please click the play button to start audio (browser autoplay policy).';
+      } else if (err.name === 'NotSupportedError') {
+        errorMessage += 'Audio format not supported by your browser.';
+      } else if (err.name === 'AbortError') {
+        errorMessage += 'Audio loading was interrupted.';
       } else {
-        const handleCanPlay = () => {
-          attemptPlay();
-          audioRef.current?.removeEventListener('canplay', handleCanPlay);
-        };
-        audioRef.current.addEventListener('canplay', handleCanPlay);
+        errorMessage += `${err.message}. Try refreshing the page.`;
       }
+      
+      setError(errorMessage);
     }
   };
 
@@ -185,11 +175,7 @@ export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
     setVolume(newVolume);
     if (audioRef.current) {
       audioRef.current.volume = newVolume;
-      if (newVolume === 0) {
-        setIsMuted(true);
-      } else if (isMuted) {
-        setIsMuted(false);
-      }
+      setIsMuted(newVolume === 0);
     }
   };
 
@@ -249,15 +235,12 @@ export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
 
   return (
     <section className="py-32 px-4 sm:px-6 lg:px-8 bg-gray-950 relative overflow-hidden">
-      {/* Premium Background Effects */}
+      {/* Background Effects */}
       <div className="absolute inset-0">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-violet-600/10 rounded-full blur-3xl"></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] bg-gradient-to-r from-purple-600/5 via-violet-600/10 to-purple-600/5 rounded-full blur-3xl"></div>
       </div>
-      
-      {/* Subtle Grid Pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#8b5cf610_1px,transparent_1px),linear-gradient(to_bottom,#8b5cf610_1px,transparent_1px)] bg-[size:60px_60px] opacity-20"></div>
       
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div 
@@ -286,6 +269,19 @@ export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
           </p>
         </motion.div>
 
+        {/* Error Display */}
+        {error && (
+          <div className="max-w-2xl mx-auto mb-8 p-4 bg-red-600/20 border border-red-500/30 rounded-xl text-center">
+            <p className="text-red-300 text-sm">{error}</p>
+            <button 
+              onClick={() => setError(null)}
+              className="mt-2 text-xs text-red-400 hover:text-red-300 underline"
+            >
+              Dismiss
+            </button>
+          </div>
+        )}
+
         {/* Audio Player Cards */}
         <motion.div 
           className="grid md:grid-cols-2 gap-8 mb-20"
@@ -299,23 +295,19 @@ export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
               key={track.id}
               variants={cardVariants}
               whileHover={{ 
-                y: -12, 
+                y: -8, 
                 scale: 1.02,
                 transition: { duration: 0.3, ease: "easeOut" }
               }}
               className="group relative"
             >
-              {/* Premium Card Container */}
               <div className="relative h-full p-8 rounded-3xl bg-gradient-to-br from-gray-900/80 via-gray-800/60 to-gray-900/80 backdrop-blur-xl border border-gray-700/50 hover:border-purple-500/50 transition-all duration-500 overflow-hidden">
                 
                 {/* Animated Background Glow */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${track.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-3xl`}></div>
                 
-                {/* Shimmer Effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 rounded-3xl"></div>
-                
                 {/* Header */}
-                <div className="flex items-start justify-between mb-8">
+                <div className="flex items-start justify-between mb-6">
                   <div className="flex items-center gap-4">
                     <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${track.gradient} flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-300`}>
                       <track.icon className="w-8 h-8 text-white" strokeWidth={2} />
@@ -332,7 +324,7 @@ export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
                 </div>
 
                 {/* Description */}
-                <p className="text-gray-300 group-hover:text-gray-200 transition-colors duration-300 mb-8 leading-relaxed font-extralight text-lg" 
+                <p className="text-gray-300 group-hover:text-gray-200 transition-colors duration-300 mb-6 leading-relaxed font-extralight text-lg" 
                    style={{ fontFamily: '"Newsreader", serif', fontWeight: 200 }}>
                   {track.description}
                 </p>
@@ -352,28 +344,26 @@ export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
                 {/* Play Button */}
                 <button
                   onClick={() => playTrack(track.id)}
+                  disabled={isLoading}
                   className={`w-full p-6 rounded-2xl transition-all duration-300 flex items-center justify-center gap-4 group/play ${
                     currentTrack === track.id && isPlaying
                       ? 'bg-gradient-to-r from-purple-600 to-violet-600 text-white shadow-2xl shadow-purple-500/40'
                       : 'bg-gray-800/50 hover:bg-gradient-to-r hover:from-purple-600/50 hover:to-violet-600/50 text-gray-300 hover:text-white border border-gray-700/50 hover:border-purple-500/50 cursor-pointer'
-                  }`}
+                  } ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
                 >
-                  {currentTrack === track.id && isPlaying ? (
+                  {isLoading ? (
+                    <div className="w-6 h-6 border-2 border-white/20 border-t-white rounded-full animate-spin" />
+                  ) : currentTrack === track.id && isPlaying ? (
                     <Pause className="w-6 h-6 group-hover/play:scale-110 transition-transform" />
                   ) : (
                     <Play className="w-6 h-6 group-hover/play:scale-110 transition-transform" />
                   )}
                   <span className="text-lg font-light" style={{ fontFamily: '"Fraunces", serif', fontWeight: 300 }}>
-                    {currentTrack === track.id && isPlaying ? 'Pause' : 'Listen'}
-                  </span>
-                  
-                  {/* Test Audio Button - for debugging */}
-                  <span className="text-xs text-gray-500 ml-2">
-                    (Click to test)
+                    {isLoading ? 'Loading...' : currentTrack === track.id && isPlaying ? 'Pause' : 'Listen'}
                   </span>
                 </button>
 
-                {/* Progress Bar (only show for active track) */}
+                {/* Enhanced Progress Bar (only show for active track) */}
                 {currentTrack === track.id && (
                   <motion.div 
                     className="mt-6 space-y-4"
@@ -382,15 +372,17 @@ export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
                     exit={{ opacity: 0, height: 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    {/* Enhanced Progress Bar */}
+                    {/* Progress Bar */}
                     <div className="space-y-3">
                       <div className="flex items-center justify-between text-xs text-gray-400">
                         <span className="font-mono">{formatTime(currentTime)}</span>
                         <div className="flex items-center gap-2">
-                          <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                          <span className="text-green-400 font-medium">LIVE</span>
+                          <div className={`w-2 h-2 rounded-full ${isPlaying ? 'bg-green-400 animate-pulse' : 'bg-gray-500'}`}></div>
+                          <span className={`font-medium ${isPlaying ? 'text-green-400' : 'text-gray-500'}`}>
+                            {isPlaying ? 'PLAYING' : 'PAUSED'}
+                          </span>
                         </div>
-                        <span className="text-purple-400 font-medium">{Math.round(getProgressPercentage())}% complete</span>
+                        <span className="text-purple-400 font-medium">{Math.round(getProgressPercentage())}%</span>
                         <span className="font-mono">{formatTime(duration)}</span>
                       </div>
                       
@@ -414,9 +406,9 @@ export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
                       </div>
                     </div>
                     
-                    {/* Enhanced Controls */}
+                    {/* Controls */}
                     <div className="flex items-center justify-between bg-gray-800/30 rounded-xl p-4 border border-gray-700/30">
-                      {/* Left Controls */}
+                      {/* Volume Controls */}
                       <div className="flex items-center gap-4">
                         <button
                           onClick={toggleMute}
@@ -475,43 +467,10 @@ export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
         {/* Audio Element */}
         <audio 
           ref={audioRef} 
-          preload="metadata"
+          preload="none"
           crossOrigin="anonymous"
           controls={false}
           playsInline
-          onLoadStart={() => console.log('🔄 Audio loading started')}
-          onCanPlay={() => console.log('✅ Audio can play')}
-          onCanPlayThrough={() => console.log('✅ Audio can play through')}
-          onError={(e) => {
-            console.error('❌ Audio error event:', e);
-            const audio = e.target as HTMLAudioElement;
-            console.error('📊 Audio error details:', {
-              error: audio.error,
-              errorCode: audio.error?.code,
-              errorMessage: audio.error?.message,
-              networkState: audio.networkState,
-              readyState: audio.readyState,
-              src: audio.src
-            });
-            
-            // Try to provide helpful error message
-            if (audio.error?.code === 4) {
-              console.error('🚫 Media format error - file may be corrupted or unsupported');
-            } else if (audio.error?.code === 3) {
-              console.error('🌐 Network error - check internet connection');
-            } else if (audio.error?.code === 2) {
-              console.error('🔒 Network error - file may not be accessible');
-            }
-          }}
-          onLoadedData={() => {
-            if (audioRef.current) {
-              audioRef.current.playbackRate = playbackSpeed;
-              console.log('📊 Audio data loaded, playback rate set to:', playbackSpeed);
-            }
-          }}
-          onLoadedMetadata={() => {
-            console.log('📋 Audio metadata loaded');
-          }}
         />
 
         {/* Bottom CTA */}
@@ -547,7 +506,7 @@ export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
         </motion.div>
       </div>
 
-      {/* Enhanced Custom Slider Styles */}
+      {/* Custom Slider Styles */}
       <style jsx>{`
         .volume-slider {
           background: linear-gradient(to right, #8b5cf6 0%, #8b5cf6 ${volume * 100}%, #374151 ${volume * 100}%, #374151 100%);
