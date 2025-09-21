@@ -227,7 +227,7 @@ export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
               style={{ fontFamily: '"Playfair Display", "Cormorant Garamond", Georgia, serif' }}>
             <span className="gradient-text">Voice Demos</span>
           </h2>
-          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto font-light leading-relaxed mb-6 px-4" 
+          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto font-light leading-relaxed mb-6 px-4">
             Real AI voice recordings from live deployments.
           </p>
         </motion.div>
@@ -267,13 +267,14 @@ export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
           </div>
 
           <GradientButton
-            width="240px"
-            height="50px"
+            width="320px"
+            height="70px"
             onClick={primaryCTA}
           >
-            <div className="flex items-center gap-2 group text-base font-semibold text-white">
+            <div className="flex items-center gap-4 group text-xl font-semibold text-white">
               <Phone className="w-6 h-6 drop-shadow-lg" strokeWidth={2} />
-              Get This Working
+              Get This For Your Business
+              <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" strokeWidth={2} />
             </div>
           </GradientButton>
         </motion.div>
