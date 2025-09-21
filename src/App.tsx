@@ -29,6 +29,8 @@ import { HeroSection } from './components/ui/hero-odyssey';
 import PricingSection4 from './components/ui/pricing-section-4';
 import VapiWidget from './components/ui/vapi-widget';
 import { FeaturesEnhanced } from './components/ui/features-enhanced';
+import { ClientsSection } from './components/sections/ClientsSection';
+import { TechStackSection } from './components/sections/TechStackSection';
 import { PricingPage } from './pages/PricingPage';
 import { ServicesPage } from './pages/ServicesPage';
 import { TeamPage } from './pages/TeamPage';
