@@ -32,7 +32,7 @@ export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
 
   const tracks: AudioTrack[] = [
     {
-      id: '0mvogy',
+      id: 'track1',
       title: 'Real Estate Lead Qualification',
       description: 'AI agent qualifies property buyer and books viewing appointment',
       language: 'Hindi + English',
@@ -44,7 +44,7 @@ export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
       gradient: 'from-emerald-500 to-teal-500'
     },
     {
-      id: 'zif1y8',
+      id: 'track2',
       title: 'Outbound Sales Follow-up',
       description: 'AI agent follows up on previous inquiry and schedules demo',
       language: 'English',
@@ -56,7 +56,7 @@ export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
       gradient: 'from-blue-500 to-cyan-500'
     },
     {
-      id: 'p50jhw',
+      id: 'track3',
       title: 'Multilingual Customer Support',
       description: 'AI agent handles customer query in Hindi and English',
       language: 'Hindi + English',
@@ -68,7 +68,7 @@ export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
       gradient: 'from-purple-500 to-violet-500'
     },
     {
-      id: 'xp7f12',
+      id: 'track4',
       title: 'Appointment Confirmation',
       description: 'AI agent confirms appointment and handles rescheduling',
       language: 'English',
@@ -107,22 +107,43 @@ export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
     const track = tracks.find(t => t.id === trackId);
     if (!track || !audioRef.current) return;
 
+    console.log('Attempting to play track:', track.title, 'URL:', track.url);
+
     if (currentTrack === trackId && isPlaying) {
       audioRef.current.pause();
       setIsPlaying(false);
+      console.log('Paused current track');
     } else {
       if (currentTrack !== trackId) {
+        console.log('Loading new track:', track.url);
         audioRef.current.src = track.url;
         audioRef.current.load(); // Force reload of new audio source
         setCurrentTrack(trackId);
         setCurrentTime(0);
       }
-      audioRef.current.play().catch(error => {
-        console.error('Audio playback failed:', error);
-        // Handle autoplay restrictions
-        setIsPlaying(false);
-      });
-      setIsPlaying(true);
+      
+      // Add a small delay to ensure the audio is loaded
+      setTimeout(() => {
+        if (audioRef.current) {
+          audioRef.current.play()
+            .then(() => {
+              console.log('Audio playback started successfully');
+              setIsPlaying(true);
+            })
+            .catch(error => {
+              console.error('Audio playback failed:', error);
+              console.error('Error details:', {
+                name: error.name,
+                message: error.message,
+                code: error.code
+              });
+              setIsPlaying(false);
+              
+              // Show user-friendly error
+              alert(`Unable to play audio: ${error.message}. Please try clicking the play button again or check your browser's audio settings.`);
+            });
+        }
+      }, 100);
     }
   };
 
@@ -308,8 +329,9 @@ export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
                   className={`w-full p-6 rounded-2xl transition-all duration-300 flex items-center justify-center gap-4 group/play ${
                     currentTrack === track.id && isPlaying
                       ? 'bg-gradient-to-r from-purple-600 to-violet-600 text-white shadow-2xl shadow-purple-500/40'
-                      : 'bg-gray-800/50 hover:bg-gradient-to-r hover:from-purple-600/50 hover:to-violet-600/50 text-gray-300 hover:text-white border border-gray-700/50 hover:border-purple-500/50 cursor-pointer'
+                      : 'bg-gray-800/50 hover:bg-gradient-to-r hover:from-purple-600/50 hover:to-violet-600/50 text-gray-300 hover:text-white border border-gray-700/50 hover:border-purple-500/50'
                   }`}
+                  style={{ cursor: 'pointer' }}
                 >
                   {currentTrack === track.id && isPlaying ? (
                     <Pause className="w-6 h-6 group-hover/play:scale-110 transition-transform" />
@@ -334,6 +356,10 @@ export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
                     <div className="space-y-3">
                       <div className="flex items-center justify-between text-xs text-gray-400">
                         <span className="font-mono">{formatTime(currentTime)}</span>
+                        <div className="flex items-center gap-2">
+                          <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                          <span className="text-green-400 font-medium">LIVE</span>
+                        </div>
                         <span className="text-purple-400 font-medium">{Math.round(getProgressPercentage())}% complete</span>
                         <span className="font-mono">{formatTime(duration)}</span>
                       </div>
@@ -419,15 +445,31 @@ export function AudioShowcase({ primaryCTA }: AudioShowcaseProps) {
         {/* Audio Element */}
         <audio 
           ref={audioRef} 
-          preload="metadata" 
+          preload="auto"
           crossOrigin="anonymous"
+          controls={false}
+          playsInline
           onLoadStart={() => console.log('Audio loading started')}
           onCanPlay={() => console.log('Audio can play')}
-          onError={(e) => console.error('Audio error:', e)}
+          onCanPlayThrough={() => console.log('Audio can play through')}
+          onError={(e) => {
+            console.error('Audio error event:', e);
+            const audio = e.target as HTMLAudioElement;
+            console.error('Audio error details:', {
+              error: audio.error,
+              networkState: audio.networkState,
+              readyState: audio.readyState,
+              src: audio.src
+            });
+          }}
           onLoadedData={() => {
             if (audioRef.current) {
               audioRef.current.playbackRate = playbackSpeed;
+              console.log('Audio data loaded, playback rate set to:', playbackSpeed);
             }
+          }}
+          onLoadedMetadata={() => {
+            console.log('Audio metadata loaded');
           }}
         />
 
