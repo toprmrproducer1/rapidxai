@@ -38,7 +38,6 @@ export function FAQSection({ openFaq, toggleFaq, primaryCTA }: FAQSectionProps) 
 
   return (
     <section id="faq" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900/30">
-    <section id="faq" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gray-900/30">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-2xl sm:text-3xl font-bold text-center mb-4 sm:mb-6">FAQs</h2>
         <p className="text-base sm:text-lg text-gray-300 text-center mb-8 sm:mb-12 font-light">(straight talk)</p>
