@@ -151,22 +151,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ primaryCTA, secondaryC
           </motion.div>
         </motion.div>
       </div>
-
-      {/* Subtle overlay for depth */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-        className="absolute inset-0 z-0 overflow-hidden opacity-30"
-      >
-        <div className="absolute inset-0 bg-black/60"></div>
-
-        {/* Silver glowing circle */}
-        <div className="absolute top-[55%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-gradient-to-b from-gray-400/10 to-gray-600/5 blur-3xl"></div>
-
-        {/* Silver sphere */}
-        <div className="z-10 absolute top-[75%] left-1/2 transform -translate-x-1/2 w-[600px] h-[600px] backdrop-blur-3xl rounded-full bg-[radial-gradient(circle_at_25%_90%,_#6b7280_15%,_#374151_70%,_#111827_100%)]"></div>
-      </motion.div>
     </div>
   );
 };

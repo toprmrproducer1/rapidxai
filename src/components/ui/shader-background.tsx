@@ -1,6 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 
-const ShaderBackground = () => {
+interface ShaderBackgroundProps {
+  className?: string;
+}
+
+const ShaderBackground: React.FC<ShaderBackgroundProps> = ({ className = '' }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   // Vertex shader source code
@@ -11,7 +15,7 @@ const ShaderBackground = () => {
     }
   `;
 
-  // Fragment shader source code - modified for black/white/silver theme
+  // Fragment shader source code
   const fsSource = `
     precision highp float;
     uniform vec2 iResolution;
@@ -26,7 +30,7 @@ const ShaderBackground = () => {
     const float minorLineFrequency = 1.0;
     const vec4 gridColor = vec4(0.5);
     const float scale = 5.0;
-    const vec4 lineColor = vec4(0.8, 0.8, 0.8, 1.0); // Silver lines
+    const vec4 lineColor = vec4(0.4, 0.2, 0.8, 1.0);
     const float minLineWidth = 0.01;
     const float maxLineWidth = 0.2;
     const float lineSpeed = 1.0 * overallSpeed;
@@ -77,9 +81,8 @@ const ShaderBackground = () => {
       space.x += random(space.y * warpFrequency + iTime * warpSpeed + 2.0) * warpAmplitude * horizontalFade;
 
       vec4 lines = vec4(0.0);
-      // Black to dark gray gradient background
-      vec4 bgColor1 = vec4(0.0, 0.0, 0.0, 1.0);
-      vec4 bgColor2 = vec4(0.1, 0.1, 0.1, 1.0);
+      vec4 bgColor1 = vec4(0.1, 0.1, 0.3, 1.0);
+      vec4 bgColor2 = vec4(0.3, 0.1, 0.5, 1.0);
 
       for(int l = 0; l < linesPerGroup; l++) {
         float normalizedLineIndex = float(l) / float(linesPerGroup);
@@ -225,7 +228,7 @@ const ShaderBackground = () => {
   }, []);
 
   return (
-    <canvas ref={canvasRef} className="fixed top-0 left-0 w-full h-full -z-10" />
+    <canvas ref={canvasRef} className={`fixed top-0 left-0 w-full h-full -z-10 ${className}`} />
   );
 };
 
