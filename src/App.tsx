@@ -42,6 +42,7 @@ import { CaseStudiesPage } from './pages/CaseStudiesPage';
 import GradientButton from './components/ui/button-1';
 import { AudioShowcase } from './components/ui/audio-showcase';
 import { TestimonialsSection } from './components/ui/testimonials-section';
+import { InteractiveWavesSection } from './components/sections/InteractiveWavesSection';
 
 type PageType = 'home' | 'pricing' | 'services' | 'content' | 'team' | 'socials' | 'terms' | 'privacy' | 'case-studies';
 
@@ -146,6 +147,9 @@ function App() {
 
       {/* Audio Showcase */}
       <AudioShowcase primaryCTA={primaryCTA} />
+
+      {/* Interactive Waves Section */}
+      <InteractiveWavesSection primaryCTA={primaryCTA} />
 
       {/* New Testimonials Section */}
       <TestimonialsSection />

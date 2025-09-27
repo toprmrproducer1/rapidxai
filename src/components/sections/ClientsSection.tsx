@@ -13,37 +13,37 @@ const ClientsSection: React.FC<{ primaryCTA: () => void }> = ({ primaryCTA }) =>
       name: "AI Integrator", 
       title: "AI Solutions", 
       company: "AI Integrator",
-      logo: "https://i.ibb.co/1JZZ0fXb/Screenshot-2025-09-27-at-7-07-45-PM.png"
+      logo: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=200&h=200&fit=crop"
     },
     { 
       name: "Investors Propmart", 
       title: "Real Estate Investment", 
       company: "Investors Propmart",
-      logo: "https://i.ibb.co/TxwfJw7y/Screenshot-2025-09-27-at-7-07-57-PM.png"
+      logo: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=200&h=200&fit=crop"
     },
     { 
       name: "Rently", 
       title: "Property Management", 
       company: "Rently",
-      logo: "https://i.ibb.co/6ckrxFFs/Screenshot-2025-09-27-at-7-08-06-PM.png"
+      logo: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=200&h=200&fit=crop"
     },
     { 
       name: "ADs For Profit", 
       title: "Digital Marketing", 
       company: "ADs For Profit",
-      logo: "https://i.ibb.co/1tF0kXnQ/Screenshot-2025-09-27-at-7-08-29-PM.png"
+      logo: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=200&h=200&fit=crop"
     },
     { 
       name: "Reigershore Consulting", 
       title: "Business Consulting", 
       company: "Reigershore Consulting",
-      logo: "https://i.ibb.co/nqhTgK1w/Screenshot-2025-09-27-at-7-09-39-PM.png"
+      logo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop"
     },
     { 
       name: "DealFinders PR", 
       title: "Public Relations", 
       company: "DealFinders PR",
-      logo: "https://i.ibb.co/nMVVmtgf/Screenshot-2025-09-27-at-7-10-49-PM.png"
+      logo: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop"
     }
   ];
 
