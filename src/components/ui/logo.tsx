@@ -103,3 +103,5 @@ export function Logo({ className = '', size = 'md', showText = true }: LogoProps
                   <animate attributeName="opacity" values="0.2;0.8;0.2" dur="3s" repeatCount="indefinite"/>
                 </circle>
 }
+  )
+}
