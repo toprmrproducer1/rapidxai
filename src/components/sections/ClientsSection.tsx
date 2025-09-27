@@ -10,38 +10,38 @@ interface Client {
 const ClientsSection: React.FC<{ primaryCTA: () => void }> = ({ primaryCTA }) => {
   const clients: Client[] = [
     { 
-      name: "Damain Player", 
-      title: "Founder & CEO", 
+      name: "AI Integrator", 
+      title: "AI Solutions", 
       company: "AI Integrator",
       logo: "https://i.ibb.co/1JZZ0fXb/Screenshot-2025-09-27-at-7-07-45-PM.png"
     },
     { 
-      name: "Amit Kumar", 
-      title: "Co-Founder & CEO", 
+      name: "Investors Propmart", 
+      title: "Real Estate Investment", 
       company: "Investors Propmart",
       logo: "https://i.ibb.co/TxwfJw7y/Screenshot-2025-09-27-at-7-07-57-PM.png"
     },
     { 
-      name: "Krish Aggarwal", 
-      title: "CEO", 
+      name: "Rently", 
+      title: "Property Management", 
       company: "Rently",
       logo: "https://i.ibb.co/6ckrxFFs/Screenshot-2025-09-27-at-7-08-06-PM.png"
     },
     { 
-      name: "Ganesh Shukla", 
-      title: "CEO & Founder", 
+      name: "ADs For Profit", 
+      title: "Digital Marketing", 
       company: "ADs For Profit",
       logo: "https://i.ibb.co/1tF0kXnQ/Screenshot-2025-09-27-at-7-08-29-PM.png"
     },
     { 
-      name: "Greg Shore", 
-      title: "Founder & CEO", 
+      name: "Reigershore Consulting", 
+      title: "Business Consulting", 
       company: "Reigershore Consulting",
       logo: "https://i.ibb.co/nqhTgK1w/Screenshot-2025-09-27-at-7-09-39-PM.png"
     },
     { 
-      name: "Zachery Brown", 
-      title: "Founder & CEO", 
+      name: "DealFinders PR", 
+      title: "Public Relations", 
       company: "DealFinders PR",
       logo: "https://i.ibb.co/nMVVmtgf/Screenshot-2025-09-27-at-7-10-49-PM.png"
     }
@@ -89,11 +89,11 @@ const ClientsSection: React.FC<{ primaryCTA: () => void }> = ({ primaryCTA }) =>
                       <div className="flex-1 flex items-center justify-center mb-2">
                         <img
                           src={client.logo}
-                          alt={`${client.company} logo`}
+                          alt={`${client.name} logo`}
                           className="max-w-full max-h-16 object-contain filter brightness-90 group-hover:brightness-110 transition-all duration-300"
-                          onLoad={() => console.log(`✅ Loaded: ${client.company}`)}
+                          onLoad={() => console.log(`✅ Loaded: ${client.name}`)}
                           onError={(e) => {
-                            console.log(`❌ Failed to load: ${client.company}`);
+                            console.log(`❌ Failed to load: ${client.name}`);
                             // Hide the image and show fallback text
                             e.currentTarget.style.display = 'none';
                             const fallback = e.currentTarget.nextElementSibling as HTMLElement;
@@ -102,7 +102,7 @@ const ClientsSection: React.FC<{ primaryCTA: () => void }> = ({ primaryCTA }) =>
                         />
                         {/* Fallback text */}
                         <div className="text-center text-white font-bold text-lg hidden">
-                          {client.company}
+                          {client.name}
                         </div>
                       </div>
                       <div className="text-center">
@@ -120,13 +120,13 @@ const ClientsSection: React.FC<{ primaryCTA: () => void }> = ({ primaryCTA }) =>
         {/* Bottom text */}
         <div className="text-center mt-16">
           <p className="text-lg text-gray-400 mb-8">
-            Real clients. Real results. From AI voice automation to production MVPs.
+            Trusted by innovative companies across industries.
           </p>
           <button
             onClick={primaryCTA}
             className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-gray-700 to-gray-600 hover:from-gray-600 hover:to-gray-500 text-white rounded-xl transition-all duration-300 hover:scale-105 shadow-lg"
           >
-            Join Our Client Success Stories
+            Join Our Growing Client Base
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
