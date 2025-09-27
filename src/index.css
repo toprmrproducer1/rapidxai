@@ -120,6 +120,7 @@
   
   .ultra-premium-button:active {
     transform: scale(0.98);
+    transform: translateZ(0) scale(0.98);
   }
   
   /* Premium Button Enhancements */
