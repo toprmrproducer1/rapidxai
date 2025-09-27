@@ -102,6 +102,34 @@ export function Logo({ className = '', size = 'md', showText = true }: LogoProps
                 <circle cx="15" cy="-10" r="1.5" fill="rgba(255,255,255,0.6)">
                   <animate attributeName="opacity" values="0.2;0.8;0.2" dur="3s" repeatCount="indefinite"/>
                 </circle>
-}
-  )
+                <circle cx="-10" cy="15" r="1" fill="rgba(255,255,255,0.4)">
+                  <animate attributeName="opacity" values="0.3;0.9;0.3" dur="2.5s" repeatCount="indefinite"/>
+                </circle>
+                <circle cx="12" cy="12" r="1.2" fill="rgba(255,255,255,0.7)">
+                  <animate attributeName="opacity" values="0.1;0.7;0.1" dur="3.5s" repeatCount="indefinite"/>
+                </circle>
+                
+                {/* Connection Lines */}
+                <line x1="-15" y1="-10" x2="15" y2="-10" stroke="rgba(255,255,255,0.3)" strokeWidth="0.5">
+                  <animate attributeName="opacity" values="0.2;0.6;0.2" dur="4s" repeatCount="indefinite"/>
+                </line>
+                <line x1="-15" y1="-10" x2="-10" y2="15" stroke="rgba(255,255,255,0.2)" strokeWidth="0.5">
+                  <animate attributeName="opacity" values="0.1;0.5;0.1" dur="3s" repeatCount="indefinite"/>
+                </line>
+                <line x1="15" y1="-10" x2="12" y2="12" stroke="rgba(255,255,255,0.25)" strokeWidth="0.5">
+                  <animate attributeName="opacity" values="0.15;0.55;0.15" dur="3.8s" repeatCount="indefinite"/>
+                </line>
+              </g>
+            </g>
+          </svg>
+        </div>
+      </div>
+      
+      {showText && (
+        <span className={`font-bold text-white ${textSizeClasses[size]}`}>
+          RapidXAI
+        </span>
+      )}
+    </div>
+  );
 }
