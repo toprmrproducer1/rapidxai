@@ -10,40 +10,52 @@ interface Client {
 const ClientsSection: React.FC<{ primaryCTA: () => void }> = ({ primaryCTA }) => {
   const clients: Client[] = [
     { 
-      name: "AI Integrator", 
-      title: "AI Solutions", 
-      company: "AI Integrator",
-      logo: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=200&h=200&fit=crop"
+      name: "Algo Vision", 
+      title: "AI & Analytics Solutions", 
+      company: "Algo Vision",
+      logo: "https://i.ibb.co/bRHZwpHK/Algo-Vision-Logo-1.png"
     },
     { 
-      name: "Investors Propmart", 
-      title: "Real Estate Investment", 
-      company: "Investors Propmart",
-      logo: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=200&h=200&fit=crop"
+      name: "Twilio", 
+      title: "Communications Platform", 
+      company: "Twilio",
+      logo: "https://i.ibb.co/fcn4nJv/download-7.png"
     },
     { 
-      name: "Rently", 
-      title: "Property Management", 
-      company: "Rently",
-      logo: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=200&h=200&fit=crop"
-    },
-    { 
-      name: "ADs For Profit", 
-      title: "Digital Marketing", 
-      company: "ADs For Profit",
-      logo: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=200&h=200&fit=crop"
-    },
-    { 
-      name: "Reigershore Consulting", 
+      name: "Client Solutions", 
       title: "Business Consulting", 
-      company: "Reigershore Consulting",
-      logo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop"
+      company: "Client Solutions",
+      logo: "https://i.ibb.co/QjQ056fy/logo-ce6bde16-0254-4627-980d-0d0cea0103d9.jpg"
     },
     { 
-      name: "DealFinders PR", 
-      title: "Public Relations", 
-      company: "DealFinders PR",
-      logo: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop"
+      name: "Innovation Labs", 
+      title: "Technology Innovation", 
+      company: "Innovation Labs",
+      logo: "https://i.ibb.co/Q31BnmrH/Logo-2.png"
+    },
+    { 
+      name: "Enterprise Solutions", 
+      title: "Enterprise Software", 
+      company: "Enterprise Solutions",
+      logo: "https://i.ibb.co/1f2FffmT/logo-black.png"
+    },
+    { 
+      name: "Moko", 
+      title: "Digital Solutions", 
+      company: "Moko",
+      logo: "https://i.ibb.co/35dGsGmq/Moko-White-transparent-background.webp"
+    },
+    { 
+      name: "Varhity Ventures", 
+      title: "Venture Capital", 
+      company: "Varhity Ventures",
+      logo: "https://i.ibb.co/93CGT5Jc/Varhity-Ventures-100-copy-Transparent-1.png"
+    },
+    { 
+      name: "Strategic Partners", 
+      title: "Business Development", 
+      company: "Strategic Partners",
+      logo: "https://i.ibb.co/XrkYKyj8/Whats-App-Image-2025-08-26-at-06-36-04.jpg"
     }
   ];
 
