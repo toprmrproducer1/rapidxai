@@ -27,21 +27,15 @@ const ClientsSection: React.FC<{ primaryCTA: () => void }> = ({ primaryCTA }) =>
       company: "Client Solutions",
       logo: "https://i.ibb.co/QjQ056fy/logo-ce6bde16-0254-4627-980d-0d0cea0103d9.jpg"
     },
-    { 
-      name: "Innovation Labs", 
-      title: "Technology Innovation", 
+    {
+      name: "Innovation Labs",
+      title: "Technology Innovation",
       company: "Innovation Labs",
       logo: "https://i.ibb.co/Q31BnmrH/Logo-2.png"
     },
-    { 
-      name: "Enterprise Solutions", 
-      title: "Enterprise Software", 
-      company: "Enterprise Solutions",
-      logo: "https://i.ibb.co/1f2FffmT/logo-black.png"
-    },
-    { 
-      name: "Moko", 
-      title: "Digital Solutions", 
+    {
+      name: "Moko",
+      title: "Digital Solutions",
       company: "Moko",
       logo: "https://i.ibb.co/35dGsGmq/Moko-White-transparent-background.webp"
     },
