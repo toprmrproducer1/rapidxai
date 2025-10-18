@@ -5,7 +5,7 @@ export default {
     extend: {
       fontFamily: {
         sans: [
-          'Inter',
+          '"Space Grotesk"',
           '-apple-system',
           'BlinkMacSystemFont',
           'system-ui',
@@ -16,8 +16,7 @@ export default {
           'sans-serif'
         ],
         mono: [
-          '"JetBrains Mono"',
-          '"Fira Code"',
+          '"Space Grotesk"',
           '"SF Mono"',
           'ui-monospace',
           'SFMono-Regular',
@@ -27,28 +26,22 @@ export default {
           'monospace'
         ],
         display: [
-          '"Playfair Display"',
-          '"Cormorant Garamond"',
-          '"Crimson Text"',
+          '"Fraunces"',
           'Georgia',
           'serif'
         ],
         brand: [
-          '"Source Serif Pro"',
-          '"Libre Baskerville"',
-          '"Playfair Display"',
-          '"Cormorant Garamond"',
+          '"Fraunces"',
+          'Georgia',
           'serif'
         ],
         elegant: [
-          '"Merriweather"',
-          '"Crimson Text"',
-          '"Cormorant Garamond"',
+          '"Fraunces"',
           'Georgia',
           'serif'
         ],
         premium: [
-          'Inter',
+          '"Plus Jakarta Sans"',
           '-apple-system',
           'BlinkMacSystemFont',
           'system-ui',

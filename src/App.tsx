@@ -43,8 +43,12 @@ import GradientButton from './components/ui/button-1';
 import { AudioShowcase } from './components/ui/audio-showcase';
 import { TestimonialsSection } from './components/ui/testimonials-section';
 import { InteractiveWavesSection } from './components/sections/InteractiveWavesSection';
+import { InboundAgentsSection } from './components/sections/InboundAgentsSection';
+import { ColdEmailSection } from './components/sections/ColdEmailSection';
+import { AIVoiceAgentsPage } from './pages/AIVoiceAgentsPage';
+import { ColdEmailAIPage } from './pages/ColdEmailAIPage';
 
-type PageType = 'home' | 'pricing' | 'services' | 'content' | 'team' | 'socials' | 'terms' | 'privacy' | 'case-studies';
+type PageType = 'home' | 'pricing' | 'services' | 'content' | 'team' | 'socials' | 'terms' | 'privacy' | 'case-studies' | 'ai-voice-agents' | 'cold-email-ai';
 
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -90,16 +94,19 @@ function App() {
 
   const navigation = [
     { name: 'Home', page: 'home' as PageType },
+    { name: 'AI Voice Agents', page: 'ai-voice-agents' as PageType },
+    { name: 'Cold Email AI', page: 'cold-email-ai' as PageType },
     { name: 'Services', page: 'services' as PageType },
     { name: 'Case Studies', page: 'case-studies' as PageType },
-    { name: 'Content', page: 'content' as PageType },
     { name: 'Pricing', page: 'pricing' as PageType },
-    { name: 'Team', page: 'team' as PageType },
-    { name: 'Socials', page: 'socials' as PageType },
   ];
 
   const renderPage = () => {
     switch (currentPage) {
+      case 'ai-voice-agents':
+        return <AIVoiceAgentsPage primaryCTA={primaryCTA} secondaryCTA={secondaryCTA} />;
+      case 'cold-email-ai':
+        return <ColdEmailAIPage primaryCTA={primaryCTA} secondaryCTA={secondaryCTA} />;
       case 'pricing':
         return <PricingPage primaryCTA={primaryCTA} secondaryCTA={secondaryCTA} />;
       case 'services':
@@ -142,8 +149,14 @@ function App() {
       {/* How We Work */}
       <ProcessSection primaryCTA={primaryCTA} secondaryCTA={secondaryCTA} />
 
+      {/* Inbound AI Agents Video Section */}
+      <InboundAgentsSection primaryCTA={primaryCTA} />
+
       {/* Interactive Section with Robot */}
       <InteractiveSection primaryCTA={primaryCTA} />
+
+      {/* Cold Email AI Video Section */}
+      <ColdEmailSection primaryCTA={primaryCTA} />
 
       {/* Audio Showcase */}
       <AudioShowcase primaryCTA={primaryCTA} />
@@ -242,7 +255,7 @@ function App() {
                       ? 'text-white bg-gradient-to-r from-purple-600/50 to-violet-600/50 shadow-lg shadow-purple-500/30 border border-purple-500/30' 
                       : 'text-gray-300 hover:text-white hover:bg-white/15 hover:shadow-lg hover:shadow-white/10'
                   }`}
-                  style={{ fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, system-ui, sans-serif', fontWeight: 600, letterSpacing: '-0.01em' }}
+                  style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, system-ui, sans-serif', fontWeight: 600, letterSpacing: '-0.01em' }}
                 >
                   <span className="relative z-10">{item.name}</span>
                   {currentPage !== item.page && (
@@ -304,7 +317,7 @@ function App() {
                       ? 'text-white bg-gradient-to-r from-purple-600/40 to-violet-600/40 shadow-lg shadow-purple-500/20' 
                       : 'text-gray-300 hover:text-white hover:bg-white/15'
                   }`}
-                  style={{ fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, system-ui, sans-serif' }}
+                  style={{ fontFamily: '"Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, system-ui, sans-serif' }}
                 >
                   {item.name}
                 </button>

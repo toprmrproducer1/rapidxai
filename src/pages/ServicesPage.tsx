@@ -387,13 +387,13 @@ export function ServicesPage({ primaryCTA, secondaryCTA }: ServicesPageProps) {
               <span className="text-purple-300 font-medium text-sm tracking-wide">OUR BATTLE STACK</span>
             </div>
             
-            <h2 className="text-5xl md:text-6xl font-display font-bold mb-8 text-white tracking-tight" style={{ fontFamily: '"Fraunces", "Playfair Display", serif' }}>
+            <h2 className="text-5xl md:text-6xl font-display font-bold mb-8 text-white tracking-tight" style={{ fontFamily: '"Fraunces", Georgia, serif' }}>
               Fast to ship. <span className="gradient-text">Hard to break.</span> Easy to scale.
             </h2>
-            <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto font-light leading-relaxed mb-8" style={{ fontFamily: '"Newsreader", "Crimson Text", serif' }}>
+            <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto font-light leading-relaxed mb-8" style={{ fontFamily: '"Space Grotesk", -apple-system, BlinkMacSystemFont, system-ui, sans-serif' }}>
               Voice + automations + product—stitched together for speed, reliability, and ROI.
             </p>
-            <p className="text-lg text-gray-400 max-w-3xl mx-auto font-light leading-relaxed" style={{ fontFamily: '"Instrument Serif", serif' }}>
+            <p className="text-lg text-gray-400 max-w-3xl mx-auto font-light leading-relaxed" style={{ fontFamily: '"Space Grotesk", -apple-system, BlinkMacSystemFont, system-ui, sans-serif' }}>
               From telephony to TTS, from calendars to CRM—we pick what works and ditch what doesn't.
             </p>
           </div>
@@ -456,7 +456,7 @@ export function ServicesPage({ primaryCTA, secondaryCTA }: ServicesPageProps) {
 
           {/* Description */}
           <div className="text-center mb-16">
-            <p className="text-lg text-gray-300 max-w-5xl mx-auto leading-relaxed mb-8" style={{ fontFamily: '"Instrument Serif", serif' }}>
+            <p className="text-lg text-gray-300 max-w-5xl mx-auto leading-relaxed mb-8" style={{ fontFamily: '"Space Grotesk", -apple-system, BlinkMacSystemFont, system-ui, sans-serif' }}>
               We orchestrate with n8n / Make / Zapier, speak through Vapi + Twilio, think with OpenAI (ChatGPT) + Google Gemini/Vertex, 
               build with LangChain, and tie it all to your business in HubSpot/Salesforce, Stripe, Calendly, Pinecone/Qdrant, Supabase/Postgres/Redis.
             </p>
