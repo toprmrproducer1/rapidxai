@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 
 interface CloudinaryVideoPlayerProps {
   cloudName: string;
@@ -7,79 +7,30 @@ interface CloudinaryVideoPlayerProps {
   className?: string;
 }
 
-declare global {
-  interface Window {
-    cloudinary: any;
-  }
-}
-
 export const CloudinaryVideoPlayer: React.FC<CloudinaryVideoPlayerProps> = ({
   cloudName,
   publicId,
   profile = 'cld-default',
   className = ''
 }) => {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const playerRef = useRef<any>(null);
-
-  useEffect(() => {
-    if (!videoRef.current || !window.cloudinary) return;
-
-    const initPlayer = () => {
-      try {
-        if (playerRef.current) {
-          playerRef.current.dispose();
-        }
-
-        playerRef.current = window.cloudinary.videoPlayer(videoRef.current, {
-          cloudName,
-          publicId,
-          profile,
-          controls: true,
-          autoplay: false,
-          muted: false,
-          fluid: true,
-          colors: {
-            accent: '#8b5cf6',
-            base: '#1f2937',
-            text: '#ffffff'
-          }
-        });
-      } catch (error) {
-        console.error('Error initializing Cloudinary video player:', error);
-      }
-    };
-
-    if (window.cloudinary) {
-      initPlayer();
-    } else {
-      const checkCloudinary = setInterval(() => {
-        if (window.cloudinary) {
-          clearInterval(checkCloudinary);
-          initPlayer();
-        }
-      }, 100);
-
-      return () => clearInterval(checkCloudinary);
-    }
-
-    return () => {
-      if (playerRef.current) {
-        try {
-          playerRef.current.dispose();
-        } catch (error) {
-          console.error('Error disposing video player:', error);
-        }
-      }
-    };
-  }, [cloudName, publicId, profile]);
+  const embedUrl = `https://player.cloudinary.com/embed/?cloud_name=${cloudName}&public_id=${publicId}&profile=${profile}`;
 
   return (
     <div className={`relative w-full ${className}`}>
-      <video
-        ref={videoRef}
-        className="cld-video-player w-full rounded-2xl shadow-2xl"
-        controls
+      <iframe
+        src={embedUrl}
+        width="640"
+        height="360"
+        style={{
+          height: 'auto',
+          width: '100%',
+          aspectRatio: '640 / 360',
+          borderRadius: '1rem',
+          boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)'
+        }}
+        allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
+        allowFullScreen
+        className="rounded-2xl shadow-2xl"
       />
     </div>
   );
